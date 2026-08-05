@@ -1,24 +1,59 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { HeroSection } from "@/components/HeroSection";
+import { InstagramCarousel } from "@/components/InstagramCarousel";
+import { MenuSection } from "@/components/MenuSection";
+import { ContactSection } from "@/components/ContactSection";
+import { site } from "@/lib/site-config";
+
+const title = "The Potato Bun Club — Burgers in Amed, Bali";
+const description =
+  "Smash burgers on pillowy potato buns in Amed, Bali. See the menu, follow us on Instagram, and order delivery or takeaway on WhatsApp.";
+
 export const Route = createFileRoute("/")({
-  component: Index,
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
+  component: HomePage,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
-function Index() {
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  name: site.name,
+  servesCuisine: "Burgers",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Jalan Raya Amed",
+    addressLocality: "Amed, Karangasem",
+    addressRegion: "Bali",
+    addressCountry: "ID",
+  },
+  openingHours: "Mo-Su 11:00-22:00",
+  url: site.instagramUrl,
+};
+
+function HomePage() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
+    <main>
+      <HeroSection />
+      <InstagramCarousel />
+      <MenuSection />
+      <ContactSection />
+      <footer className="bg-charcoal px-5 pb-10 text-center text-sm text-charcoal-foreground/60">
+        © {new Date().getFullYear()} {site.name} · Amed, Bali
+      </footer>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-    </div>
+    </main>
   );
 }
