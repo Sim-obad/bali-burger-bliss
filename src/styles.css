@@ -6,8 +6,10 @@
 
 /*
  * The Potato Bun Club — Amed, Bali
- * Warm sand + charcoal base with a hot mustard-yellow accent.
- * All colors are oklch semantic tokens; never hardcode colors in components.
+ * Brand: navy #1b3957 + beige #f5f1e8.
+ * Type: Anton (titles/subtitles), League Spartan (sub-subtitles),
+ * Montserrat (body), Permanent Marker (annotations).
+ * All colors are semantic tokens; never hardcode colors in components.
  */
 
 @theme inline {
@@ -18,8 +20,11 @@
   --radius-2xl: calc(var(--radius) + 8px);
   --radius-3xl: calc(var(--radius) + 12px);
   --radius-4xl: calc(var(--radius) + 16px);
-  --font-display: "Archivo Black", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: "Barlow", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Anton", ui-sans-serif, system-ui, sans-serif;
+  --font-subhead: "League Spartan", ui-sans-serif, system-ui, sans-serif;
+  --font-marker: "Permanent Marker", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Montserrat", ui-sans-serif, system-ui, sans-serif;
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
