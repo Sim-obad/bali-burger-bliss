@@ -6,7 +6,7 @@ export function ContactSection() {
   return (
     <section id="contact" className="bg-charcoal py-16 text-charcoal-foreground sm:py-24">
       <div className="mx-auto max-w-3xl px-5 sm:px-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-primary">
+        <p className="font-marker text-sm tracking-wide text-charcoal-foreground">
           Book · Delivery · Takeaway
         </p>
         <h2 className="mt-2 text-3xl uppercase sm:text-4xl">Order or reserve</h2>
@@ -18,7 +18,7 @@ export function ContactSection() {
           href={waLinks.order}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-8 inline-flex h-16 w-full items-center justify-center gap-3 rounded-full bg-primary px-8 text-lg font-bold uppercase tracking-wide text-primary-foreground transition-transform hover:scale-[1.01] active:scale-95 sm:w-auto"
+          className="mt-8 inline-flex h-16 w-full items-center justify-center gap-3 rounded-full bg-charcoal-foreground px-8 text-lg font-bold uppercase tracking-wide text-charcoal transition-transform hover:scale-[1.01] active:scale-95 sm:w-auto"
         >
           <MessageCircle className="h-6 w-6" aria-hidden />
           Message us on WhatsApp
@@ -45,7 +45,7 @@ export function ContactSection() {
         <div className="mt-12 grid gap-8 sm:grid-cols-2">
           <div>
             <h3 className="flex items-center gap-2 text-lg uppercase">
-              <Clock className="h-5 w-5 text-primary" aria-hidden />
+              <Clock className="h-5 w-5 text-charcoal-foreground/70" aria-hidden />
               Opening hours
             </h3>
             <ul className="mt-3 space-y-1 text-charcoal-foreground/75">
@@ -60,7 +60,7 @@ export function ContactSection() {
 
           <div>
             <h3 className="flex items-center gap-2 text-lg uppercase">
-              <MapPin className="h-5 w-5 text-primary" aria-hidden />
+              <MapPin className="h-5 w-5 text-charcoal-foreground/70" aria-hidden />
               Find us
             </h3>
             <p className="mt-3 text-charcoal-foreground/75">{site.address}</p>
@@ -69,7 +69,7 @@ export function ContactSection() {
                 href={site.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="underline underline-offset-4 hover:text-primary"
+                className="underline underline-offset-4 hover:text-charcoal-foreground/70"
               >
                 Open in Google Maps
               </a>
@@ -77,7 +77,7 @@ export function ContactSection() {
                 href={site.instagramUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 underline underline-offset-4 hover:text-primary"
+                className="inline-flex items-center gap-1.5 underline underline-offset-4 hover:text-charcoal-foreground/70"
               >
                 <Instagram className="h-4 w-4" aria-hidden />
                 Instagram

@@ -5,6 +5,8 @@ import { InstagramCarousel } from "@/components/InstagramCarousel";
 import { MenuSection } from "@/components/MenuSection";
 import { ContactSection } from "@/components/ContactSection";
 import { site } from "@/lib/site-config";
+import logo from "@/assets/tpbc-logo.png.asset.json";
+
 
 const title = "The Potato Bun Club — Burgers in Amed, Bali";
 const description =
@@ -47,9 +49,20 @@ function HomePage() {
       <InstagramCarousel />
       <MenuSection />
       <ContactSection />
-      <footer className="bg-charcoal px-5 pb-10 text-center text-sm text-charcoal-foreground/60">
-        © {new Date().getFullYear()} {site.name} · Amed, Bali
+      <footer className="flex flex-col items-center gap-3 bg-charcoal px-5 pb-10 text-center text-sm text-charcoal-foreground/60">
+        <img
+          src={logo.url}
+          alt="The Potato Bun Club logo"
+          width={96}
+          height={96}
+          loading="lazy"
+          className="h-16 w-16"
+        />
+        <span>
+          © {new Date().getFullYear()} {site.name} · Amed, Bali
+        </span>
       </footer>
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
