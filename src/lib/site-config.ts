@@ -1,12 +1,11 @@
 export const site = {
   name: "The Potato Bun Club",
   tagline: "Smash burgers on pillowy potato buns — Amed, Bali.",
-  // TODO: replace with the real WhatsApp number (international format, digits only)
-  whatsappNumber: "6281234567890",
+  whatsappNumber: "6281325163826",
   instagramHandle: "thepotatobunclub",
   instagramUrl: "https://instagram.com/thepotatobunclub",
   address: "Jalan Raya Amed, Karangasem, Bali 80852, Indonesia",
-  mapsUrl: "https://maps.google.com/?q=Amed+Bali",
+  mapsUrl: "https://maps.app.goo.gl/rNpdTAzmV19xFdLx9?g_st=ic",
   hours: [
     { days: "Monday – Sunday", time: "11:00 – 22:00" },
     { days: "Kitchen last order", time: "21:30" },
