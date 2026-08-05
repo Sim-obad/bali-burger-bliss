@@ -8,7 +8,7 @@ import { site } from "@/lib/site-config";
 
 const title = "The Potato Bun Club — Burgers in Amed, Bali";
 const description =
-  "Smash burgers on pillowy potato buns in Amed, Bali. See the menu, follow us on Instagram, and order delivery or takeaway on WhatsApp.";
+  "Good buns, good beer, good times in Amed, Bali. See the menu, follow us on Instagram, and order delivery or takeaway on WhatsApp.";
 
 export const Route = createFileRoute("/")({
   head: () => ({
