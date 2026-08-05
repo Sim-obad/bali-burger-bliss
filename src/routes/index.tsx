@@ -5,6 +5,8 @@ import { InstagramCarousel } from "@/components/InstagramCarousel";
 import { MenuSection } from "@/components/MenuSection";
 import { ContactSection } from "@/components/ContactSection";
 import { site } from "@/lib/site-config";
+import logo from "@/assets/tpbc-logo.png.asset.json";
+
 
 const title = "The Potato Bun Club — Burgers in Amed, Bali";
 const description =
