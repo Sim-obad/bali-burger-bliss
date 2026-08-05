@@ -23,8 +23,8 @@ export function HeroSection() {
           Bun Club
         </h1>
         <p className="mt-5 max-w-md text-lg text-charcoal-foreground/85">
-          {site.tagline} Hand-pressed patties, house sauces, and fries worth the
-          walk from the beach.
+          <span className="block font-semibold text-primary">{site.tagline}</span>
+          <span className="mt-2 block">Hand-pressed patties, house sauces, and fries worth the walk from the beach.</span>
         </p>
 
         <div className="mt-8 flex flex-col gap-3 sm:flex-row">

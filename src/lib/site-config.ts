@@ -1,6 +1,6 @@
 export const site = {
   name: "The Potato Bun Club",
-  tagline: "Smash burgers on pillowy potato buns — Amed, Bali.",
+  tagline: "Good Buns. Good Beer. Good Time.",
   whatsappNumber: "6281325163826",
   instagramHandle: "thepotatobunclub",
   instagramUrl: "https://instagram.com/thepotatobunclub",
