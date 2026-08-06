@@ -57,7 +57,7 @@ export function HeroSection() {
               aria-hidden="true"
               width={512}
               height={1024}
-              className="w-auto self-stretch opacity-70 [filter:brightness(0)_invert(1)]"
+              className="h-[7.5rem] w-auto self-center opacity-70 sm:h-[9rem] [filter:brightness(0)_invert(1)]"
             />
           </div>
         </div>
@@ -77,7 +77,7 @@ export function HeroSection() {
                 alt="The Potato Bun Club logo"
                 width={320}
                 height={320}
-                className="w-auto self-stretch"
+                className="h-[24.6vw] w-auto self-center sm:h-[13.9rem] lg:h-[16.4rem]"
               />
             </span>
           </h1>
