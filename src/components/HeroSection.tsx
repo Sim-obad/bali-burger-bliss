@@ -57,7 +57,7 @@ export function HeroSection() {
               aria-hidden="true"
               width={512}
               height={1024}
-              className="w-auto self-stretch opacity-80"
+              className="w-auto self-stretch opacity-70 [filter:brightness(0)_invert(1)]"
             />
           </div>
         </div>
