@@ -87,20 +87,23 @@ export function HeroSection() {
         </h1>
 
         <div
-          className="hero-fade mt-9 flex flex-col gap-3 lg:max-w-md"
+          className="hero-fade mt-9 flex w-full max-w-[22rem] flex-col gap-3"
           style={{ animationDelay: "160ms" }}
         >
           <a
             href={waLinks.order}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-14 items-center justify-center rounded-xl bg-charcoal-foreground px-8 font-subhead text-base font-bold uppercase tracking-[0.06em] text-charcoal"
+            className="inline-flex h-14 items-center justify-between rounded-xl bg-charcoal-foreground px-6 font-subhead text-base font-bold uppercase tracking-[0.04em] text-charcoal"
           >
             Order on WhatsApp
+            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-charcoal text-charcoal-foreground">
+              <MessageCircle className="h-4 w-4" aria-hidden />
+            </span>
           </a>
           <a
             href="#menu"
-            className="inline-flex h-14 items-center justify-center rounded-xl border border-charcoal-foreground/70 px-8 font-subhead text-base font-bold uppercase tracking-[0.06em] text-charcoal-foreground transition-colors hover:bg-charcoal-foreground/10"
+            className="inline-flex h-14 items-center justify-center rounded-xl border border-charcoal-foreground/80 bg-charcoal/40 px-6 font-subhead text-base font-bold uppercase tracking-[0.04em] text-charcoal-foreground transition-colors hover:bg-charcoal-foreground/10"
           >
             See the menu
           </a>
