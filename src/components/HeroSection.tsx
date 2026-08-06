@@ -1,59 +1,106 @@
-import { site, waLinks } from "@/lib/site-config";
-import heroBurger from "@/assets/hero-burger.jpg";
+import { useEffect, useState } from "react";
+
+import { waLinks } from "@/lib/site-config";
+import heroNight from "@/assets/hero-restaurant-night.jpg";
+import palmTree from "@/assets/palm-tree.png";
 import logo from "@/assets/tpbc-logo.png.asset.json";
 
 export function HeroSection() {
+  const [offset, setOffset] = useState(0);
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    let frame = 0;
+    const onScroll = () => {
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => setOffset(window.scrollY * 0.12));
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(frame);
+    };
+  }, []);
+
   return (
-    <section className="relative isolate min-h-[92svh] overflow-hidden bg-charcoal text-charcoal-foreground">
+    <section className="relative isolate min-h-[100svh] overflow-hidden bg-charcoal text-charcoal-foreground">
       <img
-        src={heroBurger}
-        alt="Smash burger on a golden potato bun at The Potato Bun Club in Amed, Bali"
-        width={1600}
-        height={1200}
-        className="absolute inset-0 h-full w-full object-cover opacity-55"
+        src={heroNight}
+        alt="The Potato Bun Club restaurant in Amed, Bali at blue hour, warm lights and a full dining room"
+        width={1920}
+        height={1280}
+        className="absolute inset-0 h-[112%] w-full object-cover"
+        style={{ transform: `translate3d(0, -${offset}px, 0)` }}
       />
-      <div className="absolute inset-0 bg-gradient-to-b from-charcoal/85 via-charcoal/55 to-charcoal" />
+      <div className="absolute inset-0 bg-charcoal/65" />
 
-      <div className="relative mx-auto flex min-h-[92svh] max-w-3xl flex-col justify-end px-5 pb-14 pt-16 sm:px-8">
-        <img
-          src={logo.url}
-          alt="The Potato Bun Club logo — Amed, Bali"
-          width={320}
-          height={320}
-          className="mb-6 h-32 w-32 sm:h-40 sm:w-40"
-        />
-        <span className="mb-4 inline-flex w-fit items-center rounded-full bg-charcoal-foreground px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-charcoal">
-          Amed · Bali
-        </span>
-        <h1 className="text-[2.75rem] uppercase leading-[0.92] sm:text-7xl">
-          The Potato
-          <br />
-          Bun Club
-        </h1>
-        <p className="mt-5 max-w-md text-lg text-charcoal-foreground/85">
-          <span className="font-marker block text-xl text-charcoal-foreground">
-            {site.tagline}
-          </span>
-          <span className="mt-2 block">
-            Hand-pressed patties, house sauces, and fries worth the walk from the beach.
-          </span>
-        </p>
+      <div className="relative mx-auto flex min-h-[100svh] w-full max-w-6xl flex-col px-5 pb-12 pt-10 sm:px-8 sm:pb-16 sm:pt-12">
+        {/* Upper-right handwritten block + palm */}
+        <div className="hero-fade flex justify-end" style={{ animationDelay: "80ms" }}>
+          <div className="flex items-stretch gap-3 sm:gap-5">
+            <div className="flex flex-col items-end text-right">
+              <p className="font-marker text-sm leading-[1.5] text-charcoal-foreground sm:text-base">
+                Daily made
+                <br />
+                butter toasted
+                <br />
+                potato buns
+              </p>
+              <span className="my-3 block h-px w-24 bg-charcoal-foreground/50 sm:w-32" />
+              <p className="font-subhead text-xs font-bold uppercase tracking-[0.32em] text-charcoal-foreground/85 sm:text-sm">
+                Amed, Bali
+              </p>
+            </div>
+            <img
+              src={palmTree}
+              alt=""
+              aria-hidden="true"
+              width={512}
+              height={1024}
+              className="h-[7.5rem] w-auto self-center opacity-70 sm:h-[9rem] [filter:brightness(0)_invert(1)]"
+            />
+          </div>
+        </div>
 
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-          <a
-            href={waLinks.order}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex h-14 items-center justify-center rounded-full bg-charcoal-foreground px-8 text-base font-bold uppercase tracking-wide text-charcoal transition-transform hover:scale-[1.02] active:scale-95"
+        {/* Left stacked title */}
+        <div className="mt-auto">
+          <h1 className="hero-fade flex flex-col uppercase leading-[0.82] tracking-[0.01em]">
+            <span className="text-[15vw] sm:text-[8.5rem] lg:text-[10rem]">The</span>
+            <span className="text-[15vw] sm:text-[8.5rem] lg:text-[10rem]">Potato</span>
+            <span className="flex items-stretch gap-4 sm:gap-6">
+              <span className="flex flex-col">
+                <span className="text-[15vw] sm:text-[8.5rem] lg:text-[10rem]">Bun</span>
+                <span className="text-[15vw] sm:text-[8.5rem] lg:text-[10rem]">Club</span>
+              </span>
+              <img
+                src={logo.url}
+                alt="The Potato Bun Club logo"
+                width={320}
+                height={320}
+                className="h-[24.6vw] w-auto self-center sm:h-[13.9rem] lg:h-[16.4rem]"
+              />
+            </span>
+          </h1>
+
+          <div
+            className="hero-fade mt-9 flex flex-col gap-3 sm:flex-row"
+            style={{ animationDelay: "160ms" }}
           >
-            Order on WhatsApp
-          </a>
-          <a
-            href="#menu"
-            className="inline-flex h-14 items-center justify-center rounded-full border border-charcoal-foreground/40 bg-charcoal-foreground/5 px-8 text-base font-bold uppercase tracking-wide text-charcoal-foreground backdrop-blur transition-colors hover:bg-charcoal-foreground/15"
-          >
-            See the menu
-          </a>
+            <a
+              href={waLinks.order}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex h-14 items-center justify-center rounded-full bg-charcoal-foreground px-8 font-subhead text-sm font-bold uppercase tracking-[0.14em] text-charcoal"
+            >
+              Order on WhatsApp
+            </a>
+            <a
+              href="#menu"
+              className="inline-flex h-14 items-center justify-center rounded-full border border-charcoal-foreground/70 px-8 font-subhead text-sm font-bold uppercase tracking-[0.14em] text-charcoal-foreground transition-colors hover:bg-charcoal-foreground/10"
+            >
+              See the menu
+            </a>
+          </div>
         </div>
       </div>
     </section>
