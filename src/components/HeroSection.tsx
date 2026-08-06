@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { MessageCircle } from "lucide-react";
 
 import { waLinks } from "@/lib/site-config";
 import heroNight from "@/assets/hero-restaurant-night.jpg";
@@ -23,7 +24,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative isolate min-h-[100svh] overflow-hidden bg-charcoal text-charcoal-foreground lg:grid lg:min-h-[92svh] lg:grid-cols-[46%_1fr]">
+    <section className="relative isolate min-h-[100svh] overflow-hidden bg-charcoal text-charcoal-foreground lg:grid lg:h-[47vw] lg:min-h-[620px] lg:grid-cols-[38%_1fr]">
       {/* Photograph — full bleed on mobile, right column on desktop */}
       <div className="absolute inset-0 overflow-hidden lg:relative lg:col-start-2 lg:row-start-1 lg:inset-auto lg:h-full">
         <img
@@ -31,7 +32,7 @@ export function HeroSection() {
           alt="The Potato Bun Club restaurant in Amed, Bali at blue hour, warm lights and a full dining room"
           width={1920}
           height={1280}
-          className="h-[110%] w-full object-cover"
+          className="h-[110%] w-full object-cover object-[50%_60%]"
           style={{ transform: `translate3d(0, -${offset}px, 0)` }}
         />
         <div className="absolute inset-0 bg-charcoal/70 lg:bg-charcoal/25" />
@@ -67,7 +68,7 @@ export function HeroSection() {
       </div>
 
       {/* Title + CTAs */}
-      <div className="relative z-10 flex min-h-[100svh] flex-col justify-end px-5 pb-12 pt-28 sm:px-8 lg:col-start-1 lg:row-start-1 lg:min-h-0 lg:justify-center lg:bg-charcoal lg:px-12 lg:py-16">
+      <div className="relative z-10 flex min-h-[100svh] flex-col justify-end px-5 pb-12 pt-28 sm:px-8 lg:col-start-1 lg:row-start-1 lg:min-h-0 lg:justify-center lg:bg-charcoal lg:px-10 lg:py-10">
         <h1 className="hero-fade flex flex-col uppercase leading-[0.82] tracking-[0.01em]">
           <span className="text-[15vw] lg:text-[7.5vw]">The</span>
           <span className="text-[15vw] lg:text-[7.5vw]">Potato</span>
@@ -87,20 +88,23 @@ export function HeroSection() {
         </h1>
 
         <div
-          className="hero-fade mt-9 flex flex-col gap-3 lg:max-w-md"
+          className="hero-fade mt-9 flex w-full max-w-[22rem] flex-col gap-3"
           style={{ animationDelay: "160ms" }}
         >
           <a
             href={waLinks.order}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-14 items-center justify-center rounded-xl bg-charcoal-foreground px-8 font-subhead text-base font-bold uppercase tracking-[0.06em] text-charcoal"
+            className="inline-flex h-14 items-center justify-between rounded-xl bg-charcoal-foreground px-6 font-subhead text-base font-bold uppercase tracking-[0.04em] text-charcoal"
           >
             Order on WhatsApp
+            <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-charcoal text-charcoal-foreground">
+              <MessageCircle className="h-4 w-4" aria-hidden />
+            </span>
           </a>
           <a
             href="#menu"
-            className="inline-flex h-14 items-center justify-center rounded-xl border border-charcoal-foreground/70 px-8 font-subhead text-base font-bold uppercase tracking-[0.06em] text-charcoal-foreground transition-colors hover:bg-charcoal-foreground/10"
+            className="inline-flex h-14 items-center justify-center rounded-xl border border-charcoal-foreground/80 bg-charcoal/40 px-6 font-subhead text-base font-bold uppercase tracking-[0.04em] text-charcoal-foreground transition-colors hover:bg-charcoal-foreground/10"
           >
             See the menu
           </a>

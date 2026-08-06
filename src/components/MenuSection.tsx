@@ -1,42 +1,85 @@
 import { useState } from "react";
-import { Maximize2, X, ZoomIn, ZoomOut } from "lucide-react";
+import {
+  ArrowRight,
+  CupSoda,
+  Drumstick,
+  IceCreamCone,
+  Popcorn,
+  Sandwich,
+  TreePalm,
+  X,
+  ZoomIn,
+  ZoomOut,
+} from "lucide-react";
 
 import menuImage from "@/assets/menu.jpg";
+
+const categories = [
+  {
+    icon: Sandwich,
+    title: "Smash burgers",
+    text: "Hand-pressed patties, crispy edges, juicy inside.",
+  },
+  {
+    icon: Drumstick,
+    title: "Chicken burgers",
+    text: "Crispy or grilled chicken, bold flavors, made fresh.",
+  },
+  {
+    icon: Popcorn,
+    title: "Sides",
+    text: "Fries, loaded fries, tenders, onion rings and more.",
+  },
+  {
+    icon: CupSoda,
+    title: "Drinks",
+    text: "Iced teas, sodas, beers & waters to keep it refreshing.",
+  },
+  {
+    icon: IceCreamCone,
+    title: "Desserts",
+    text: "Cookies, brownies, sundaes and daily sweet treats.",
+  },
+  {
+    icon: TreePalm,
+    title: "Merch",
+    text: "T-shirts, caps, stickers and more from the club.",
+  },
+];
 
 export function MenuSection() {
   const [open, setOpen] = useState(false);
   const [zoomed, setZoomed] = useState(false);
 
   return (
-    <section id="menu" className="bg-sand py-16 sm:py-24">
-      <div className="mx-auto max-w-3xl px-5 text-center sm:px-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
-          Burgers · Sides · Good times
-        </p>
-        <h2 className="mt-2 text-3xl uppercase sm:text-4xl">Our menu</h2>
-        <p className="mt-3 text-muted-foreground">
-          Tap the menu to open it full screen and zoom in.
-        </p>
+    <section id="menu" className="bg-sand py-14 sm:py-20">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+        <h2 className="inline-block text-4xl uppercase leading-none text-charcoal sm:text-5xl lg:text-6xl">
+          Our menu
+          <span className="mt-3 block h-[6px] w-[72%] bg-charcoal" />
+        </h2>
 
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          className="group relative mt-8 block w-full overflow-hidden rounded-3xl border border-border bg-card shadow-lg transition-transform hover:scale-[1.01]"
-          aria-label="Open the full menu"
-        >
-          <img
-            src={menuImage}
-            alt="The Potato Bun Club menu with burgers, sides and drinks"
-            loading="lazy"
-            width={1200}
-            height={1600}
-            className="h-[60vh] w-full object-cover object-top"
-          />
-          <span className="absolute inset-x-0 bottom-0 flex items-center justify-center gap-2 bg-gradient-to-t from-charcoal/85 to-transparent px-4 pb-5 pt-16 text-sm font-bold uppercase tracking-wide text-charcoal-foreground">
-            <Maximize2 className="h-4 w-4" aria-hidden />
-            Tap to enlarge
-          </span>
-        </button>
+        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+          {categories.map(({ icon: Icon, title, text }) => (
+            <button
+              key={title}
+              type="button"
+              onClick={() => setOpen(true)}
+              className="group flex flex-col items-center rounded-lg border border-charcoal/25 bg-transparent px-4 pb-4 pt-6 text-center transition-colors hover:bg-charcoal/5"
+              aria-label={`Open the full menu — ${title}`}
+            >
+              <Icon className="h-10 w-10 text-charcoal" strokeWidth={1.5} aria-hidden />
+              <span className="mt-4 font-subhead text-sm font-bold uppercase tracking-[0.04em] text-charcoal">
+                {title}
+              </span>
+              <span className="mt-2 text-xs leading-snug text-charcoal/70">{text}</span>
+              <ArrowRight
+                className="mt-4 h-4 w-4 self-end text-charcoal transition-transform group-hover:translate-x-1"
+                aria-hidden
+              />
+            </button>
+          ))}
+        </div>
       </div>
 
       {open ? (
