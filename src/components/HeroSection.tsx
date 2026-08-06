@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { MessageCircle } from "lucide-react";
 
 import { waLinks } from "@/lib/site-config";
 import heroNight from "@/assets/hero-restaurant-night.jpg";
