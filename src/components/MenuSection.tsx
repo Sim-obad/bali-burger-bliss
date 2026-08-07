@@ -4,7 +4,6 @@ import {
   CupSoda,
   Drumstick,
   IceCreamCone,
-  Popcorn,
   Sandwich,
   TreePalm,
   X,
@@ -13,6 +12,27 @@ import {
 } from "lucide-react";
 
 import menuImage from "@/assets/menu.jpg";
+
+function FriesIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M6 11h12v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-8z" />
+      <path d="M8 11V5" />
+      <path d="M11 11V4" />
+      <path d="M14 11V5" />
+      <path d="M17 11V4" />
+    </svg>
+  );
+}
 
 const categories = [
   {
@@ -26,7 +46,7 @@ const categories = [
     text: "Crispy or grilled chicken, bold flavors, made fresh.",
   },
   {
-    icon: Popcorn,
+    icon: FriesIcon,
     title: "Sides",
     text: "Fries, loaded fries, tenders, onion rings and more.",
   },
@@ -59,23 +79,23 @@ export function MenuSection() {
         </h2>
       </div>
 
-      <div className="mx-auto mt-8 max-w-7xl px-5 sm:px-8">
+      <div className="mt-8 px-5 sm:px-8 lg:px-12">
         <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {categories.map(({ icon: Icon, title, text }) => (
             <button
               key={title}
               type="button"
               onClick={() => setOpen(true)}
-              className="group flex flex-col items-center rounded-lg border border-charcoal/25 bg-transparent px-4 pb-4 pt-6 text-center transition-colors hover:bg-charcoal/5"
+              className="group flex flex-col items-center rounded-xl border border-charcoal/25 bg-transparent px-5 pb-5 pt-8 text-center transition-colors hover:bg-charcoal/5 sm:px-6 sm:pb-6 sm:pt-10"
               aria-label={`Open the full menu — ${title}`}
             >
-              <Icon className="h-10 w-10 text-charcoal" strokeWidth={1.5} aria-hidden />
-              <span className="mt-4 font-subhead text-sm font-bold uppercase tracking-[0.04em] text-charcoal">
+              <Icon className="h-12 w-12 text-charcoal" strokeWidth={1.5} aria-hidden />
+              <span className="mt-5 font-subhead text-sm font-bold uppercase tracking-[0.04em] text-charcoal sm:text-base">
                 {title}
               </span>
-              <span className="mt-2 text-xs leading-snug text-charcoal/70">{text}</span>
+              <span className="mt-2 text-xs leading-snug text-charcoal/70 sm:text-sm">{text}</span>
               <ArrowRight
-                className="mt-4 h-4 w-4 self-end text-charcoal transition-transform group-hover:translate-x-1"
+                className="mt-5 h-5 w-5 self-end text-charcoal transition-transform group-hover:translate-x-1"
                 aria-hidden
               />
             </button>
