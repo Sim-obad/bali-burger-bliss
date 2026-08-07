@@ -55,8 +55,7 @@ export function MenuSection() {
     <section id="menu" className="bg-sand py-14 sm:py-20">
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <h2 className="flex flex-col text-4xl uppercase leading-[0.85] tracking-[0.01em] text-charcoal sm:text-5xl lg:text-6xl">
-          <span>Our</span>
-          <span>Menu</span>
+          <span>Our Menu</span>
         </h2>
 
         <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
@@ -95,11 +94,7 @@ export function MenuSection() {
               onClick={() => setZoomed((z) => !z)}
               className="inline-flex items-center gap-2 rounded-full bg-charcoal-foreground/10 px-4 py-2 text-sm font-semibold text-charcoal-foreground"
             >
-              {zoomed ? (
-                <ZoomOut className="h-4 w-4" aria-hidden />
-              ) : (
-                <ZoomIn className="h-4 w-4" aria-hidden />
-              )}
+              {zoomed ? <ZoomOut className="h-4 w-4" aria-hidden /> : <ZoomIn className="h-4 w-4" aria-hidden />}
               {zoomed ? "Zoom out" : "Zoom in"}
             </button>
             <button
