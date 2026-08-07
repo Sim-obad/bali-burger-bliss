@@ -4,7 +4,6 @@ import {
   CupSoda,
   Drumstick,
   IceCreamCone,
-  Popcorn,
   Sandwich,
   TreePalm,
   X,
@@ -13,6 +12,27 @@ import {
 } from "lucide-react";
 
 import menuImage from "@/assets/menu.jpg";
+
+function FriesIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.5}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden="true"
+    >
+      <path d="M6 11h12v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2v-8z" />
+      <path d="M8 11V5" />
+      <path d="M11 11V4" />
+      <path d="M14 11V5" />
+      <path d="M17 11V4" />
+    </svg>
+  );
+}
 
 const categories = [
   {
@@ -26,7 +46,7 @@ const categories = [
     text: "Crispy or grilled chicken, bold flavors, made fresh.",
   },
   {
-    icon: Popcorn,
+    icon: FriesIcon,
     title: "Sides",
     text: "Fries, loaded fries, tenders, onion rings and more.",
   },
