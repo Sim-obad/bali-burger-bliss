@@ -33,7 +33,7 @@ export function InstagramCarousel() {
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               Fresh off the grill
             </p>
-            <h2 className="mt-2 text-3xl uppercase sm:text-4xl">Latest on Instagram</h2>
+            <h1 className="mt-2 text-3xl uppercase sm:text-4xl">Latest on Instagram</h1>
           </div>
           <a
             href={site.instagramUrl}
@@ -67,9 +67,7 @@ export function InstagramCarousel() {
             </div>
             {post.caption ? (
               <div className="border-t border-border/40 p-3">
-                <p className="line-clamp-3 text-xs leading-relaxed text-foreground/80">
-                  {post.caption}
-                </p>
+                <p className="line-clamp-3 text-xs leading-relaxed text-foreground/80">{post.caption}</p>
               </div>
             ) : null}
           </a>
