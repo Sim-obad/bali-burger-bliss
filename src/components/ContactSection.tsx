@@ -9,7 +9,10 @@ export function ContactSection() {
         <p className="font-marker text-sm tracking-wide text-charcoal-foreground">
           Book · Delivery · Takeaway
         </p>
-        <h2 className="mt-2 text-3xl uppercase sm:text-4xl">Order or reserve</h2>
+        <h2 className="mt-2 flex flex-col text-3xl uppercase leading-[0.85] tracking-[0.01em] sm:text-4xl">
+          <span>Order</span>
+          <span>or reserve</span>
+        </h2>
         <p className="mt-3 max-w-md text-charcoal-foreground/75">
           Everything happens on WhatsApp — one message and we've got you.
         </p>
