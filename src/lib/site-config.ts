@@ -7,8 +7,9 @@ export const site = {
   address: "Jalan Raya Amed, Karangasem, Bali 80852, Indonesia",
   mapsUrl: "https://maps.app.goo.gl/rNpdTAzmV19xFdLx9?g_st=ic",
   hours: [
-    { days: "Monday – Sunday", time: "11:00 – 22:00" },
-    { days: "Kitchen last order", time: "21:30" },
+    { days: "Thursday – Tuesday", time: "17:00 – 23:00" },
+    { days: "Kitchen last order", time: "22:30" },
+    { days: "Wednesday", time: "Closed" },
   ],
 } as const;
 
