@@ -5,7 +5,7 @@ import { site, waLinks } from "@/lib/site-config";
 export function ContactSection() {
   return (
     <section id="contact" className="bg-charcoal py-16 text-charcoal-foreground sm:py-24">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="px-5 sm:px-8 lg:px-12">
         <p className="font-marker text-sm tracking-wide text-charcoal-foreground">
           Book · Delivery · Takeaway
         </p>
