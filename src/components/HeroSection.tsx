@@ -42,11 +42,11 @@ export function HeroSection() {
       {/* Content */}
       <div className="relative z-10 flex min-h-[100svh] flex-col justify-between px-5 pb-12 pt-10 sm:px-8 sm:pt-12 lg:min-h-[760px] lg:px-12 lg:pt-14">
         <div className="flex items-start justify-between gap-6">
-          <h1 className="hero-fade flex flex-col gap-[0.12em] uppercase leading-[0.82] tracking-[0.01em]">
+          <h1 className="hero-fade flex flex-col gap-3 uppercase leading-[0.82] tracking-[0.01em]">
             <span className="text-[15vw] lg:text-[7.5vw]">The</span>
             <span className="text-[15vw] lg:text-[7.5vw]">Potato</span>
             <span className="flex items-center gap-4 lg:gap-6">
-              <span className="flex flex-col gap-[0.12em]">
+              <span className="flex flex-col gap-3">
                 <span className="text-[15vw] lg:text-[7.5vw]">Bun</span>
                 <span className="text-[15vw] lg:text-[7.5vw]">Club</span>
               </span>
