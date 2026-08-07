@@ -24,9 +24,9 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative isolate min-h-[100svh] overflow-hidden bg-charcoal text-charcoal-foreground lg:grid lg:h-[47vw] lg:min-h-[620px] lg:grid-cols-[38%_1fr]">
-      {/* Photograph — full bleed on mobile, right column on desktop */}
-      <div className="absolute inset-0 overflow-hidden lg:relative lg:col-start-2 lg:row-start-1 lg:inset-auto lg:h-full">
+    <section className="relative isolate min-h-[100svh] overflow-hidden bg-charcoal text-charcoal-foreground lg:min-h-[760px]">
+      {/* Photograph — full bleed */}
+      <div className="absolute inset-0 overflow-hidden">
         <img
           src={heroNight}
           alt="The Potato Bun Club restaurant in Amed, Bali at blue hour, warm lights and a full dining room"
@@ -35,60 +35,62 @@ export function HeroSection() {
           className="h-[110%] w-full object-cover object-[50%_60%]"
           style={{ transform: `translate3d(0, -${offset}px, 0)` }}
         />
-        <div className="absolute inset-0 bg-charcoal/70 lg:bg-charcoal/25" />
-        <div className="absolute inset-y-0 left-0 hidden w-40 bg-gradient-to-r from-charcoal to-transparent lg:hidden" />
+        <div className="absolute inset-0 bg-charcoal/45" />
+        <div className="absolute inset-y-0 left-0 w-full bg-gradient-to-r from-charcoal/85 via-charcoal/45 to-transparent lg:w-[70%]" />
       </div>
 
-      {/* Handwritten block + palm — upper right */}
-      <div
-        className="hero-fade absolute right-5 top-8 z-10 flex items-center gap-3 sm:right-8 sm:top-10 lg:right-12 lg:top-12"
-        style={{ animationDelay: "80ms" }}
-      >
-        <div className="flex flex-col items-end text-right">
-          <p className="font-marker text-sm uppercase leading-[1.5] text-charcoal-foreground sm:text-base lg:text-lg">
-            Daily made
-            <br />
-            butter toasted
-            <br />
-            potato buns
-          </p>
-          <span className="my-3 block h-px w-28 bg-charcoal-foreground/60 sm:w-40" />
-          <p className="font-marker text-sm uppercase text-charcoal-foreground sm:text-base lg:text-lg">
-            Amed, Bali
-          </p>
-        </div>
-        <img
-          src={palmTree}
-          alt=""
-          aria-hidden="true"
-          width={512}
-          height={1024}
-          className="h-[7rem] w-auto opacity-85 sm:h-[8.5rem] [filter:brightness(0)_invert(1)]"
-        />
-      </div>
-
-      {/* Title + CTAs */}
-      <div className="relative z-10 flex min-h-[100svh] flex-col justify-end px-5 pb-12 pt-28 sm:px-8 lg:col-start-1 lg:row-start-1 lg:min-h-0 lg:justify-center lg:bg-charcoal lg:px-10 lg:py-10">
-        <h1 className="hero-fade flex flex-col uppercase leading-[0.82] tracking-[0.01em]">
-          <span className="text-[15vw] lg:text-[7.5vw]">The</span>
-          <span className="text-[15vw] lg:text-[7.5vw]">Potato</span>
-          <span className="flex items-center gap-4 lg:gap-6">
-            <span className="flex flex-col">
-              <span className="text-[15vw] lg:text-[7.5vw]">Bun</span>
-              <span className="text-[15vw] lg:text-[7.5vw]">Club</span>
+      {/* Content */}
+      <div className="relative z-10 flex min-h-[100svh] flex-col justify-between px-5 pb-12 pt-10 sm:px-8 sm:pt-12 lg:min-h-[760px] lg:px-12 lg:pt-14">
+        <div className="flex items-start justify-between gap-6">
+          <h1 className="hero-fade flex flex-col gap-[0.12em] uppercase leading-[0.82] tracking-[0.01em]">
+            <span className="text-[15vw] lg:text-[7.5vw]">The</span>
+            <span className="text-[15vw] lg:text-[7.5vw]">Potato</span>
+            <span className="flex items-center gap-4 lg:gap-6">
+              <span className="flex flex-col gap-[0.12em]">
+                <span className="text-[15vw] lg:text-[7.5vw]">Bun</span>
+                <span className="text-[15vw] lg:text-[7.5vw]">Club</span>
+              </span>
+              <img
+                src={logo.url}
+                alt="The Potato Bun Club logo"
+                width={320}
+                height={320}
+                className="h-[24.6vw] w-auto lg:h-[12.3vw]"
+              />
             </span>
+          </h1>
+
+          {/* Handwritten block + palm — top aligned with the title */}
+          <div
+            className="hero-fade flex shrink-0 items-start gap-3"
+            style={{ animationDelay: "80ms" }}
+          >
+            <div className="flex flex-col items-end text-right">
+              <p className="font-marker text-sm uppercase leading-[1.5] text-charcoal-foreground sm:text-base lg:text-lg">
+                Daily made
+                <br />
+                butter toasted
+                <br />
+                potato buns
+              </p>
+              <span className="my-3 block h-px w-28 bg-charcoal-foreground/60 sm:w-40" />
+              <p className="font-marker text-sm uppercase text-charcoal-foreground sm:text-base lg:text-lg">
+                Amed, Bali
+              </p>
+            </div>
             <img
-              src={logo.url}
-              alt="The Potato Bun Club logo"
-              width={320}
-              height={320}
-              className="h-[24.6vw] w-auto lg:h-[12.3vw]"
+              src={palmTree}
+              alt=""
+              aria-hidden="true"
+              width={512}
+              height={1024}
+              className="h-[7rem] w-auto opacity-85 sm:h-[8.5rem] [filter:brightness(0)_invert(1)]"
             />
-          </span>
-        </h1>
+          </div>
+        </div>
 
         <div
-          className="hero-fade mt-9 flex w-full max-w-[22rem] flex-col gap-3"
+          className="hero-fade mt-10 flex w-full max-w-[22rem] flex-col gap-3"
           style={{ animationDelay: "160ms" }}
         >
           <a
@@ -111,5 +113,6 @@ export function HeroSection() {
         </div>
       </div>
     </section>
+
   );
 }
