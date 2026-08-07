@@ -38,7 +38,7 @@ const jsonLd = {
     addressRegion: "Bali",
     addressCountry: "ID",
   },
-  openingHours: "Mo-Su 11:00-22:00",
+  openingHours: "Th-Tu 17:00-23:00",
   url: site.instagramUrl,
 };
 
