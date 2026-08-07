@@ -90,7 +90,7 @@ export function HeroSection() {
         </div>
 
         <div
-          className="hero-fade mt-10 flex w-full max-w-[22rem] flex-col gap-3"
+          className="hero-fade mt-5 flex w-full max-w-[22rem] flex-col gap-3"
           style={{ animationDelay: "160ms" }}
         >
           <a
