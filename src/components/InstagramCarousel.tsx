@@ -46,27 +46,31 @@ export function InstagramCarousel() {
         </div>
       </div>
 
-      <div className="no-scrollbar mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 sm:px-8">
+      <div className="no-scrollbar mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:px-8">
         {posts.map((post) => (
           <a
             key={post.id}
             href={post.permalink}
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative aspect-square w-[72vw] max-w-[320px] shrink-0 snap-center overflow-hidden rounded-2xl bg-muted sm:w-[280px]"
+            className="group w-[72vw] max-w-[280px] shrink-0 snap-center overflow-hidden rounded-2xl bg-card shadow-sm transition-transform duration-300 hover:-translate-y-1 sm:w-[240px]"
           >
-            <img
-              src={post.imageUrl}
-              alt={post.caption || "Instagram post from The Potato Bun Club"}
-              loading="lazy"
-              width={800}
-              height={800}
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            />
+            <div className="relative aspect-square overflow-hidden bg-muted">
+              <img
+                src={post.imageUrl}
+                alt={post.caption || "Instagram post from The Potato Bun Club"}
+                loading="lazy"
+                width={800}
+                height={800}
+                className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+            </div>
             {post.caption ? (
-              <span className="absolute inset-x-0 bottom-0 line-clamp-2 bg-gradient-to-t from-charcoal/90 to-transparent p-3 text-xs text-charcoal-foreground">
-                {post.caption}
-              </span>
+              <div className="border-t border-border/40 p-3">
+                <p className="line-clamp-3 text-xs leading-relaxed text-foreground/80">
+                  {post.caption}
+                </p>
+              </div>
             ) : null}
           </a>
         ))}
