@@ -34,8 +34,7 @@ export function InstagramCarousel() {
               Fresh off the grill
             </p>
             <h2 className="mt-2 flex flex-col text-3xl uppercase leading-[0.85] tracking-[0.01em] sm:text-4xl">
-              <span>Latest</span>
-              <span>on Instagram</span>
+              <span>Latest Instagram</span>
             </h2>
           </div>
           <a
