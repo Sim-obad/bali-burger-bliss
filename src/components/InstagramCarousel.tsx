@@ -27,7 +27,7 @@ export function InstagramCarousel() {
 
   return (
     <section id="instagram" className="bg-background py-16 sm:py-24">
-      <div className="mx-auto max-w-5xl px-5 sm:px-8">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="flex flex-col items-start gap-4 text-left">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
