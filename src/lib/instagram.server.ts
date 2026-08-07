@@ -20,7 +20,7 @@ export async function fetchInstagramPosts(
   try {
     const fields = "id,caption,media_type,media_url,thumbnail_url,permalink";
     const res = await fetch(
-      `https://graph.instagram.com/me/media?fields=${fields}&limit=12&access_token=${token}`,
+      `https://graph.instagram.com/me/media?fields=${fields}&limit=6&access_token=${token}`,
     );
     if (!res.ok) {
       console.error(`Instagram API failed [${res.status}]: ${await res.text()}`);
