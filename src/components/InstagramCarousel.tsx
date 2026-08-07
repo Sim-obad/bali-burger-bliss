@@ -48,14 +48,14 @@ export function InstagramCarousel() {
         </div>
       </div>
 
-      <div className="no-scrollbar mt-8 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:px-8">
+      <div className="mt-8 grid grid-cols-2 gap-4 px-5 pb-4 sm:grid-cols-3 sm:px-8 lg:grid-cols-6">
         {posts.map((post) => (
           <a
             key={post.id}
             href={post.permalink}
             target="_blank"
             rel="noopener noreferrer"
-            className="group w-[72vw] max-w-[280px] shrink-0 snap-center overflow-hidden rounded-2xl bg-card shadow-sm transition-transform duration-300 hover:-translate-y-1 sm:w-[240px]"
+            className="group w-full overflow-hidden rounded-2xl bg-card shadow-sm transition-transform duration-300 hover:-translate-y-1"
           >
             <div className="relative aspect-square overflow-hidden bg-muted">
               <img
