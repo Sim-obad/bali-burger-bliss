@@ -5,7 +5,7 @@ import { site, waLinks } from "@/lib/site-config";
 export function ContactSection() {
   return (
     <section id="contact" className="bg-charcoal py-16 text-charcoal-foreground sm:py-24">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="px-5 sm:px-8 lg:px-12">
         <p className="font-marker text-sm tracking-wide text-charcoal-foreground">
           Book · Delivery · Takeaway
         </p>
@@ -44,8 +44,10 @@ export function ContactSection() {
             </a>
           ))}
         </div>
+      </div>
 
-        <div className="mt-12 grid gap-8 sm:grid-cols-2">
+      <div className="mx-auto mt-12 max-w-7xl px-5 sm:px-8">
+        <div className="grid gap-8 sm:grid-cols-2">
           <div>
             <h3 className="flex items-center gap-2 text-lg uppercase">
               <Clock className="h-5 w-5 text-charcoal-foreground/70" aria-hidden />

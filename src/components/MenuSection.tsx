@@ -53,12 +53,14 @@ export function MenuSection() {
 
   return (
     <section id="menu" className="bg-sand py-14 sm:py-20">
-      <div className="mx-auto max-w-7xl px-5 sm:px-8">
+      <div className="px-5 sm:px-8 lg:px-12">
         <h2 className="flex flex-col text-4xl uppercase leading-[0.85] tracking-[0.01em] text-charcoal sm:text-5xl lg:text-6xl">
           <span>Our Menu</span>
         </h2>
+      </div>
 
-        <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
+      <div className="mx-auto mt-8 max-w-7xl px-5 sm:px-8">
+        <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {categories.map(({ icon: Icon, title, text }) => (
             <button
               key={title}
