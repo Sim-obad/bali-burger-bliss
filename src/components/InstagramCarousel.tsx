@@ -27,13 +27,16 @@ export function InstagramCarousel() {
 
   return (
     <section id="instagram" className="bg-background py-16 sm:py-24">
-      <div className="mx-auto max-w-5xl px-5 sm:px-8">
+      <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <div className="flex flex-col items-start gap-4 text-left">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
               Fresh off the grill
             </p>
-            <h1 className="mt-2 text-3xl uppercase sm:text-4xl">Latest on Instagram</h1>
+            <h2 className="mt-2 flex flex-col text-3xl uppercase leading-[0.85] tracking-[0.01em] sm:text-4xl">
+              <span>Latest</span>
+              <span>on Instagram</span>
+            </h2>
           </div>
           <a
             href={site.instagramUrl}
