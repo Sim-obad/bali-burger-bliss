@@ -53,7 +53,7 @@ export function InstagramCarousel() {
             href={post.permalink}
             target="_blank"
             rel="noopener noreferrer"
-            className="group w-[72vw] max-w-[280px] shrink-0 snap-center overflow-hidden rounded-2xl bg-cream shadow-sm transition-transform duration-300 hover:-translate-y-1 sm:w-[240px]"
+            className="group w-[72vw] max-w-[280px] shrink-0 snap-center overflow-hidden rounded-2xl bg-card shadow-sm transition-transform duration-300 hover:-translate-y-1 sm:w-[240px]"
           >
             <div className="relative aspect-square overflow-hidden bg-muted">
               <img
