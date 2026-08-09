@@ -87,17 +87,17 @@ export function MenuSection() {
             }`}
           />
 
-          <div className="relative flex w-full max-w-3xl items-center justify-center gap-2 sm:gap-4">
+          <div className="relative flex w-full max-w-none items-center justify-center gap-1 sm:max-w-3xl sm:gap-4">
             <button
               type="button"
               onClick={() => go(-1)}
-              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-sand/40 bg-charcoal/80 text-sand shadow-lg transition-colors hover:bg-charcoal sm:h-11 sm:w-11"
+              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-sand/40 bg-charcoal/80 text-sand shadow-lg transition-colors hover:bg-charcoal sm:h-11 sm:w-11"
               aria-label="Previous category"
             >
               <ChevronLeft className="h-5 w-5" aria-hidden />
             </button>
 
-            <div className="relative w-full max-w-2xl [perspective:1600px]">
+            <div className="relative w-full max-w-none [perspective:1600px] sm:max-w-2xl">
               <div
                 className="max-h-[80vh] overflow-y-auto rounded-2xl border border-charcoal/25 bg-sand p-5 shadow-2xl transition-all duration-500 ease-out [transform-style:preserve-3d] motion-reduce:duration-0 sm:max-h-[85vh] sm:p-7"
                 style={{
