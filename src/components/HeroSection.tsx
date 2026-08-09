@@ -24,7 +24,7 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="relative isolate min-h-[100svh] overflow-hidden bg-charcoal text-charcoal-foreground lg:min-h-[760px]">
+    <section className="relative isolate min-h-[70svh] overflow-hidden bg-charcoal text-charcoal-foreground lg:min-h-[760px]">
       {/* Photograph — full bleed */}
       <div className="absolute inset-0 overflow-hidden">
         <img
