@@ -73,7 +73,7 @@ export function MenuSection() {
       {/* Zoomed flip panel */}
       {category && ActiveIcon ? (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8"
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-8"
           role="dialog"
           aria-modal="true"
           aria-label={category.title}
