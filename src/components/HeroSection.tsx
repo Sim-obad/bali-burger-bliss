@@ -104,12 +104,17 @@ export function HeroSection() {
               <MessageCircle className="h-4 w-4" aria-hidden />
             </span>
           </a>
-          <a
-            href="#menu"
+          <button
+            type="button"
+            onClick={() => {
+              window.dispatchEvent(
+                new CustomEvent("open-menu-category", { detail: { categoryId: "burgers" } })
+              );
+            }}
             className="inline-flex h-14 items-center justify-center rounded-xl border border-charcoal-foreground/80 bg-charcoal/40 px-6 font-subhead text-base font-bold uppercase tracking-[0.04em] text-charcoal-foreground transition-colors hover:bg-charcoal-foreground/10"
           >
             See the menu
-          </a>
+          </button>
         </div>
       </div>
     </section>

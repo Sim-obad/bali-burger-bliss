@@ -9,6 +9,17 @@ export function MenuSection() {
   const open = activeIndex !== null;
 
   useEffect(() => {
+    const onOpen = (e: Event) => {
+      const detail = (e as CustomEvent).detail as { categoryId?: string } | undefined;
+      const categoryId = detail?.categoryId ?? "burgers";
+      const index = menuCategories.findIndex((c) => c.id === categoryId);
+      setActiveIndex(index >= 0 ? index : 0);
+    };
+    window.addEventListener("open-menu-category", onOpen);
+    return () => window.removeEventListener("open-menu-category", onOpen);
+  }, []);
+
+  useEffect(() => {
     if (!open) {
       setEntered(false);
       return;
