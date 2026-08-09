@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 
-import { useIsMobile } from "@/hooks/use-mobile";
 import { menuCategories } from "@/lib/menu-data";
 
 export function MenuSection() {
-  const isMobile = useIsMobile();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [entered, setEntered] = useState(false);
   const open = activeIndex !== null;
@@ -75,7 +73,7 @@ export function MenuSection() {
       {/* Zoomed flip panel */}
       {category && ActiveIcon ? (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-8"
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-8"
           role="dialog"
           aria-modal="true"
           aria-label={category.title}
@@ -89,17 +87,17 @@ export function MenuSection() {
             }`}
           />
 
-          <div className="relative flex w-full max-w-3xl items-center justify-center gap-2 sm:gap-4">
+          <div className="relative flex w-full max-w-none items-center justify-center gap-1 sm:max-w-3xl sm:gap-4">
             <button
               type="button"
               onClick={() => go(-1)}
-              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-sand/40 bg-charcoal/80 text-sand shadow-lg transition-colors hover:bg-charcoal sm:h-11 sm:w-11"
+              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-sand/40 bg-charcoal/80 text-sand shadow-lg transition-colors hover:bg-charcoal sm:h-11 sm:w-11"
               aria-label="Previous category"
             >
               <ChevronLeft className="h-5 w-5" aria-hidden />
             </button>
 
-            <div className="relative w-full max-w-2xl [perspective:1600px]">
+            <div className="relative w-full max-w-none [perspective:1600px] sm:max-w-2xl">
               <div
                 className="max-h-[80vh] overflow-y-auto rounded-2xl border border-charcoal/25 bg-sand p-5 shadow-2xl transition-all duration-500 ease-out [transform-style:preserve-3d] motion-reduce:duration-0 sm:max-h-[85vh] sm:p-7"
                 style={{
@@ -167,8 +165,12 @@ export function MenuSection() {
                                 </span>
                               ) : null}
                             </p>
-                            {item.description && !(item.group === "Beer" && isMobile) ? (
-                              <p className="mt-0.5 text-xs leading-snug text-charcoal/70 sm:text-sm">
+                            {item.description ? (
+                              <p
+                                className={`mt-0.5 text-xs leading-snug text-charcoal/70 sm:text-sm ${
+                                  item.group === "Beer" ? "hidden sm:block" : ""
+                                }`}
+                              >
                                 {item.description}
                               </p>
                             ) : null}
@@ -237,7 +239,7 @@ export function MenuSection() {
             <button
               type="button"
               onClick={() => go(1)}
-              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-sand/40 bg-charcoal/80 text-sand shadow-lg transition-colors hover:bg-charcoal sm:h-11 sm:w-11"
+              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-sand/40 bg-charcoal/80 text-sand shadow-lg transition-colors hover:bg-charcoal sm:h-11 sm:w-11"
               aria-label="Next category"
             >
               <ChevronRight className="h-5 w-5" aria-hidden />
