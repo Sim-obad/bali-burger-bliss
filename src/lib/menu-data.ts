@@ -234,7 +234,6 @@ export const menuCategories: MenuCategory[] = [
       title: "Add vanilla ice cream",
       items: [{ name: "On any dessert", price: "+40k" }],
     },
-    footnote: "Prices include tax and service",
-    footnote: "*Not available on Delivery",
+    footnote: "*Not available on Delivery · Prices include tax and service",
   },
 ];
