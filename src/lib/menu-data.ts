@@ -168,8 +168,8 @@ export const menuCategories: MenuCategory[] = [
       },
       {
         group: "Fresh Drinks",
+        groupDescription: "Homemade iced tea — no sugar added, sugar on request",
         name: "Iced Tea",
-        description: "Homemade iced tea — no sugar added, sugar on request",
         price: "40K",
       },
       {
