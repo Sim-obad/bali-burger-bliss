@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { CupSoda, Drumstick, type LucideIcon } from "lucide-react";
+import { type LucideIcon } from "lucide-react";
 
 import { BurgerIcon } from "@/components/icons/BurgerIcon";
 import { BeerIcon } from "@/components/icons/BeerIcon";
