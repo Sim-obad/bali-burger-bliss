@@ -73,7 +73,7 @@ export const menuCategories: MenuCategory[] = [
       },
       {
         group: "Smash Burgers",
-        name: "Hot Honey 🔥",
+        name: "Hot Honey",
         description: "Beef patty, grilled onions, pickles, ketchup & yellow mustard",
         prices: ["95K", "125K"],
       },
@@ -91,7 +91,7 @@ export const menuCategories: MenuCategory[] = [
       },
       {
         group: "Chicken Burgers",
-        name: "Spicy 🌶️",
+        name: "Spicy",
         description: "Marinated grilled chicken, cheddar, onions, jalapeño, spicy mayo",
         price: "95K",
       },
