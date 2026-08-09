@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
 
 import { waLinks } from "@/lib/site-config";
-import heroNight from "@/assets/hero-restaurant-night.jpg";
+import heroNight from "@/assets/hero-restaurant-night.jpg.asset.json";
 import palmTree from "@/assets/palm-tree.png";
 import logo from "@/assets/tpbc-logo.png.asset.json";
 
