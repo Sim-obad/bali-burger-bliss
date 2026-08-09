@@ -137,7 +137,7 @@ export const menuCategories: MenuCategory[] = [
     id: "drinks",
     title: "Drinks",
     icon: BeerIcon,
-    tagline: "Beers, Santai, fresh drinks,smoothies,soda and water.",
+    tagline: "Beers, Santai, fresh drinks, smoothies, soda and water.",
     items: [
       {
         group: "Beer",
