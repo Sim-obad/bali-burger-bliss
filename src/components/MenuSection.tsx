@@ -5,6 +5,7 @@ import { useIsMobile } from "@/hooks/use-mobile";
 import { menuCategories } from "@/lib/menu-data";
 
 export function MenuSection() {
+  const isMobile = useIsMobile();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [entered, setEntered] = useState(false);
   const open = activeIndex !== null;
