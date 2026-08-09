@@ -40,7 +40,7 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex min-h-[100svh] flex-col justify-between px-5 pb-12 pt-10 sm:px-8 sm:pt-12 lg:min-h-[760px] lg:px-12 lg:pt-14">
+      <div className="relative z-10 flex min-h-[70svh] flex-col justify-between px-5 pb-12 pt-10 sm:px-8 sm:pt-12 lg:min-h-[760px] lg:px-12 lg:pt-14">
         <div className="flex items-start justify-between gap-6">
           <h1 className="hero-fade flex flex-col gap-3 uppercase leading-[0.82] tracking-[0.01em]">
             <span className="text-[15vw] lg:text-[7.5vw]">The</span>
