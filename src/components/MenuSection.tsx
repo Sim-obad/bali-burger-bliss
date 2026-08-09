@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 
+import { useIsMobile } from "@/hooks/use-mobile";
 import { menuCategories } from "@/lib/menu-data";
 
 export function MenuSection() {
+  const isMobile = useIsMobile();
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [entered, setEntered] = useState(false);
   const open = activeIndex !== null;
@@ -165,7 +167,7 @@ export function MenuSection() {
                                 </span>
                               ) : null}
                             </p>
-                            {item.description ? (
+                            {item.description && !(item.group === "Beer" && isMobile) ? (
                               <p className="mt-0.5 text-xs leading-snug text-charcoal/70 sm:text-sm">
                                 {item.description}
                               </p>
