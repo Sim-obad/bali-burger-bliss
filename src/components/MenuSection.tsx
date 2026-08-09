@@ -239,7 +239,7 @@ export function MenuSection() {
             <button
               type="button"
               onClick={() => go(1)}
-              className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-sand/40 bg-charcoal/80 text-sand shadow-lg transition-colors hover:bg-charcoal sm:h-11 sm:w-11"
+              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-sand/40 bg-charcoal/80 text-sand shadow-lg transition-colors hover:bg-charcoal sm:h-11 sm:w-11"
               aria-label="Next category"
             >
               <ChevronRight className="h-5 w-5" aria-hidden />
