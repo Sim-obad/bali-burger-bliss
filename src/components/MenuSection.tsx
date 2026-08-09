@@ -165,8 +165,12 @@ export function MenuSection() {
                                 </span>
                               ) : null}
                             </p>
-                            {item.description && !(item.group === "Beer" && isMobile) ? (
-                              <p className="mt-0.5 text-xs leading-snug text-charcoal/70 sm:text-sm">
+                            {item.description ? (
+                              <p
+                                className={`mt-0.5 text-xs leading-snug text-charcoal/70 sm:text-sm ${
+                                  item.group === "Beer" ? "hidden sm:block" : ""
+                                }`}
+                              >
                                 {item.description}
                               </p>
                             ) : null}
