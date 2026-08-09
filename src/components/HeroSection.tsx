@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
 
 import { waLinks } from "@/lib/site-config";
-import heroNight from "@/assets/hero-restaurant-night.jpg";
+import heroNight from "@/assets/hero-restaurant-night.jpg.asset.json";
 import palmTree from "@/assets/palm-tree.png";
 import logo from "@/assets/tpbc-logo.png.asset.json";
 
@@ -28,8 +28,8 @@ export function HeroSection() {
       {/* Photograph — full bleed */}
       <div className="absolute inset-0 overflow-hidden">
         <img
-          src={heroNight}
-          alt="The Potato Bun Club restaurant in Amed, Bali at blue hour, warm lights and a full dining room"
+          src={heroNight.url}
+          alt="The Potato Bun Club restaurant in Amed, Bali at dusk, warm wooden facade and glowing windows"
           width={1920}
           height={1280}
           className="h-[110%] w-full object-cover object-[50%_60%]"
