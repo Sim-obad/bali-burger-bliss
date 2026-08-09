@@ -90,7 +90,20 @@ export function MenuSection() {
                     </button>
                   </div>
 
-                  <ul className="mt-3 flex-1 divide-y divide-charcoal/15 overflow-y-auto border-t border-charcoal/15 pr-1">
+                  {category.priceColumns ? (
+                    <div className="mt-2 flex justify-end gap-3 pr-1">
+                      {category.priceColumns.map((col) => (
+                        <span
+                          key={col}
+                          className="w-10 text-right font-marker text-[11px] leading-none text-charcoal/80"
+                        >
+                          {col}
+                        </span>
+                      ))}
+                    </div>
+                  ) : null}
+
+                  <ul className="mt-2 flex-1 divide-y divide-charcoal/15 overflow-y-auto border-t border-charcoal/15 pr-1">
                     {category.items.map((item) => (
                       <li key={item.name} className="flex items-baseline justify-between gap-3 py-2">
                         <div>
@@ -103,7 +116,18 @@ export function MenuSection() {
                             </p>
                           ) : null}
                         </div>
-                        {item.price ? (
+                        {item.prices ? (
+                          <span className="flex shrink-0 gap-3">
+                            {item.prices.map((p, i) => (
+                              <span
+                                key={i}
+                                className="w-10 text-right font-subhead text-xs font-bold text-charcoal"
+                              >
+                                {p}
+                              </span>
+                            ))}
+                          </span>
+                        ) : item.price ? (
                           <span className="shrink-0 font-subhead text-xs font-bold text-charcoal">
                             {item.price}
                           </span>
@@ -111,6 +135,38 @@ export function MenuSection() {
                       </li>
                     ))}
                   </ul>
+
+                  {category.extras ? (
+                    <div className="mt-3 rounded-lg bg-charcoal p-3 text-charcoal-foreground">
+                      <p className="font-marker text-[11px] leading-none text-charcoal-foreground/90">
+                        {category.extras.title}
+                      </p>
+                      <ul className="mt-2 space-y-1">
+                        {category.extras.items.map((extra) => {
+                          const ExtraIcon = extra.icon;
+                          return (
+                            <li
+                              key={extra.name}
+                              className="flex items-center justify-between gap-2 text-[11px] leading-tight"
+                            >
+                              <span className="flex items-center gap-1.5">
+                                {ExtraIcon ? (
+                                  <ExtraIcon className="h-4 w-4 shrink-0" strokeWidth={1.5} />
+                                ) : null}
+                                <span className="font-subhead font-bold uppercase tracking-[0.04em]">
+                                  {extra.name}
+                                </span>
+                              </span>
+                              {extra.price ? (
+                                <span className="font-subhead font-bold">{extra.price}</span>
+                              ) : null}
+                            </li>
+                          );
+                        })}
+                      </ul>
+                    </div>
+                  ) : null}
+
 
                   <div className="mt-3 flex items-center justify-end gap-2">
                     <button
