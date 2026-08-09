@@ -89,7 +89,7 @@ export function MenuSection() {
 
           <div className="relative w-full max-w-2xl [perspective:1600px]">
             <div
-              className="max-h-[85vh] overflow-hidden rounded-2xl border border-charcoal/25 bg-sand p-5 shadow-2xl transition-all duration-500 ease-out [transform-style:preserve-3d] motion-reduce:duration-0 sm:p-7"
+              className="max-h-[85vh] overflow-y-auto rounded-2xl border border-charcoal/25 bg-sand p-5 shadow-2xl transition-all duration-500 ease-out [transform-style:preserve-3d] motion-reduce:duration-0 sm:p-7"
               style={{
                 transform: entered
                   ? "rotateY(0deg) scale(1)"
@@ -206,6 +206,12 @@ export function MenuSection() {
                     })}
                   </ul>
                 </div>
+              ) : null}
+
+              {category.footnote ? (
+                <p className="mt-4 text-center font-marker text-[11px] text-charcoal/70">
+                  {category.footnote}
+                </p>
               ) : null}
 
               <div className="mt-5 flex items-center justify-end gap-3">
