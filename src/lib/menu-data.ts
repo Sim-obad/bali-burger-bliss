@@ -1,3 +1,4 @@
+import type { ReactElement } from "react";
 import {
   CupSoda,
   Drumstick,
@@ -18,7 +19,7 @@ export type MenuItem = {
 export type MenuCategory = {
   id: string;
   title: string;
-  icon: LucideIcon | ((props: { className?: string; strokeWidth?: number }) => JSX.Element);
+  icon: LucideIcon | ((props: { className?: string; strokeWidth?: number }) => ReactElement);
   tagline: string;
   items: MenuItem[];
 };
