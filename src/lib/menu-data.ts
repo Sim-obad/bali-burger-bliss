@@ -104,17 +104,6 @@ export const menuCategories: MenuCategory[] = [
     },
   },
   {
-    id: "drinks",
-    title: "Soft drinks",
-    icon: CupSoda,
-    tagline: "Iced teas, sodas and waters to keep it refreshing.",
-    items: [
-      { name: "Iced Tea", price: "—" },
-      { name: "Soft Drinks", price: "—" },
-      { name: "Mineral Water", price: "—" },
-    ],
-  },
-  {
     id: "alcoholic-drinks",
     title: "Alcoholic drinks",
     icon: BeerIcon,
@@ -123,6 +112,17 @@ export const menuCategories: MenuCategory[] = [
       { name: "Bintang", price: "—" },
       { name: "Cocktail of the day", price: "—" },
       { name: "Spirits", price: "—" },
+    ],
+  },
+  {
+    id: "drinks",
+    title: "Soft drinks",
+    icon: CupSoda,
+    tagline: "Iced teas, sodas and waters to keep it refreshing.",
+    items: [
+      { name: "Iced Tea", price: "—" },
+      { name: "Soft Drinks", price: "—" },
+      { name: "Mineral Water", price: "—" },
     ],
   },
   {
