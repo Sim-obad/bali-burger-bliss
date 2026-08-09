@@ -25,6 +25,7 @@ Recevoir les photos du menu imprimé du restaurant, en extraire le contenu textu
      - `Drinks`,
      - `Desserts`.
    - Remplacer les placeholders "—" par les vrais prix.
+   - Adapter la structure du pop-up (nombre de colonnes, taille, emplacement des extras) si le menu physique a un agencement différent.
 
 4. **Vérification**
    - Lancer le typecheck/build pour s'assurer que le fichier est valide.
