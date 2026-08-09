@@ -38,7 +38,7 @@ export function MenuSection() {
           return (
             <div key={category.id} className="[perspective:1400px]">
               <div
-                className="relative h-[19rem] w-full transition-transform duration-500 ease-out [transform-style:preserve-3d] motion-reduce:duration-0 sm:h-[21rem]"
+                className="relative h-[24rem] w-full transition-transform duration-500 ease-out [transform-style:preserve-3d] motion-reduce:duration-0 sm:h-[26rem]"
                 style={{
                   transform: isOpen ? "rotateY(180deg) scale(1.03)" : "rotateY(0deg) scale(1)",
                 }}
