@@ -1,44 +1,25 @@
-# Obtenir le token Instagram pour @thepotatobunclub
+# Section Menu — vignettes retournables
 
-## Pré-requis
+Refonte de la seule section Menu. Rien d'autre sur le site ne bouge.
 
-- Le compte Instagram @thepotatobunclub doit être en mode **Professionnel** (Business ou Creator).
-- Il doit être **connecté à une page Facebook**.
+## Ce qui change
 
-## Étapes exactes
+1. **Suppression de la photo du menu** — l'image plein écran avec zoom disparaît (fichier image et lightbox retirés de la section).
+2. **Les 6 vignettes de catégories restent** (Smash burgers, Chicken burgers, Sides, Drinks, Desserts, Merch), même style et même grille responsive qu'aujourd'hui.
+3. **Au clic sur une vignette** : effet de retournement 3D combiné à un léger zoom, qui révèle le contenu texte de la catégorie (liste de plats : nom, description courte, prix).
+4. **Navigation** : une fois une catégorie ouverte, des flèches gauche/droite permettent de passer à la catégorie précédente/suivante (boucle circulaire), avec le même effet de retournement. Un bouton fermer ramène à la grille de vignettes.
+5. **Contenu** : chaque catégorie démarre avec quelques lignes d'exemple, structurées pour être remplies manuellement plus tard en modifiant une seule liste.
 
-1. Convertir le compte Instagram en compte professionnel
-   - Ouvrir Instagram → Profil → Menu (3 lignes) → Paramètres → Type de compte → Compte professionnel.
-   - Choisir **Business** ou **Creator**.
+## Comportement
 
-2. Créer une app Facebook Developers
-   - Aller sur https://developers.facebook.com/apps/
-   - Cliquer **Create App** → choisir **Business** → nommer l'app « The Potato Bun Club Site ».
+- Mobile : le panneau de catégorie occupe la largeur d'écran, flèches en bas, texte lisible sans zoom.
+- Desktop : le panneau s'affiche à la place de la grille, flèches de part et d'autre du titre de catégorie.
+- Clavier : flèches gauche/droite pour naviguer, Échap pour fermer.
+- Animation courte (~450 ms), désactivée si l'utilisateur préfère les animations réduites.
 
-3. Ajouter le produit Instagram
-   - Dans le tableau de bord de l'app : **Add Product** → **Instagram** → **Set Up**.
+## Notes techniques
 
-4. Connecter le compte Instagram
-   - Aller dans **Instagram** → **API setup with Instagram login**.
-   - Cliquer **Add or Remove Instagram Accounts**.
-   - Se connecter avec @thepotatobunclub et autoriser l'app.
-
-5. Générer le token
-   - Section **Generate access tokens**.
-   - Sélectionner le compte @thepotatobunclub.
-   - Cocher les permissions : **instagram_basic** (obligatoire) et **instagram_graph_user_profile** si proposé.
-   - Cliquer **Generate token**.
-   - Copier la chaîne affichée (elle ressemble à `IGAA...` ou `EAAG...`).
-
-6. Me transmettre le token
-   - Je fournirai un formulaire sécurisé pour le stocker en secret.
-
-## Ce que je ferai ensuite
-
-- Stocker le jeton dans `INSTAGRAM_ACCESS_TOKEN`.
-- Tester l'appel API pour vérifier que les posts s'affichent.
-- Configurer le renouvellement automatique tous les ~60 jours via un endpoint serveur sécurisé.
-
-## Si tu bloques
-
-Si l'une des étapes ne fonctionne pas, dis-moi à quel numéro tu es bloqué et je te guide.
+- `src/components/MenuSection.tsx` : suppression de l'import `menu.jpg`, de l'état `zoomed` et du dialogue plein écran.
+- Nouveau fichier `src/lib/menu-data.ts` : type `MenuCategory { id, title, icon, tagline, items: { name, description?, price? }[] }` — point unique d'édition du contenu.
+- Retournement via CSS `transform-style: preserve-3d` + `rotateY` et `scale`, piloté par un état `activeIndex: number | null` (pas de librairie ajoutée).
+- Grille et tokens de couleur existants conservés ; aucun changement dans les autres composants, styles globaux ou config.
