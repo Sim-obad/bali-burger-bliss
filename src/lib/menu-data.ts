@@ -1,14 +1,10 @@
 import type { ReactElement } from "react";
-import {
-  CupSoda,
-  Drumstick,
-  IceCreamCone,
-  Sandwich,
-  TreePalm,
-  type LucideIcon,
-} from "lucide-react";
+import { CupSoda, Drumstick, TreePalm, type LucideIcon } from "lucide-react";
 
+import { BurgerIcon } from "@/components/icons/BurgerIcon";
+import { CocktailIcon } from "@/components/icons/CocktailIcon";
 import { FriesIcon } from "@/components/icons/FriesIcon";
+import { SundaeIcon } from "@/components/icons/SundaeIcon";
 
 export type MenuItem = {
   name: string;
@@ -32,7 +28,7 @@ export const menuCategories: MenuCategory[] = [
   {
     id: "smash-burgers",
     title: "Smash burgers",
-    icon: Sandwich,
+    icon: BurgerIcon,
     tagline: "Hand-pressed patties, crispy edges, juicy inside.",
     items: [
       { name: "The Classic", description: "Beef patty, cheddar, pickles, house sauce", price: "—" },
@@ -63,21 +59,33 @@ export const menuCategories: MenuCategory[] = [
   },
   {
     id: "drinks",
-    title: "Drinks",
+    title: "Soft drinks",
     icon: CupSoda,
-    tagline: "Iced teas, sodas, beers & waters to keep it refreshing.",
+    tagline: "Iced teas, sodas and waters to keep it refreshing.",
     items: [
-      { name: "Bintang", price: "—" },
       { name: "Iced Tea", price: "—" },
       { name: "Soft Drinks", price: "—" },
+      { name: "Mineral Water", price: "—" },
+    ],
+  },
+  {
+    id: "alcoholic-drinks",
+    title: "Alcoholic drinks",
+    icon: CocktailIcon,
+    tagline: "Cold beers, cocktails and spirits for good times.",
+    items: [
+      { name: "Bintang", price: "—" },
+      { name: "Cocktail of the day", price: "—" },
+      { name: "Spirits", price: "—" },
     ],
   },
   {
     id: "desserts",
     title: "Desserts",
-    icon: IceCreamCone,
+    icon: SundaeIcon,
     tagline: "Cookies, brownies, sundaes and daily sweet treats.",
     items: [
+      { name: "Sundae", price: "—" },
       { name: "Brownie", price: "—" },
       { name: "Cookie", price: "—" },
     ],

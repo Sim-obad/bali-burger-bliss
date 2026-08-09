@@ -1,4 +1,4 @@
-export function FriesIcon({
+export function CocktailIcon({
   className,
   strokeWidth = 1.5,
 }: {
@@ -16,13 +16,11 @@ export function FriesIcon({
       strokeLinejoin="round"
       aria-hidden="true"
     >
-      {/* fries sticking out */}
-      <path d="M8.5 11V5.5l2 .5" />
-      <path d="M12 11V3.5" />
-      <path d="M15.5 11V5.5l-2 .5" />
-      {/* cone */}
-      <path d="M6 11h12l-1.6 8.2a2 2 0 0 1-2 1.8H9.6a2 2 0 0 1-2-1.8L6 11z" />
-      <path d="M6.8 15h10.4" />
+      <path d="M3.5 5.5h17L12 14 3.5 5.5z" />
+      <path d="M12 14v6" />
+      <path d="M8.5 20h7" />
+      <path d="M15.5 5.5 20 2" />
+      <circle cx="20.5" cy="1.8" r=".9" />
     </svg>
   );
 }
