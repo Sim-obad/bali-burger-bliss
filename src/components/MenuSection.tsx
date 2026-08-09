@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 
-import { useIsMobile } from "@/hooks/use-mobile";
 import { menuCategories } from "@/lib/menu-data";
 
 export function MenuSection() {
