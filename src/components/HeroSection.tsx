@@ -28,8 +28,8 @@ export function HeroSection() {
       {/* Photograph — full bleed */}
       <div className="absolute inset-0 overflow-hidden">
         <img
-          src={heroNight}
-          alt="The Potato Bun Club restaurant in Amed, Bali at blue hour, warm lights and a full dining room"
+          src={heroNight.url}
+          alt="The Potato Bun Club restaurant in Amed, Bali at dusk, warm wooden facade and glowing windows"
           width={1920}
           height={1280}
           className="h-[110%] w-full object-cover object-[50%_60%]"
