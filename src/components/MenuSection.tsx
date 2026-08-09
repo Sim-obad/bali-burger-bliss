@@ -89,7 +89,7 @@ export function MenuSection() {
 
           <div className="relative w-full max-w-2xl [perspective:1600px]">
             <div
-              className="max-h-[85vh] overflow-hidden rounded-2xl border border-charcoal/25 bg-sand p-5 shadow-2xl transition-all duration-500 ease-out [transform-style:preserve-3d] motion-reduce:duration-0 sm:p-7"
+              className="max-h-[85vh] overflow-y-auto rounded-2xl border border-charcoal/25 bg-sand p-5 shadow-2xl transition-all duration-500 ease-out [transform-style:preserve-3d] motion-reduce:duration-0 sm:p-7"
               style={{
                 transform: entered
                   ? "rotateY(0deg) scale(1)"
@@ -128,37 +128,54 @@ export function MenuSection() {
               ) : null}
 
               <ul className="mt-2 divide-y divide-charcoal/15 border-t border-charcoal/15">
-                {category.items.map((item) => (
-                  <li key={item.name} className="flex items-baseline justify-between gap-4 py-3">
-                    <div>
-                      <p className="font-subhead text-sm font-bold uppercase tracking-[0.04em] text-charcoal">
-                        {item.name}
-                      </p>
-                      {item.description ? (
-                        <p className="mt-0.5 text-xs leading-snug text-charcoal/70 sm:text-sm">
-                          {item.description}
+                {category.items.map((item, idx) => {
+                  const prevGroup = idx > 0 ? category.items[idx - 1]?.group : undefined;
+                  const showGroup = item.group && item.group !== prevGroup;
+                  return (
+                    <li key={`${item.group ?? ""}-${item.name}`} className="py-3">
+                      {showGroup ? (
+                        <p className="mb-2 inline-block rounded-md bg-charcoal px-2.5 py-1 font-subhead text-[11px] font-bold uppercase tracking-[0.06em] text-charcoal-foreground">
+                          {item.group}
                         </p>
                       ) : null}
-                    </div>
-                    {item.prices ? (
-                      <span className="flex shrink-0 gap-4">
-                        {item.prices.map((p, i) => (
-                          <span
-                            key={i}
-                            className="w-14 text-right font-subhead text-sm font-bold text-charcoal"
-                          >
-                            {p}
+                      <div className="flex items-baseline justify-between gap-4">
+                        <div>
+                          <p className="font-subhead text-sm font-bold uppercase tracking-[0.04em] text-charcoal">
+                            {item.name}
+                            {item.note ? (
+                              <span className="ml-2 font-marker text-[11px] font-normal normal-case tracking-normal text-charcoal/70">
+                                {item.note}
+                              </span>
+                            ) : null}
+                          </p>
+                          {item.description ? (
+                            <p className="mt-0.5 text-xs leading-snug text-charcoal/70 sm:text-sm">
+                              {item.description}
+                            </p>
+                          ) : null}
+                        </div>
+                        {item.prices ? (
+                          <span className="flex shrink-0 gap-4">
+                            {item.prices.map((p, i) => (
+                              <span
+                                key={i}
+                                className="w-14 text-right font-subhead text-sm font-bold text-charcoal"
+                              >
+                                {p}
+                              </span>
+                            ))}
                           </span>
-                        ))}
-                      </span>
-                    ) : item.price ? (
-                      <span className="shrink-0 font-subhead text-sm font-bold text-charcoal">
-                        {item.price}
-                      </span>
-                    ) : null}
-                  </li>
-                ))}
+                        ) : item.price ? (
+                          <span className="shrink-0 font-subhead text-sm font-bold text-charcoal">
+                            {item.price}
+                          </span>
+                        ) : null}
+                      </div>
+                    </li>
+                  );
+                })}
               </ul>
+
 
               {category.extras ? (
                 <div className="mt-5 rounded-xl bg-charcoal p-4 text-charcoal-foreground">
@@ -189,6 +206,12 @@ export function MenuSection() {
                     })}
                   </ul>
                 </div>
+              ) : null}
+
+              {category.footnote ? (
+                <p className="mt-4 text-center font-marker text-[11px] text-charcoal/70">
+                  {category.footnote}
+                </p>
               ) : null}
 
               <div className="mt-5 flex items-center justify-end gap-3">

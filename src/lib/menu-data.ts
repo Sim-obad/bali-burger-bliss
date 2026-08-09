@@ -14,6 +14,10 @@ export type MenuIcon =
 export type MenuItem = {
   name: string;
   description?: string;
+  /** Optional sub-section heading (Beer, Smoothies, Sundae...) */
+  group?: string;
+  /** Small handwritten note next to the name (on tap, M / L, 4 pcs / 8 pcs...) */
+  note?: string;
   /** Single price column */
   price?: string;
   /** Multi-column prices, matching `priceColumns` order */
@@ -39,16 +43,9 @@ export type MenuCategory = {
     title: string;
     items: MenuExtra[];
   };
+  /** Small note displayed at the bottom of the card */
+  footnote?: string;
 };
-
-const burgerAddons = {
-  title: "Add ons",
-  items: [
-    { name: "Bacon", icon: BaconIcon },
-    { name: "Jalapeño", icon: JalapenoIcon },
-    { name: "Cheese", icon: CheeseIcon },
-  ],
-} as const;
 
 /**
  * Single place to edit the menu content.
@@ -63,20 +60,51 @@ export const menuCategories: MenuCategory[] = [
     priceColumns: ["Single", "Double"],
     items: [
       {
-        name: "The Classic",
-        description: "Beef patty, cheddar, pickles, house sauce",
-        prices: ["—", "—"],
+        group: "Smash Burgers",
+        name: "Hamburger",
+        description: "Beef patty, grilled onions, pickles, ketchup & yellow mustard",
+        prices: ["95K", "125K"],
       },
-      { name: "Double Smash", description: "Double cheese, onions", prices: ["—", "—"] },
-      { name: "Bacon Club", description: "Crispy bacon, cheddar, smoky mayo", prices: ["—", "—"] },
       {
-        name: "Crispy Chick",
-        description: "Buttermilk fried chicken, slaw, mayo",
-        prices: ["—", "—"],
+        group: "Smash Burgers",
+        name: "Cheeseburger",
+        description: "Beef patty, cheddar, pickles, house sauce",
+        prices: ["95K", "125K"],
       },
-      { name: "Hot Honey", description: "Fried chicken, hot honey, pickles", prices: ["—", "—"] },
+      {
+        group: "Smash Burgers",
+        name: "Hot Honey 🔥",
+        description: "Beef patty, grilled onions, pickles, ketchup & yellow mustard",
+        prices: ["95K", "125K"],
+      },
+      {
+        group: "Smash Burgers",
+        name: "Bacon & Cheese",
+        description: "Beef patty, cheddar, crispy bacon, grilled onions, smoky sauce",
+        prices: ["95K", "125K"],
+      },
+      {
+        group: "Chicken Burgers",
+        name: "Crispy",
+        description: "Crispy breaded chicken, lettuce, pickles, ranch sauce",
+        price: "95K",
+      },
+      {
+        group: "Chicken Burgers",
+        name: "Spicy 🌶️",
+        description: "Marinated grilled chicken, cheddar, onions, jalapeño, spicy mayo",
+        price: "95K",
+      },
     ],
-    extras: { ...burgerAddons, items: [...burgerAddons.items] },
+    extras: {
+      title: "Extras",
+      items: [
+        { name: "Jalapeño", price: "+15k", icon: JalapenoIcon },
+        { name: "Cheese", price: "+15k", icon: CheeseIcon },
+        { name: "Bacon", price: "+15k", icon: BaconIcon },
+      ],
+    },
+    footnote: "Prices include tax and service",
   },
   {
     id: "sides",
@@ -84,44 +112,128 @@ export const menuCategories: MenuCategory[] = [
     icon: FriesIcon,
     tagline: "Fries, loaded fries, tenders, onion rings and more.",
     items: [
-      { name: "Fries", price: "—" },
-      { name: "Loaded Fries", description: "Cheese sauce, bacon bits, spring onion", price: "—" },
-      { name: "Onion Rings", price: "—" },
+      { name: "Fries", note: "M / L", prices: ["95K", "125K"] },
+      {
+        name: "Loaded Fries",
+        description: "Fries topped with melted cheddar, house sauce and crispy onions",
+        price: "125K",
+      },
+      { name: "Chicken Tenders", note: "4 pcs / 8 pcs", prices: ["95K", "125K"] },
+      { name: "Chili Cheese", note: "4 pcs / 8 pcs", prices: ["95K", "125K"] },
+      { name: "Onion Rings", note: "M / L", prices: ["95K", "125K"] },
     ],
     extras: {
-      title: "Extra sauces",
+      title: "Sauce",
       items: [
-        { name: "Sauce 1", price: "—", icon: SauceIcon },
-        { name: "Sauce 2", price: "—", icon: SauceIcon },
-        { name: "Sauce 3", price: "—", icon: SauceIcon },
-        { name: "Sauce 4", price: "—", icon: SauceIcon },
+        { name: "TPBC", price: "+15k", icon: SauceIcon },
+        { name: "Ranch", price: "+15k", icon: SauceIcon },
+        { name: "BBQ", price: "+15k", icon: SauceIcon },
+        { name: "Spicy Mayo", price: "+15k", icon: SauceIcon },
       ],
     },
+    footnote: "Prices include tax and service",
   },
   {
     id: "drinks",
     title: "Drinks",
     icon: BeerIcon,
-    tagline: "Cold beers, cocktails, iced teas and sodas.",
+    tagline: "Beers, Santai, fresh drinks, sodas and smoothies.",
     items: [
-      { name: "Bintang", price: "—" },
-      { name: "Cocktail of the day", price: "—" },
-      { name: "Spirits", price: "—" },
-      { name: "Iced Tea", price: "—" },
-      { name: "Soft Drinks", price: "—" },
-      { name: "Mineral Water", price: "—" },
+      {
+        group: "Beer",
+        name: "Kura Kura Lager",
+        description: "Pilsner with crisp and dry notes of bread and honey — brewed fresh in Bali",
+        note: "on tap · half / pint",
+        prices: ["40K", "40K"],
+      },
+      {
+        group: "Beer",
+        name: "Kura Kura Island Ale",
+        description: "Pale Ale with fruity & tropical hop aromas",
+        note: "on tap · half / pint",
+        prices: ["40K", "40K"],
+      },
+      { group: "Beer", name: "Singaraja", note: "small bottle", price: "40K" },
+      {
+        group: "Santai",
+        name: "Lemon & Lime",
+        description: "Sparkling alcoholic water, 4.5% ABV · low calorie · GF",
+        price: "40K",
+      },
+      {
+        group: "Santai",
+        name: "Passion Fruit & Guava",
+        description: "Sparkling alcoholic water, 4.5% ABV · low calorie · GF",
+        price: "40K",
+      },
+      {
+        group: "Fresh Drinks",
+        name: "Iced Tea",
+        description: "Homemade iced tea — no sugar added, sugar on request",
+        price: "40K",
+      },
+      {
+        group: "Fresh Drinks",
+        name: "Iced Lemon Tea",
+        description: "Homemade iced tea with fresh lemon",
+        price: "40K",
+      },
+      { group: "Soft Drinks", name: "Coke", price: "40K" },
+      { group: "Soft Drinks", name: "Coke Zero", price: "40K" },
+      { group: "Soft Drinks", name: "Sprite", price: "40K" },
+      { group: "Soft Drinks", name: "Sparkling Water", price: "40K" },
+      { group: "Soft Drinks", name: "Still Water", price: "40K" },
+      {
+        group: "Smoothies",
+        name: "Pitaya Club",
+        description: "Dragon fruit, banana, lime — blended with ice, no sugar added",
+        price: "40K",
+      },
+      {
+        group: "Smoothies",
+        name: "Watermelon Wave",
+        description: "Watermelon, dragon fruit, lime",
+        price: "40K",
+      },
+      {
+        group: "Smoothies",
+        name: "Mango Heat",
+        description: "Mango, passion fruit, lime",
+        price: "40K",
+      },
     ],
+    footnote: "Prices include tax and service",
   },
 
   {
     id: "desserts",
-    title: "Desserts",
+    title: "Sweets",
     icon: SundaeIcon,
-    tagline: "Cookies, brownies, sundaes and daily sweet treats.",
+    tagline: "Milkshakes, cookies, brownies and sundaes.",
     items: [
-      { name: "Sundae", price: "—" },
-      { name: "Brownie", price: "—" },
-      { name: "Cookie", price: "—" },
+      {
+        group: "Milkshakes",
+        name: "Vanilla",
+        description: "Made with ice cream and milk",
+        price: "40K",
+      },
+      { group: "Milkshakes", name: "Chocolate", price: "40K" },
+      { group: "Milkshakes", name: "Salted Caramel", price: "40K" },
+      { group: "Milkshakes", name: "Strawberry", price: "40K" },
+      { group: "Desserts", name: "Cookies", price: "40K" },
+      { group: "Desserts", name: "Chocolate Brownie", price: "40K" },
+      {
+        group: "Sundae",
+        name: "Salted Caramel",
+        description: "With peanuts on top",
+        price: "40K",
+      },
+      { group: "Sundae", name: "Chocolate", description: "With peanuts on top", price: "40K" },
     ],
+    extras: {
+      title: "Add vanilla ice cream",
+      items: [{ name: "On any dessert", price: "+40k" }],
+    },
+    footnote: "Prices include tax and service",
   },
 ];
