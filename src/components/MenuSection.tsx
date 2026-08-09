@@ -3,11 +3,9 @@ import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 
 import { menuCategories } from "@/lib/menu-data";
 
-
 export function MenuSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const open = activeIndex !== null;
-  const active = open ? menuCategories[activeIndex] : null;
 
   useEffect(() => {
     if (!open) return;
@@ -24,8 +22,6 @@ export function MenuSection() {
   const go = (dir: 1 | -1) =>
     setActiveIndex((i) => ((i ?? 0) + dir + menuCategories.length) % menuCategories.length);
 
-  const ActiveIcon = active?.icon;
-
   return (
     <section id="menu" className="bg-sand py-14 sm:py-20">
       <div className="px-5 sm:px-8 lg:px-12">
@@ -34,143 +30,113 @@ export function MenuSection() {
         </h2>
       </div>
 
-      <div className="mt-8 px-5 sm:px-8 lg:px-12 [perspective:1600px]">
-        <div
-          className="grid transition-transform duration-500 ease-out motion-reduce:duration-0 [transform-style:preserve-3d]"
-          style={{
-            transform: open ? "rotateY(180deg) scale(1.02)" : "rotateY(0deg) scale(1)",
-          }}
-        >
-          {/* Front: categories */}
-          <div
-            className="col-start-1 row-start-1 [backface-visibility:hidden]"
-            aria-hidden={open}
-            style={{ visibility: open ? "hidden" : "visible" }}
-          >
-            <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
-              {menuCategories.map(({ id, icon: Icon, title, tagline }, index) => (
+      <div className="mt-8 grid grid-cols-2 gap-4 px-5 sm:grid-cols-3 sm:px-8 lg:grid-cols-4 lg:px-12">
+        {menuCategories.map((category, index) => {
+          const Icon = category.icon;
+          const isOpen = activeIndex === index;
+
+          return (
+            <div key={category.id} className="[perspective:1400px]">
+              <div
+                className="relative h-[19rem] w-full transition-transform duration-500 ease-out [transform-style:preserve-3d] motion-reduce:duration-0 sm:h-[21rem]"
+                style={{
+                  transform: isOpen ? "rotateY(180deg) scale(1.03)" : "rotateY(0deg) scale(1)",
+                }}
+              >
+                {/* Front */}
                 <button
-                  key={id}
                   type="button"
                   onClick={() => setActiveIndex(index)}
-                  className="group flex flex-col items-center rounded-xl border border-charcoal/25 bg-transparent px-5 pb-5 pt-8 text-center transition-colors hover:bg-charcoal/5 sm:px-6 sm:pb-6 sm:pt-10"
-                  aria-label={`Open ${title}`}
+                  aria-hidden={isOpen}
+                  tabIndex={isOpen ? -1 : 0}
+                  aria-label={`Open ${category.title}`}
+                  className="group absolute inset-0 flex flex-col rounded-xl border border-charcoal/25 bg-transparent px-5 pb-5 pt-8 text-center transition-colors [backface-visibility:hidden] hover:bg-charcoal/5 sm:px-6 sm:pb-6 sm:pt-10"
                 >
-                  <Icon className="h-12 w-12 text-charcoal" strokeWidth={1.5} aria-hidden />
-                  <span className="mt-5 font-subhead text-sm font-bold uppercase tracking-[0.04em] text-charcoal sm:text-base">
-                    {title}
+                  <div className="flex h-14 items-center justify-center">
+                    <Icon className="h-12 w-12 text-charcoal" strokeWidth={1.5} />
+                  </div>
+                  <span className="mt-5 flex h-10 items-start justify-center font-subhead text-sm font-bold uppercase leading-tight tracking-[0.04em] text-charcoal sm:text-base">
+                    {category.title}
                   </span>
-                  <span className="mt-2 text-xs leading-snug text-charcoal/70 sm:text-sm">
-                    {tagline}
+                  <span className="mt-1 flex h-16 items-start justify-center text-xs leading-snug text-charcoal/70 sm:text-sm">
+                    {category.tagline}
                   </span>
                   <ArrowRight
-                    className="mt-5 h-5 w-5 self-end text-charcoal transition-transform group-hover:translate-x-1"
+                    className="mt-auto h-5 w-5 self-end text-charcoal transition-transform group-hover:translate-x-1"
                     aria-hidden
                   />
                 </button>
-              ))}
-            </div>
-          </div>
 
-          {/* Back: category detail */}
-          <div
-            className="col-start-1 row-start-1 [backface-visibility:hidden] [transform:rotateY(180deg)]"
-            aria-hidden={!open}
-            style={{ visibility: open ? "visible" : "hidden" }}
-          >
-            {active && ActiveIcon ? (
-              <div className="rounded-xl border border-charcoal/25 bg-charcoal/[0.03] p-5 sm:p-8 lg:p-10">
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-center gap-4">
-                    <button
-                      type="button"
-                      onClick={() => go(-1)}
-                      className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full border border-charcoal/30 text-charcoal transition-colors hover:bg-charcoal/10 sm:inline-flex"
-                      aria-label="Previous category"
-                    >
-                      <ChevronLeft className="h-5 w-5" aria-hidden />
-                    </button>
-                    <div className="flex items-center gap-3">
-                      <ActiveIcon className="h-10 w-10 text-charcoal" strokeWidth={1.5} aria-hidden />
-                      <div>
-                        <h3 className="text-2xl uppercase leading-[0.9] text-charcoal sm:text-4xl">
-                          {active.title}
-                        </h3>
-                        <p className="mt-1 text-xs text-charcoal/70 sm:text-sm">{active.tagline}</p>
-                      </div>
+                {/* Back */}
+                <div
+                  aria-hidden={!isOpen}
+                  className="absolute inset-0 flex flex-col rounded-xl border border-charcoal/25 bg-charcoal/[0.04] p-4 text-left [backface-visibility:hidden] [transform:rotateY(180deg)] sm:p-5"
+                >
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="flex items-center gap-2">
+                      <Icon className="h-6 w-6 shrink-0 text-charcoal" strokeWidth={1.5} />
+                      <h3 className="font-subhead text-sm font-bold uppercase leading-tight tracking-[0.04em] text-charcoal">
+                        {category.title}
+                      </h3>
                     </div>
-                  </div>
-
-                  <div className="flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={() => go(1)}
-                      className="hidden h-11 w-11 shrink-0 items-center justify-center rounded-full border border-charcoal/30 text-charcoal transition-colors hover:bg-charcoal/10 sm:inline-flex"
-                      aria-label="Next category"
-                    >
-                      <ChevronRight className="h-5 w-5" aria-hidden />
-                    </button>
                     <button
                       type="button"
                       onClick={() => setActiveIndex(null)}
-                      className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-charcoal/30 text-charcoal transition-colors hover:bg-charcoal/10"
+                      tabIndex={isOpen ? 0 : -1}
+                      className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-charcoal/30 text-charcoal transition-colors hover:bg-charcoal/10"
                       aria-label="Back to categories"
                     >
-                      <X className="h-5 w-5" aria-hidden />
+                      <X className="h-4 w-4" aria-hidden />
+                    </button>
+                  </div>
+
+                  <ul className="mt-3 flex-1 divide-y divide-charcoal/15 overflow-y-auto border-t border-charcoal/15 pr-1">
+                    {category.items.map((item) => (
+                      <li key={item.name} className="flex items-baseline justify-between gap-3 py-2">
+                        <div>
+                          <p className="font-subhead text-xs font-bold uppercase tracking-[0.04em] text-charcoal">
+                            {item.name}
+                          </p>
+                          {item.description ? (
+                            <p className="mt-0.5 text-[11px] leading-snug text-charcoal/70">
+                              {item.description}
+                            </p>
+                          ) : null}
+                        </div>
+                        {item.price ? (
+                          <span className="shrink-0 font-subhead text-xs font-bold text-charcoal">
+                            {item.price}
+                          </span>
+                        ) : null}
+                      </li>
+                    ))}
+                  </ul>
+
+                  <div className="mt-3 flex items-center justify-end gap-2">
+                    <button
+                      type="button"
+                      onClick={() => go(-1)}
+                      tabIndex={isOpen ? 0 : -1}
+                      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-charcoal/30 text-charcoal transition-colors hover:bg-charcoal/10"
+                      aria-label="Previous category"
+                    >
+                      <ChevronLeft className="h-4 w-4" aria-hidden />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => go(1)}
+                      tabIndex={isOpen ? 0 : -1}
+                      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-charcoal/30 text-charcoal transition-colors hover:bg-charcoal/10"
+                      aria-label="Next category"
+                    >
+                      <ChevronRight className="h-4 w-4" aria-hidden />
                     </button>
                   </div>
                 </div>
-
-                <ul className="mt-6 divide-y divide-charcoal/15 border-t border-charcoal/15">
-                  {active.items.map((item) => (
-                    <li
-                      key={item.name}
-                      className="flex items-baseline justify-between gap-6 py-4"
-                    >
-                      <div>
-                        <p className="font-subhead text-sm font-bold uppercase tracking-[0.04em] text-charcoal sm:text-base">
-                          {item.name}
-                        </p>
-                        {item.description ? (
-                          <p className="mt-1 text-xs leading-snug text-charcoal/70 sm:text-sm">
-                            {item.description}
-                          </p>
-                        ) : null}
-                      </div>
-                      {item.price ? (
-                        <span className="shrink-0 font-subhead text-sm font-bold text-charcoal sm:text-base">
-                          {item.price}
-                        </span>
-                      ) : null}
-                    </li>
-                  ))}
-                </ul>
-
-                <div className="mt-6 flex items-center justify-between sm:hidden">
-                  <button
-                    type="button"
-                    onClick={() => go(-1)}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-charcoal/30 text-charcoal"
-                    aria-label="Previous category"
-                  >
-                    <ChevronLeft className="h-5 w-5" aria-hidden />
-                  </button>
-                  <span className="text-xs uppercase tracking-[0.12em] text-charcoal/60">
-                    {(activeIndex ?? 0) + 1} / {menuCategories.length}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => go(1)}
-                    className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-charcoal/30 text-charcoal"
-                    aria-label="Next category"
-                  >
-                    <ChevronRight className="h-5 w-5" aria-hidden />
-                  </button>
-                </div>
               </div>
-            ) : null}
-          </div>
-        </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );
