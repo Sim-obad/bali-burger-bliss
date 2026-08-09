@@ -1,7 +1,7 @@
 # Remplissage du menu depuis les photos du menu physique
 
 ## Objectif
-Recevoir les photos du menu imprimé du restaurant, en extraire le contenu textuel (noms, descriptions, prix) et mettre à jour les vignettes du site (Burgers, Sides, Drinks, Desserts) dans `src/lib/menu-data.ts`.
+Recevoir les photos du menu imprimé du restaurant, en extraire le contenu textuel (noms, descriptions, prix) et mettre à jour les vignettes du site (Burgers, Sides, Drinks, Desserts) dans `src/lib/menu-data.ts`. Si le contenu extrait le justifie, ajuster la disposition du pop-up menu pour qu'il colle au format réel du menu.
 
 ## Étapes
 
