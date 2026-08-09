@@ -7,9 +7,7 @@ import { FriesIcon } from "@/components/icons/FriesIcon";
 import { SundaeIcon } from "@/components/icons/SundaeIcon";
 import { BaconIcon, CheeseIcon, JalapenoIcon, SauceIcon } from "@/components/icons/AddonIcons";
 
-export type MenuIcon =
-  | LucideIcon
-  | ((props: { className?: string; strokeWidth?: number }) => ReactElement);
+export type MenuIcon = LucideIcon | ((props: { className?: string; strokeWidth?: number }) => ReactElement);
 
 export type MenuItem = {
   name: string;
@@ -58,7 +56,7 @@ export const menuCategories: MenuCategory[] = [
     id: "burgers",
     title: "Burgers",
     icon: BurgerIcon,
-    tagline: "Smash beef & crispy chicken, all on our potato buns.",
+    tagline: "Smash beef or chicken, all on our potato buns.",
     priceColumns: ["Single", "Double"],
     items: [
       {
@@ -112,7 +110,7 @@ export const menuCategories: MenuCategory[] = [
     id: "sides",
     title: "Sides",
     icon: FriesIcon,
-    tagline: "Fries, loaded fries, tenders, onion rings and more.",
+    tagline: "Fries, loaded fries, tenders and chili cheese.",
     items: [
       { name: "Fries", note: "M / L", prices: ["95K", "125K"] },
       {
@@ -180,11 +178,6 @@ export const menuCategories: MenuCategory[] = [
         description: "Homemade iced tea with fresh lemon",
         price: "40K",
       },
-      { group: "Soft Drinks", name: "Coke", price: "40K" },
-      { group: "Soft Drinks", name: "Coke Zero", price: "40K" },
-      { group: "Soft Drinks", name: "Sprite", price: "40K" },
-      { group: "Soft Drinks", name: "Sparkling Water", price: "40K" },
-      { group: "Soft Drinks", name: "Still Water", price: "40K" },
       {
         group: "Smoothies",
         name: "Pitaya Club",
@@ -203,6 +196,11 @@ export const menuCategories: MenuCategory[] = [
         description: "Mango, passion fruit, lime",
         price: "40K",
       },
+      { group: "Soft Drinks", name: "Coke", price: "40K" },
+      { group: "Soft Drinks", name: "Coke Zero", price: "40K" },
+      { group: "Soft Drinks", name: "Sprite", price: "40K" },
+      { group: "Soft Drinks", name: "Sparkling Water", price: "40K" },
+      { group: "Soft Drinks", name: "Still Water", price: "40K" },
     ],
     footnote: "Prices include tax and service",
   },
@@ -225,7 +223,7 @@ export const menuCategories: MenuCategory[] = [
       { group: "Desserts", name: "Cookies", price: "40K" },
       { group: "Desserts", name: "Chocolate Brownie", price: "40K" },
       {
-        group: "Sundae",
+        group: "Sundae*",
         name: "Salted Caramel",
         description: "With peanuts on top",
         price: "40K",
@@ -237,5 +235,6 @@ export const menuCategories: MenuCategory[] = [
       items: [{ name: "On any dessert", price: "+40k" }],
     },
     footnote: "Prices include tax and service",
+    footnote: "*Not available on Delivery",
   },
 ];
