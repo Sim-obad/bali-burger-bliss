@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { CupSoda, Drumstick, type LucideIcon } from "lucide-react";
+import { type LucideIcon } from "lucide-react";
 
 import { BurgerIcon } from "@/components/icons/BurgerIcon";
 import { BeerIcon } from "@/components/icons/BeerIcon";
@@ -56,10 +56,10 @@ const burgerAddons = {
  */
 export const menuCategories: MenuCategory[] = [
   {
-    id: "smash-burgers",
-    title: "Smash burgers",
+    id: "burgers",
+    title: "Burgers",
     icon: BurgerIcon,
-    tagline: "Hand-pressed patties, crispy edges, juicy inside.",
+    tagline: "Smash beef & crispy chicken, all on our potato buns.",
     priceColumns: ["Single", "Double"],
     items: [
       {
@@ -69,17 +69,12 @@ export const menuCategories: MenuCategory[] = [
       },
       { name: "Double Smash", description: "Double cheese, onions", prices: ["—", "—"] },
       { name: "Bacon Club", description: "Crispy bacon, cheddar, smoky mayo", prices: ["—", "—"] },
-    ],
-    extras: { ...burgerAddons, items: [...burgerAddons.items] },
-  },
-  {
-    id: "chicken-burgers",
-    title: "Chicken burgers",
-    icon: Drumstick,
-    tagline: "Crispy or grilled chicken, bold flavors, made fresh.",
-    items: [
-      { name: "Crispy Chick", description: "Buttermilk fried chicken, slaw, mayo", price: "—" },
-      { name: "Hot Honey", description: "Fried chicken, hot honey, pickles", price: "—" },
+      {
+        name: "Crispy Chick",
+        description: "Buttermilk fried chicken, slaw, mayo",
+        prices: ["—", "—"],
+      },
+      { name: "Hot Honey", description: "Fried chicken, hot honey, pickles", prices: ["—", "—"] },
     ],
     extras: { ...burgerAddons, items: [...burgerAddons.items] },
   },
@@ -104,27 +99,20 @@ export const menuCategories: MenuCategory[] = [
     },
   },
   {
-    id: "alcoholic-drinks",
-    title: "Alcoholic drinks",
+    id: "drinks",
+    title: "Drinks",
     icon: BeerIcon,
-    tagline: "Cold beers, cocktails and spirits for good times.",
+    tagline: "Cold beers, cocktails, iced teas and sodas.",
     items: [
       { name: "Bintang", price: "—" },
       { name: "Cocktail of the day", price: "—" },
       { name: "Spirits", price: "—" },
-    ],
-  },
-  {
-    id: "drinks",
-    title: "Soft drinks",
-    icon: CupSoda,
-    tagline: "Iced teas, sodas and waters to keep it refreshing.",
-    items: [
       { name: "Iced Tea", price: "—" },
       { name: "Soft Drinks", price: "—" },
       { name: "Mineral Water", price: "—" },
     ],
   },
+
   {
     id: "desserts",
     title: "Desserts",
