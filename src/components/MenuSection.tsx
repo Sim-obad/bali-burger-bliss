@@ -134,9 +134,16 @@ export function MenuSection() {
                   return (
                     <li key={`${item.group ?? ""}-${item.name}`} className="py-3">
                       {showGroup ? (
-                        <p className="mb-2 inline-block rounded-md bg-charcoal px-2.5 py-1 font-subhead text-[11px] font-bold uppercase tracking-[0.06em] text-charcoal-foreground">
-                          {item.group}
-                        </p>
+                        <div className="mb-2">
+                          <p className="inline-block rounded-md bg-charcoal px-2.5 py-1 font-subhead text-[11px] font-bold uppercase tracking-[0.06em] text-charcoal-foreground">
+                            {item.group}
+                          </p>
+                          {item.groupDescription ? (
+                            <p className="mt-1 text-xs leading-snug text-charcoal/70 sm:text-sm">
+                              {item.groupDescription}
+                            </p>
+                          ) : null}
+                        </div>
                       ) : null}
                       <div className="flex items-baseline justify-between gap-4">
                         <div>
