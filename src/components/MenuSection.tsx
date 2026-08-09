@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 
-import { FriesIcon } from "@/components/icons/FriesIcon";
 import { menuCategories } from "@/lib/menu-data";
 
-void FriesIcon;
 
 export function MenuSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
