@@ -16,6 +16,8 @@ export type MenuItem = {
   description?: string;
   /** Optional sub-section heading (Beer, Smoothies, Sundae...) */
   group?: string;
+  /** Description shown once under the group heading */
+  groupDescription?: string;
   /** Small handwritten note next to the name (on tap, M / L, 4 pcs / 8 pcs...) */
   note?: string;
   /** Single price column */
@@ -214,7 +216,7 @@ export const menuCategories: MenuCategory[] = [
       {
         group: "Milkshakes",
         name: "Vanilla",
-        description: "Made with ice cream and milk",
+        groupDescription: "Made with ice cream and milk",
         price: "40K",
       },
       { group: "Milkshakes", name: "Chocolate", price: "40K" },
