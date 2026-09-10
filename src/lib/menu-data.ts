@@ -127,7 +127,6 @@ export const menuCategories: MenuCategory[] = [
       },
       { name: "Chicken Tenders", note: "3 pcs / 5 pcs", prices: ["-", "-"] },
       { name: "Chili Cheese", note: "3 pcs / 5 pcs", prices: ["-", "-"] },
-      ,
     ],
     extras: {
       title: "Sauce",
