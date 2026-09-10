@@ -232,7 +232,7 @@ export const menuCategories: MenuCategory[] = [
         description: "",
         price: "-",
       },
-      { group: "Sundae", name: "Chocolate", description: "", price: "-" },
+      { group: "Sundae*", name: "Chocolate", description: "", price: "-" },
     ],
     extras: {
       title: "Add vanilla ice cream",
