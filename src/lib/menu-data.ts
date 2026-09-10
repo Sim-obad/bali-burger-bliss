@@ -228,10 +228,12 @@ export const menuCategories: MenuCategory[] = [
       { group: "Desserts", name: "Chocolate Cake", price: "-" },
       {
         group: "Sundae*",
-        name: "Salted Caramel",
+        groupDescription: "Made with Soft Serve Vanilla Ice cream",
+        name: "Plain",
         description: "",
         price: "-",
       },
+      { group: "Sundae*", name: "Caramel", description: "", price: "-" },
       { group: "Sundae*", name: "Chocolate", description: "", price: "-" },
     ],
     extras: {
