@@ -224,7 +224,6 @@ export const menuCategories: MenuCategory[] = [
       },
       { group: "Milkshakes", name: "Chocolate", price: "-" },
       { group: "Milkshakes", name: "Salted Caramel", price: "-" },
-      { group: "Milkshakes", name: "Vanilla", price: "-" },
       { group: "Desserts", name: "Cookies", price: "-" },
       { group: "Desserts", name: "Chocolate Cake", price: "-" },
       {
