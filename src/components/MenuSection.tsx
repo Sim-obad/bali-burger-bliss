@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
+import { ArrowRight, X } from "lucide-react";
 
 import { menuCategories } from "@/lib/menu-data";
 // Gluten-free badge shown next to gluten-free items
@@ -8,6 +8,8 @@ import glutenFreeBadge from "@/assets/gluten-free.png";
 export function MenuSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [entered, setEntered] = useState(false);
+  // Direction of the last category change: drives the page-turn animation side.
+  const [turnDir, setTurnDir] = useState<1 | -1>(1);
   const open = activeIndex !== null;
 
   useEffect(() => {
@@ -29,9 +31,8 @@ export function MenuSection() {
     const id = requestAnimationFrame(() => setEntered(true));
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setActiveIndex(null);
-      if (e.key === "ArrowRight") setActiveIndex((i) => ((i ?? 0) + 1) % menuCategories.length);
-      if (e.key === "ArrowLeft")
-        setActiveIndex((i) => ((i ?? 0) - 1 + menuCategories.length) % menuCategories.length);
+      if (e.key === "ArrowRight") go(1);
+      if (e.key === "ArrowLeft") go(-1);
     };
     window.addEventListener("keydown", onKey);
     return () => {
@@ -40,10 +41,13 @@ export function MenuSection() {
     };
   }, [open]);
 
-  const go = (dir: 1 | -1) =>
+  // Change category and record the direction so the card turns like a menu page.
+  const go = (dir: 1 | -1) => {
+    setTurnDir(dir);
     setActiveIndex((i) => ((i ?? 0) + dir + menuCategories.length) % menuCategories.length);
+  };
 
-  // Swipe navigation on touch screens (in addition to the arrows).
+  // Swipe navigation on touch screens (in addition to the carousel dots).
   const touchStart = useRef<{ x: number; y: number } | null>(null);
   const onTouchStart = (e: React.TouchEvent) => {
     const t = e.touches.item(0);
@@ -120,19 +124,10 @@ export function MenuSection() {
             }`}
           />
 
-          <div className="relative flex w-full max-w-none items-center justify-center sm:max-w-3xl sm:gap-4">
-            <button
-              type="button"
-              onClick={() => go(-1)}
-              className="absolute left-0 z-20 inline-flex h-9 w-9 -translate-x-1/2 items-center justify-center rounded-full border border-sand/40 bg-charcoal/80 text-sand shadow-lg transition-colors hover:bg-charcoal sm:static sm:h-11 sm:w-11 sm:translate-x-0"
-              aria-label="Previous category"
-            >
-              <ChevronLeft className="h-5 w-5" aria-hidden />
-            </button>
-
+          <div className="relative flex w-full max-w-none flex-col items-center sm:max-w-3xl">
             <div className="relative w-full max-w-none [perspective:1600px] sm:max-w-2xl">
               <div
-                className="max-h-[80vh] rounded-2xl border border-charcoal/25 bg-sand shadow-2xl transition-all duration-500 ease-out [transform-style:preserve-3d] motion-reduce:duration-0 sm:max-h-[85vh]"
+                className="max-h-[75vh] rounded-2xl border border-charcoal/25 bg-sand shadow-2xl transition-all duration-500 ease-out [transform-style:preserve-3d] motion-reduce:duration-0 sm:max-h-[85vh]"
                 style={{
                   transform: entered
                     ? "rotateY(0deg) scale(1)"
