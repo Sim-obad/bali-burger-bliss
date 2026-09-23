@@ -212,7 +212,7 @@ export const menuCategories: MenuCategory[] = [
         price: "65K",
       },
       { group: "MILKSHAKES", name: "Chocolate", price: "68K" },
-      { group: "MMILKSHAKES", name: "Salted Caramel", price: "68K" },
+      { group: "MILKSHAKES", name: "Salted Caramel", price: "68K" },
       { group: "DESSERTS", name: "Cookies", price: "38K" },
       { group: "DESSERTS", name: "Brownie", price: "38K" },
       {
