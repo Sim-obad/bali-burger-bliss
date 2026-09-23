@@ -25,7 +25,8 @@ export type MenuItem = {
 };
 
 export type MenuExtra = {
-  name: string;
+  /** Optional: some extras show only a price (ex. "Add vanilla ice cream") */
+  name?: string;
   price?: string;
   icon?: MenuIcon;
 };
