@@ -27,13 +27,6 @@ export function InstagramCarousel() {
 
   return (
     <section id="instagram" className="texture-grain relative z-20 -mt-10 overflow-hidden bg-background pb-[84px] pt-16 shadow-overlap sm:pb-[116px] sm:pt-24">
-      {/* Giant watermark for layered depth — same crop as the menu section */}
-      <span
-        aria-hidden
-        className="pointer-events-none absolute bottom-[-30px] right-0 z-0 select-none font-display text-[180px] leading-none text-charcoal opacity-20 sm:text-[240px]"
-      >
-        TPBC
-      </span>
       <div className="relative z-10 px-5 sm:px-8 lg:px-12">
         <div className="flex flex-col items-start gap-4 text-left">
           <div>
