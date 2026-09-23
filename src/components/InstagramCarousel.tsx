@@ -26,7 +26,7 @@ export function InstagramCarousel() {
   const posts = data?.posts?.length ? data.posts : fallbackPosts;
 
   return (
-    <section id="instagram" className="texture-grain relative z-20 -mt-10 overflow-hidden bg-background pb-[114px] pt-16 shadow-overlap sm:pb-[146px] sm:pt-24">
+    <section id="instagram" className="texture-grain relative z-20 -mt-10 overflow-hidden bg-background pb-[84px] pt-16 shadow-overlap sm:pb-[116px] sm:pt-24">
       {/* Giant watermark for layered depth — same crop as the menu section */}
       <span
         aria-hidden
@@ -62,7 +62,7 @@ export function InstagramCarousel() {
             href={post.permalink}
             target="_blank"
             rel="noopener noreferrer"
-            className="group w-full overflow-hidden rounded-2xl bg-card shadow-relief transition-all duration-300 hover:-translate-y-1 hover:shadow-relief-lg"
+            className="group w-full overflow-hidden rounded-2xl border border-charcoal/25 bg-card/70 shadow-relief transition-all duration-300 hover:-translate-y-1 hover:bg-card hover:shadow-relief-lg"
           >
             <div className="relative aspect-square overflow-hidden bg-muted">
               <img
