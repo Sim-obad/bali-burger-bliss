@@ -98,11 +98,11 @@ export function MenuSection() {
             }`}
           />
 
-          <div className="relative flex w-full max-w-none items-center justify-center gap-1 sm:max-w-3xl sm:gap-4">
+          <div className="relative flex w-full max-w-none items-center justify-center sm:max-w-3xl sm:gap-4">
             <button
               type="button"
               onClick={() => go(-1)}
-              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-sand/40 bg-charcoal/80 text-sand shadow-lg transition-colors hover:bg-charcoal sm:h-11 sm:w-11"
+              className="absolute left-0 z-20 inline-flex h-9 w-9 -translate-x-1/2 items-center justify-center rounded-full border border-sand/40 bg-charcoal/80 text-sand shadow-lg transition-colors hover:bg-charcoal sm:static sm:h-11 sm:w-11 sm:translate-x-0"
               aria-label="Previous category"
             >
               <ChevronLeft className="h-5 w-5" aria-hidden />
@@ -285,7 +285,7 @@ export function MenuSection() {
             <button
               type="button"
               onClick={() => go(1)}
-              className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-sand/40 bg-charcoal/80 text-sand shadow-lg transition-colors hover:bg-charcoal sm:h-11 sm:w-11"
+              className="absolute right-0 z-20 inline-flex h-9 w-9 translate-x-1/2 items-center justify-center rounded-full border border-sand/40 bg-charcoal/80 text-sand shadow-lg transition-colors hover:bg-charcoal sm:static sm:h-11 sm:w-11 sm:translate-x-0"
               aria-label="Next category"
             >
               <ChevronRight className="h-5 w-5" aria-hidden />
