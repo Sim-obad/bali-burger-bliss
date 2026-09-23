@@ -78,11 +78,7 @@ function HomePage() {
           © {new Date().getFullYear()} {site.name} · Amed, Bali
         </span>
       </footer>
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
     </main>
+
   );
 }
