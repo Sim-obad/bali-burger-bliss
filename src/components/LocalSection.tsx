@@ -22,8 +22,8 @@ export function LocalSection() {
     const node = ref.current;
     if (!node) return;
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
           setVisible(true);
           observer.disconnect();
         }
