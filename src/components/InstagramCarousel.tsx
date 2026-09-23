@@ -9,10 +9,10 @@ import ig3 from "@/assets/ig-3.webp";
 import ig4 from "@/assets/ig-4.webp";
 
 const fallbackPosts: InstagramPost[] = [
-  { id: "f1", imageUrl: ig1, permalink: site.instagramUrl, caption: "Burger & fries by the beach" },
-  { id: "f2", imageUrl: ig2, permalink: site.instagramUrl, caption: "Double smash, extra cheese" },
-  { id: "f3", imageUrl: ig3, permalink: site.instagramUrl, caption: "Sunset on the terrace" },
-  { id: "f4", imageUrl: ig4, permalink: site.instagramUrl, caption: "Skin-on fries & a cold one" },
+  { id: "f1", imageUrl: ig1, permalink: site.instagramUrl, caption: "Crispy tenders, dip & a cold Santai" },
+  { id: "f2", imageUrl: ig2, permalink: site.instagramUrl, caption: "Smash burgers, fries & good beer" },
+  { id: "f3", imageUrl: ig3, permalink: site.instagramUrl, caption: "Good buns, good beer, good time" },
+  { id: "f4", imageUrl: ig4, permalink: site.instagramUrl, caption: "Hand-breaded, made to order" },
 ];
 
 export function InstagramCarousel() {
