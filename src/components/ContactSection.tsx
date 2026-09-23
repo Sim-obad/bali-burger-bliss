@@ -14,7 +14,7 @@ export function ContactSection() {
           Everything happens on WhatsApp — one message and we've got you (delivery coming soon).
         </p>
 
-        <div className="mt-8 flex w-full flex-col items-center gap-3 sm:inline-flex sm:w-auto">
+        <div className="mt-8 flex w-full flex-col items-start gap-3 sm:inline-flex sm:w-auto">
           <a
             href={waLinks.order}
             target="_blank"
@@ -25,7 +25,7 @@ export function ContactSection() {
             Message us on WhatsApp
           </a>
 
-          <div className="flex flex-wrap justify-center gap-3">
+          <div className="flex flex-wrap justify-start gap-3">
             {[
               { label: "Delivery", href: waLinks.delivery },
               { label: "Takeaway", href: waLinks.takeaway },
