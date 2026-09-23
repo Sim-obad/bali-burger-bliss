@@ -4,8 +4,18 @@ import { site, waLinks } from "@/lib/site-config";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="bg-charcoal py-16 text-charcoal-foreground sm:py-24">
-      <div className="px-5 sm:px-8 lg:px-12">
+    <section
+      id="contact"
+      className="texture-grain relative z-30 -mt-10 overflow-hidden rounded-t-[2.5rem] bg-charcoal py-16 text-charcoal-foreground sm:py-24"
+    >
+      {/* Giant watermark for layered depth */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -bottom-10 right-0 select-none translate-y-1/4 font-display text-[180px] leading-none text-charcoal-foreground/5 sm:text-[240px]"
+      >
+        TPBC
+      </span>
+      <div className="relative z-[2] px-5 sm:px-8 lg:px-12">
         <p className="font-marker text-sm tracking-wide text-charcoal-foreground">Delivery · Takeaway</p>
         <h2 className="mt-2 flex flex-col text-3xl uppercase leading-[0.85] tracking-[0.01em] sm:text-4xl">
           <span>Order</span>
@@ -19,7 +29,7 @@ export function ContactSection() {
             href={waLinks.order}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-16 w-full items-center justify-center gap-3 rounded-full bg-charcoal-foreground px-8 text-lg font-bold uppercase tracking-wide text-charcoal transition-transform hover:scale-[1.01] active:scale-95 sm:w-auto"
+            className="inline-flex h-16 w-full items-center justify-center gap-3 rounded-full bg-charcoal-foreground px-8 text-lg font-bold uppercase tracking-wide text-charcoal shadow-[0_12px_30px_rgba(0,0,0,0.35)] transition-transform hover:scale-[1.01] active:scale-95 sm:w-auto"
           >
             <MessageCircle className="h-6 w-6" aria-hidden />
             Message us on WhatsApp
@@ -44,7 +54,7 @@ export function ContactSection() {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 max-w-7xl px-5 sm:px-8">
+      <div className="relative z-[2] mx-auto mt-12 max-w-7xl px-5 sm:px-8">
         <div className="flex flex-col gap-10">
           <div>
             <h3 className="flex items-center gap-2 text-lg uppercase">
