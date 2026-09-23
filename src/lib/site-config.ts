@@ -8,7 +8,7 @@ export const site = {
   mapsUrl: "https://maps.app.goo.gl/rNpdTAzmV19xFdLx9?g_st=ic",
   hours: [
     { days: "Thursday – Tuesday", time: "17:00 – 23:00" },
-    { days: "Kitchen last order", time: "22:30" },
+    { days: "Kitchen last order", time: "22:00" },
     { days: "Wednesday", time: "Closed" },
   ],
 } as const;
