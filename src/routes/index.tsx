@@ -7,7 +7,7 @@ import { MenuSection } from "@/components/MenuSection";
 import { ContactSection } from "@/components/ContactSection";
 import { site } from "@/lib/site-config";
 import logo from "@/assets/tpbc-logo.webp";
-
+import heroNight from "@/assets/hero-restaurant-night.jpg.asset.json";
 
 const title = "The Potato Bun Club — Burgers in Amed, Bali";
 const description =
@@ -23,6 +23,8 @@ export const Route = createFileRoute("/")({
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
+    // Preload the hero photo (LCP image on mobile)
+    links: [{ rel: "preload", as: "image", href: heroNight.url, fetchPriority: "high" }],
   }),
   component: HomePage,
 });

@@ -98,7 +98,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Anton&family=League+Spartan:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&family=Permanent+Marker&display=swap",
       },
       { rel: "icon", href: "/favicon.png", type: "image/png" },
-
     ],
   }),
 
