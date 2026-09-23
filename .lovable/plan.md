@@ -2,7 +2,7 @@
 
 ## Objectif
 
-Ajouter sous la section Instagram un interlude sans titre de section, qui raconte le travail en circuit court avec les partenaires locaux (Baker Street, Kura Kura, Santai), dans le style du reste du site.
+Ajouter **entre la section Menu et la section Instagram** un interlude sans titre de section, qui raconte le travail en circuit court avec les partenaires locaux (Baker Street, Kura Kura, Santai), dans le style du reste du site.
 
 ## Design proposé
 
