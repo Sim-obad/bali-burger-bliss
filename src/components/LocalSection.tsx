@@ -42,7 +42,7 @@ export function LocalSection() {
     >
       <div className="grid gap-8 px-5 sm:px-8 lg:grid-cols-2 lg:gap-12 lg:px-12">
         <div className="flex flex-col items-start">
-          <h2 className="flex flex-col text-3xl uppercase leading-[0.85] tracking-[0.01em] sm:text-4xl">
+          <h2 className="flex flex-col text-3xl uppercase leading-[1.15] tracking-[0.01em] sm:text-4xl">
             <span>Proudly Local,</span>
             <span>Whenever we can.</span>
           </h2>
