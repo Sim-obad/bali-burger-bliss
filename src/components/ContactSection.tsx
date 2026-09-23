@@ -28,7 +28,7 @@ export function ContactSection() {
           <div className="flex flex-wrap justify-start gap-3">
             {[
               { label: "Delivery", href: waLinks.delivery },
-              { label: "Takeaway", href: waLinks.takeaway },
+              { label: "Take away", href: waLinks.takeaway },
             ].map((item) => (
               <a
                 key={item.label}
