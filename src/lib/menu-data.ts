@@ -183,7 +183,7 @@ export const menuCategories: MenuCategory[] = [
         price: "30K",
       },
       {
-        group: "FRESH DRINK",
+        group: "FRESH DRINKS",
         name: "Iced Lemon Tea",
         description: "Homemade iced tea with fresh lemon",
         price: "30K",
