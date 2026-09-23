@@ -5,9 +5,17 @@ import { BurgerIcon } from "@/components/icons/BurgerIcon";
 import { BeerIcon } from "@/components/icons/BeerIcon";
 import { FriesIcon } from "@/components/icons/FriesIcon";
 import { SundaeIcon } from "@/components/icons/SundaeIcon";
-import { BaconIcon, CheeseIcon, JalapenoIcon, OnionIcon, PickleIcon, SauceIcon } from "@/components/icons/AddonIcons";
+import {
+  BaconIcon,
+  CheeseIcon,
+  JalapenoIcon,
+  OnionIcon,
+  PickleIcon,
+  SauceIcon,
+} from "@/components/icons/AddonIcons";
 
-export type MenuIcon = LucideIcon | ((props: { className?: string; strokeWidth?: number }) => ReactElement);
+export type MenuIcon =
+  LucideIcon | ((props: { className?: string; strokeWidth?: number }) => ReactElement);
 
 export type MenuItem = {
   name: string;
@@ -88,7 +96,8 @@ export const menuCategories: MenuCategory[] = [
         group: "SMASH BURGER",
         name: "The Spicy",
         icon: Flame,
-        description: "Wagyu beef patty, cheddar, onions, pickled jalapeños, fresh green Lombok chili, spicy mayo sauce",
+        description:
+          "Wagyu beef patty, cheddar, onions, pickled jalapeños, fresh green Lombok chili, spicy mayo sauce",
         prices: ["128K", "+57K"],
       },
       {
@@ -107,7 +116,8 @@ export const menuCategories: MenuCategory[] = [
         group: "CHICKEN BURGER",
         name: "Spicy Chicken",
         icon: JalapenoIcon,
-        description: "Grilled chicken, cheddar, caramelized onions, pickled jalapeño, lettuce & spicy mayo",
+        description:
+          "Grilled chicken, cheddar, caramelized onions, pickled jalapeño, lettuce & spicy mayo",
         price: "105K",
       },
     ],
@@ -130,10 +140,17 @@ export const menuCategories: MenuCategory[] = [
     icon: FriesIcon,
     tagline: "Fries, loaded fries, tenders and chili cheese.",
     items: [
-      { name: "Fries", note: "M / L", glutenFree: true, prices: ["35K", "48K"], description: "served with ketchup sauce" },
+      {
+        name: "Fries",
+        note: "M / L",
+        glutenFree: true,
+        prices: ["35K", "48K"],
+        description: "served with ketchup sauce",
+      },
       {
         name: "Bacon Loaded Fries",
-        description: "French fries, cheddar sauce, crispy bacon, onions, pickles jalapeños & spicy mayo - GFO*",
+        description:
+          "French fries, cheddar sauce, crispy bacon, onions, pickles jalapeños & spicy mayo - GFO*",
         price: "87K",
       },
       {
@@ -154,7 +171,8 @@ export const menuCategories: MenuCategory[] = [
         { name: "Spicy Mayo", price: "15K", icon: SauceIcon },
       ],
     },
-    footnote: "Gluten free\n  GFO*: gluten free option without Cheddar sauce\n · Prices include tax and service · ",
+    footnote:
+      "Gluten free\n  GFO*: gluten free option without Cheddar sauce\n · Prices include tax and service · ",
   },
   {
     id: "drinks",
@@ -227,7 +245,12 @@ export const menuCategories: MenuCategory[] = [
       },
       { group: "MILKSHAKES", name: "Chocolate", price: "68K" },
       { group: "MILKSHAKES", name: "Caramel", price: "68K" },
-      { group: "DESSERTS", name: "Cookies", description: "3 mini chocolate chips cookies", price: "38K" },
+      {
+        group: "DESSERTS",
+        name: "Cookies",
+        description: "3 mini chocolate chips cookies",
+        price: "38K",
+      },
       { group: "DESSERTS", name: "Brownie", price: "38K" },
       {
         group: "SUNDAE*",

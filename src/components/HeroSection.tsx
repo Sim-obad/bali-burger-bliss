@@ -110,7 +110,7 @@ export function HeroSection() {
             type="button"
             onClick={() => {
               window.dispatchEvent(
-                new CustomEvent("open-menu-category", { detail: { categoryId: "burgers" } })
+                new CustomEvent("open-menu-category", { detail: { categoryId: "burgers" } }),
               );
             }}
             className="btn-glossy-ghost inline-flex h-14 w-full items-center justify-center rounded-xl border border-charcoal-foreground/80 bg-charcoal/40 px-6 font-subhead text-base font-bold uppercase tracking-[0.04em] text-charcoal-foreground transition-colors hover:bg-charcoal-foreground/10 sm:w-auto"

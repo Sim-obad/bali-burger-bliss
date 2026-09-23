@@ -9,9 +9,24 @@ import ig3 from "@/assets/ig-3.webp";
 import ig4 from "@/assets/ig-4.webp";
 
 const fallbackPosts: InstagramPost[] = [
-  { id: "f1", imageUrl: ig1, permalink: site.instagramUrl, caption: "Crispy tenders, dip & a cold Santai" },
-  { id: "f2", imageUrl: ig2, permalink: site.instagramUrl, caption: "Smash burgers, fries & good beer" },
-  { id: "f3", imageUrl: ig3, permalink: site.instagramUrl, caption: "Good buns, good beer, good time" },
+  {
+    id: "f1",
+    imageUrl: ig1,
+    permalink: site.instagramUrl,
+    caption: "Crispy tenders, dip & a cold Santai",
+  },
+  {
+    id: "f2",
+    imageUrl: ig2,
+    permalink: site.instagramUrl,
+    caption: "Smash burgers, fries & good beer",
+  },
+  {
+    id: "f3",
+    imageUrl: ig3,
+    permalink: site.instagramUrl,
+    caption: "Good buns, good beer, good time",
+  },
   { id: "f4", imageUrl: ig4, permalink: site.instagramUrl, caption: "Hand-breaded, made to order" },
 ];
 
@@ -26,7 +41,10 @@ export function InstagramCarousel() {
   const posts = data?.posts?.length ? data.posts : fallbackPosts;
 
   return (
-    <section id="instagram" className="texture-grain relative z-20 -mt-10 overflow-hidden bg-background pb-[84px] pt-16 shadow-overlap sm:pb-[116px] sm:pt-24">
+    <section
+      id="instagram"
+      className="texture-grain relative z-20 -mt-10 overflow-hidden bg-background pb-[84px] pt-16 shadow-overlap sm:pb-[116px] sm:pt-24"
+    >
       <div className="relative z-10 px-5 sm:px-8 lg:px-12">
         <div className="flex flex-col items-start gap-4 text-left">
           <div>
@@ -69,7 +87,9 @@ export function InstagramCarousel() {
             </div>
             {post.caption ? (
               <div className="border-t border-border/40 p-3">
-                <p className="line-clamp-3 text-xs leading-relaxed text-foreground/80">{post.caption}</p>
+                <p className="line-clamp-3 text-xs leading-relaxed text-foreground/80">
+                  {post.caption}
+                </p>
               </div>
             ) : null}
           </a>
