@@ -76,6 +76,29 @@ export function MenuSection() {
     );
   };
 
+  // Same page turn, but straight to a given category (carousel dots).
+  const goTo = (target: number) => {
+    const dir: 1 | -1 = (activeIndex ?? 0) < target ? 1 : -1;
+    clearTimers();
+    const half = 320;
+    setDur(half);
+    setRot(dir === 1 ? -90 : 90);
+    timers.current.push(
+      window.setTimeout(() => {
+        setActiveIndex(target);
+        setDur(0);
+        setRot(dir === 1 ? 90 : -90);
+        timers.current.push(
+          window.setTimeout(() => {
+            setDur(half);
+            setRot(0);
+          }, 20),
+        );
+      }, half),
+    );
+  };
+
+
   // Swipe navigation on touch screens (in addition to the carousel dots).
   const touchStart = useRef<{ x: number; y: number; t: number } | null>(null);
   const dragging = useRef(false);
