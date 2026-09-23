@@ -146,7 +146,7 @@ export function MenuSection() {
   const ActiveIcon = category?.icon;
 
   return (
-    <section id="menu" className="texture-grain relative overflow-hidden bg-background py-14 sm:py-20">
+    <section id="menu" className="texture-grain relative overflow-hidden bg-background py-14 sm:pt-20 sm:pb-[120px]">
       {/* Giant watermark for layered depth — same crop as the contact section */}
       <span
         aria-hidden
