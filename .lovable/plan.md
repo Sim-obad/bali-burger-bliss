@@ -1,4 +1,4 @@
-# Nouvelle section « Proudly Local » sous la catégorie Instagram
+# Nouvelle section « Proudly Local » entre Menu et Instagram
 
 ## Objectif
 
