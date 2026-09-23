@@ -26,7 +26,14 @@ export function InstagramCarousel() {
   const posts = data?.posts?.length ? data.posts : fallbackPosts;
 
   return (
-    <section id="instagram" className="relative z-20 -mt-10 bg-background py-16 shadow-overlap sm:py-24">
+    <section id="instagram" className="texture-grain relative z-20 -mt-10 overflow-hidden bg-background py-16 shadow-overlap sm:py-24">
+      {/* Giant watermark for layered depth — same crop as the menu section */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute bottom-[-70px] right-0 select-none font-display text-[180px] leading-none text-charcoal opacity-20 sm:text-[240px]"
+      >
+        TPBC
+      </span>
       <div className="px-5 sm:px-8 lg:px-12">
         <div className="flex flex-col items-start gap-4 text-left">
           <div>
