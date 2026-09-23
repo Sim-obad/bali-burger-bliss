@@ -80,8 +80,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "The Potato Bun Club — Burgers in Amed, Bali" },
       {
         name: "description",
-        content:
-          "Smash burgers on potato buns in Amed, Bali. Menu, Instagram and WhatsApp orders.",
+        content: "Smash burgers on potato buns in Amed, Bali. Menu, Instagram and WhatsApp orders.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },

@@ -16,7 +16,9 @@ export function ContactSection() {
         TPBC
       </span>
       <div className="relative z-[2] px-5 sm:px-8 lg:px-12">
-        <p className="font-marker text-sm tracking-wide text-charcoal-foreground">Delivery · Takeaway</p>
+        <p className="font-marker text-sm tracking-wide text-charcoal-foreground">
+          Delivery · Takeaway
+        </p>
         <h2 className="mt-2 flex flex-col text-3xl uppercase leading-[0.85] tracking-[0.01em] sm:text-4xl">
           <span>Order</span>
         </h2>

@@ -4,13 +4,12 @@ const paragraphs = [
   <>We believe good food starts with good people around us.</>,
   <>That&rsquo;s why we choose to work with local partners whenever possible.</>,
   <>
-    From our potato buns, freshly made by Baker Street here in{" "}
-    <strong>Amed</strong>, to Kura Kura beer and Santai, proudly brewed and{" "}
-    <strong>made in Bali</strong>.
+    From our potato buns, freshly made by Baker Street here in <strong>Amed</strong>, to Kura Kura
+    beer and Santai, proudly brewed and <strong>made in Bali</strong>.
   </>,
   <>
-    Supporting local businesses, keeping things close to home, and celebrating
-    the people and products that make Bali special.
+    Supporting local businesses, keeping things close to home, and celebrating the people and
+    products that make Bali special.
   </>,
 ];
 

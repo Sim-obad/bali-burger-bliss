@@ -12,6 +12,26 @@ import heroNight from "@/assets/hero-restaurant-night.jpg.asset.json";
 const title = "The Potato Bun Club — Burgers in Amed, Bali";
 const description =
   "Good buns, good beer, good times in Amed, Bali. See the menu, follow us on Instagram, and order delivery or takeaway on WhatsApp.";
+const siteUrl = "https://thepotatobunclub.com";
+const ogImage = `${siteUrl}/og-cover.jpg`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Restaurant",
+  name: site.name,
+  servesCuisine: "Burgers",
+  image: ogImage,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Jalan Raya Amed",
+    addressLocality: "Amed, Karangasem",
+    addressRegion: "Bali",
+    addressCountry: "ID",
+  },
+  openingHours: "Th-Tu 17:00-23:00",
+  url: siteUrl,
+  sameAs: [site.instagramUrl],
+};
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -21,29 +41,20 @@ export const Route = createFileRoute("/")({
       { property: "og:title", content: title },
       { property: "og:description", content: description },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: siteUrl },
+      { property: "og:image", content: ogImage },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:image", content: ogImage },
     ],
-    // Preload the hero photo (LCP image on mobile)
-    links: [{ rel: "preload", as: "image", href: heroNight.url, fetchPriority: "high" }],
+    links: [
+      { rel: "canonical", href: siteUrl },
+      // Preload the hero photo (LCP image on mobile)
+      { rel: "preload", as: "image", href: heroNight.url, fetchPriority: "high" },
+    ],
+    scripts: [{ type: "application/ld+json", children: JSON.stringify(jsonLd) }],
   }),
   component: HomePage,
 });
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Restaurant",
-  name: site.name,
-  servesCuisine: "Burgers",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Jalan Raya Amed",
-    addressLocality: "Amed, Karangasem",
-    addressRegion: "Bali",
-    addressCountry: "ID",
-  },
-  openingHours: "Th-Tu 17:00-23:00",
-  url: site.instagramUrl,
-};
 
 function HomePage() {
   return (
@@ -66,11 +77,6 @@ function HomePage() {
           © {new Date().getFullYear()} {site.name} · Amed, Bali
         </span>
       </footer>
-
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
     </main>
   );
 }
