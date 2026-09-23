@@ -99,7 +99,7 @@ export function HeroSection() {
             href={waLinks.order}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-14 items-center justify-between rounded-xl bg-charcoal-foreground px-6 font-subhead text-base font-bold uppercase tracking-[0.04em] text-charcoal"
+            className="btn-glossy inline-flex h-14 w-full items-center justify-between rounded-xl bg-charcoal-foreground px-6 font-subhead text-base font-bold uppercase tracking-[0.04em] text-charcoal sm:w-auto"
           >
             Order on WhatsApp
             <span className="grid h-8 w-8 shrink-0 place-items-center rounded-full bg-charcoal text-charcoal-foreground">
@@ -113,7 +113,7 @@ export function HeroSection() {
                 new CustomEvent("open-menu-category", { detail: { categoryId: "burgers" } })
               );
             }}
-            className="inline-flex h-14 items-center justify-center rounded-xl border border-charcoal-foreground/80 bg-charcoal/40 px-6 font-subhead text-base font-bold uppercase tracking-[0.04em] text-charcoal-foreground transition-colors hover:bg-charcoal-foreground/10"
+            className="btn-glossy-ghost inline-flex h-14 w-full items-center justify-center rounded-xl border border-charcoal-foreground/80 bg-charcoal/40 px-6 font-subhead text-base font-bold uppercase tracking-[0.04em] text-charcoal-foreground transition-colors hover:bg-charcoal-foreground/10 sm:w-auto"
           >
             See the menu
           </button>

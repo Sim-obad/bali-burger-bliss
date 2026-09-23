@@ -50,7 +50,7 @@ export function ContactSection() {
                 href={item.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center rounded-full border border-charcoal-foreground/25 px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-charcoal-foreground/10"
+                className="btn-glossy-ghost inline-flex items-center rounded-full border border-charcoal-foreground/25 px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-charcoal-foreground/10"
               >
                 {item.label}
               </a>
