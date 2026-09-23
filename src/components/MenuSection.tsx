@@ -150,7 +150,7 @@ export function MenuSection() {
                                 </p>
                                 {/* Handwritten price column note, on the same line as the first group title */}
                                 {idx === 0 && category.priceColumns ? (
-                                  <span className="inline-block -rotate-[25deg] origin-left whitespace-nowrap font-marker text-sm leading-none text-charcoal/80">
+                                  <span className="ml-[100px] inline-block -rotate-[10deg] origin-left whitespace-nowrap font-marker text-sm leading-none text-charcoal/80">
                                     {category.priceColumns.join(" / ")}
                                   </span>
                                 ) : null}
