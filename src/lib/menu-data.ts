@@ -153,14 +153,16 @@ export const menuCategories: MenuCategory[] = [
     items: [
       {
         group: "BEER",
-        name: "Kura Kura Lager",
-        description: "Pilsner with crisp and dry notes of bread and honey — brewed fresh in Bali",
+        subtitle: "KURA KURA",
+        groupDescription: "Brewed fresh in Bali",
+        name: "Lager",
+        description: "Pilsner with crisp and dry notes of bread and honey",
         note: "on tap · small / large",
         prices: ["57K", "89K"],
       },
       {
         group: "BEER",
-        name: "Kura Kura Island Ale",
+        name: "Island Ale",
         description: "Pale Ale with fruity & tropical hop aromas",
         note: "on tap · small / large",
         prices: ["68K", "99K"],
@@ -168,13 +170,15 @@ export const menuCategories: MenuCategory[] = [
       {
         group: "SANTAI",
         name: "Lemon & Lime",
-        groupDescription: "Sparkling alcoholic water, 4.5% ABV · low cal · GF",
+        groupDescription:
+          "Sparkling alcoholic water with natural flavours from real fruit juice. 4.5% ABV · low cal · GF",
         price: "57K",
       },
       {
         group: "SANTAI",
         name: "Passion Fruit & Guava",
-        groupDescription: "Sparkling alcoholic water, 4.5% ABV · low cal · GF",
+        groupDescription:
+          "Sparkling alcoholic water with natural flavours from real fruit juice. 4.5% ABV · low cal · GF",
         price: "57K",
       },
       {
@@ -212,12 +216,12 @@ export const menuCategories: MenuCategory[] = [
         price: "65K",
       },
       { group: "MILKSHAKES", name: "Chocolate", price: "68K" },
-      { group: "MILKSHAKES", name: "Salted Caramel", price: "68K" },
-      { group: "DESSERTS", name: "Cookies", price: "38K" },
+      { group: "MILKSHAKES", name: "Caramel", price: "68K" },
+      { group: "DESSERTS", name: "Cookies", description: "3 mini chocolate chips cookies", price: "38K" },
       { group: "DESSERTS", name: "Brownie", price: "38K" },
       {
         group: "SUNDAE*",
-        groupDescription: "Made with Soft Serve Vanilla Ice cream",
+        groupDescription: "Soft vanilla ice cream topped with the flavor of your choice",
         name: "Plain",
         description: "",
         price: "38K",
@@ -226,8 +230,8 @@ export const menuCategories: MenuCategory[] = [
       { group: "SUNDAE*", name: "Chocolate", description: "", price: "45K" },
     ],
     extras: {
-      title: "Add vanilla ice cream",
-      items: [{ price: "20K" }],
+      title: "Add soft vanilla ice cream",
+      items: [{ price: "+ 20K" }],
       inlineGroup: "DESSERTS",
     },
     footnote: "*Not available on Delivery · Prices include tax and service",
