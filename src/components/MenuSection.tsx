@@ -10,6 +10,7 @@ export function MenuSection() {
   const [entered, setEntered] = useState(false);
   // Direction of the last category change: drives the page-turn animation side.
   const [turnDir, setTurnDir] = useState<1 | -1>(1);
+  const [animateTurn, setAnimateTurn] = useState(false);
   const open = activeIndex !== null;
 
   useEffect(() => {
@@ -17,6 +18,7 @@ export function MenuSection() {
       const detail = (e as CustomEvent).detail as { categoryId?: string } | undefined;
       const categoryId = detail?.categoryId ?? "burgers";
       const index = menuCategories.findIndex((c) => c.id === categoryId);
+      setAnimateTurn(false);
       setActiveIndex(index >= 0 ? index : 0);
     };
     window.addEventListener("open-menu-category", onOpen);
@@ -44,6 +46,7 @@ export function MenuSection() {
   // Change category and record the direction so the card turns like a menu page.
   const go = (dir: 1 | -1) => {
     setTurnDir(dir);
+    setAnimateTurn(true);
     setActiveIndex((i) => ((i ?? 0) + dir + menuCategories.length) % menuCategories.length);
   };
 
@@ -83,7 +86,10 @@ export function MenuSection() {
             <button
               key={cat.id}
               type="button"
-              onClick={() => setActiveIndex(index)}
+              onClick={() => {
+                setAnimateTurn(false);
+                setActiveIndex(index);
+              }}
               aria-label={`Open ${cat.title}`}
               className="group flex h-[11.5rem] flex-col rounded-xl border border-charcoal/25 bg-card/70 px-3 pb-3 pt-5 text-center shadow-relief transition-all duration-300 hover:-translate-y-1 hover:bg-card hover:shadow-relief-lg sm:h-[12.5rem] sm:px-4 sm:pb-4 sm:pt-6"
             >
@@ -127,7 +133,7 @@ export function MenuSection() {
           <div className="relative flex w-full max-w-none flex-col items-center sm:max-w-3xl">
             <div className="relative w-full max-w-none [perspective:1600px] sm:max-w-2xl">
               <div
-                className="max-h-[75vh] rounded-2xl border border-charcoal/25 bg-sand shadow-2xl transition-all duration-500 ease-out [transform-style:preserve-3d] motion-reduce:duration-0 sm:max-h-[85vh]"
+                className="transition-all duration-500 ease-out [transform-style:preserve-3d] motion-reduce:duration-0"
                 style={{
                   transform: entered
                     ? "rotateY(0deg) scale(1)"
@@ -135,11 +141,15 @@ export function MenuSection() {
                   opacity: entered ? 1 : 0,
                 }}
               >
-                {/* Page-turn layer: re-mounts on category change and plays the flip animation */}
+                {/* The complete card re-mounts and flips, including its paper, border and shadow. */}
                 <div
                   key={category.id}
-                  className={`[transform-style:preserve-3d] ${
-                    turnDir === 1 ? "menu-page-turn-next" : "menu-page-turn-prev"
+                  className={`max-h-[75vh] rounded-2xl border border-charcoal/25 bg-sand shadow-2xl [transform-style:preserve-3d] sm:max-h-[85vh] ${
+                    animateTurn
+                      ? turnDir === 1
+                        ? "menu-page-turn-next"
+                        : "menu-page-turn-prev"
+                      : ""
                   }`}
                 >
                 <div className="max-h-[75vh] overflow-y-auto rounded-2xl sm:max-h-[85vh]">
@@ -370,6 +380,7 @@ export function MenuSection() {
                   onClick={() => {
                     if (i === activeIndex) return;
                     setTurnDir((activeIndex ?? 0) < i ? 1 : -1);
+                    setAnimateTurn(true);
                     setActiveIndex(i);
                   }}
                   className={`h-2.5 rounded-full transition-all duration-300 ${
