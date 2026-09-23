@@ -46,14 +46,15 @@ export function MenuSection() {
   // Swipe navigation on touch screens (in addition to the arrows).
   const touchStart = useRef<{ x: number; y: number } | null>(null);
   const onTouchStart = (e: React.TouchEvent) => {
-    const t = e.touches[0];
+    const t = e.touches.item(0);
+    if (!t) return;
     touchStart.current = { x: t.clientX, y: t.clientY };
   };
   const onTouchEnd = (e: React.TouchEvent) => {
     const start = touchStart.current;
     touchStart.current = null;
-    if (!start) return;
-    const t = e.changedTouches[0];
+    const t = e.changedTouches.item(0);
+    if (!start || !t) return;
     const dx = t.clientX - start.x;
     const dy = t.clientY - start.y;
     // Horizontal swipes only: never hijack vertical scrolling of the menu list.
