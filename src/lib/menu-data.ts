@@ -16,6 +16,10 @@ export type MenuItem = {
   group?: string;
   /** Description shown once under the group heading */
   groupDescription?: string;
+  /** Brand name shown on the same line as the group heading (ex. Kura Kura) */
+  groupSubtitle?: string;
+  /** Small handwritten label next to `groupSubtitle` (ex. on tap) */
+  groupSubtitleNote?: string;
   /** Small handwritten note next to the name (on tap, M / L, 4 pcs / 8 pcs...) */
   note?: string;
   /** Single price column */
@@ -153,6 +157,8 @@ export const menuCategories: MenuCategory[] = [
     items: [
       {
         group: "BEER",
+        groupSubtitle: "Kura Kura",
+        groupSubtitleNote: "on tap",
         groupDescription: "Brewed fresh in Bali",
         name: "Lager",
         description: "Pilsner with crisp and dry notes of bread and honey",
