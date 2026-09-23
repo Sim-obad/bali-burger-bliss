@@ -29,10 +29,15 @@ export function ContactSection() {
             href={waLinks.order}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-16 w-full items-center justify-center gap-3 rounded-full bg-charcoal-foreground px-8 text-lg font-bold uppercase tracking-wide text-charcoal shadow-[0_12px_30px_rgba(0,0,0,0.35)] transition-transform hover:scale-[1.01] active:scale-95 sm:w-auto"
+            className="relative inline-flex h-16 w-full items-center justify-center gap-3 overflow-hidden rounded-full bg-charcoal-foreground px-8 text-lg font-bold uppercase tracking-wide text-charcoal shadow-[inset_0_2px_1px_rgba(255,255,255,0.8),inset_0_-10px_18px_rgba(0,0,0,0.08),0_14px_32px_rgba(0,0,0,0.35)] transition-all hover:scale-[1.01] hover:shadow-[inset_0_2px_1px_rgba(255,255,255,0.9),inset_0_-10px_18px_rgba(0,0,0,0.08),0_16px_36px_rgba(0,0,0,0.4)] active:translate-y-px active:scale-[0.99] sm:w-auto"
           >
-            <MessageCircle className="h-6 w-6" aria-hidden />
-            Message us on WhatsApp
+            {/* Glossy highlight — soft sheen across the top half of the pill */}
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-x-0 top-0 h-1/2 rounded-t-full bg-gradient-to-b from-white/55 via-white/15 to-transparent"
+            />
+            <MessageCircle className="relative z-[1] h-6 w-6" aria-hidden />
+            <span className="relative z-[1]">Message us on WhatsApp</span>
           </a>
 
           <div className="flex flex-wrap justify-start gap-3">
