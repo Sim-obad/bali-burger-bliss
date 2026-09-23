@@ -30,7 +30,7 @@ export function InstagramCarousel() {
       {/* Giant watermark for layered depth — same crop as the menu section */}
       <span
         aria-hidden
-        className="pointer-events-none absolute bottom-[-70px] right-0 select-none font-display text-[180px] leading-none text-charcoal opacity-20 sm:text-[240px]"
+        className="pointer-events-none absolute bottom-[-20px] right-0 select-none font-display text-[180px] leading-none text-charcoal opacity-20 sm:text-[240px]"
       >
         TPBC
       </span>
