@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 
 import { menuCategories } from "@/lib/menu-data";
+// Gluten-free badge shown next to gluten-free items
+import glutenFreeBadge from "@/assets/gluten-free.png";
 
 export function MenuSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -191,6 +193,14 @@ export function MenuSection() {
                               <div>
                                 <p className="font-subhead text-base font-bold uppercase tracking-[0.04em] text-charcoal">
                                   {item.name}
+                                  {item.glutenFree ? (
+                                    <img
+                                      src={glutenFreeBadge}
+                                      alt="Gluten free"
+                                      title="Gluten free"
+                                      className="ml-2 inline-block h-[18px] w-[18px] align-[-3px] sm:h-5 sm:w-5"
+                                    />
+                                  ) : null}
                                   {item.note ? (
                                     <span className="ml-2 font-marker text-[11px] font-normal normal-case tracking-normal text-charcoal/70">
                                       {item.note}
