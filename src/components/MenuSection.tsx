@@ -150,7 +150,7 @@ export function MenuSection() {
                       </div>
                     ) : null}
 
-                    <ul className="mt-2 divide-y divide-charcoal/15 border-t border-charcoal/15">
+                    <ul className="mt-2 divide-y divide-charcoal/15">
                       {category.items.map((item, idx) => {
                         const prevGroup = idx > 0 ? category.items[idx - 1]?.group : undefined;
                         const showGroup = item.group && item.group !== prevGroup;
