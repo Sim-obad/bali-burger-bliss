@@ -1,5 +1,5 @@
 import type { ReactElement } from "react";
-import { type LucideIcon } from "lucide-react";
+import { Flame, type LucideIcon } from "lucide-react";
 
 import { BurgerIcon } from "@/components/icons/BurgerIcon";
 import { BeerIcon } from "@/components/icons/BeerIcon";
@@ -24,6 +24,8 @@ export type MenuItem = {
   note?: string;
   /** Shows the gluten-free badge next to the name */
   glutenFree?: boolean;
+  /** Optional icon shown right after the name (flame, chili pepper...) */
+  icon?: MenuIcon;
   /** Single price column */
   price?: string;
   /** Multi-column prices, matching `priceColumns` order */
@@ -85,6 +87,7 @@ export const menuCategories: MenuCategory[] = [
       {
         group: "SMASH BURGER",
         name: "The Spicy",
+        icon: Flame,
         description: "Wagyu beef patty, cheddar, onions, pickled jalapeños, fresh green Lombok chili, spicy mayo sauce",
         prices: ["128K", "+57K"],
       },
@@ -103,6 +106,7 @@ export const menuCategories: MenuCategory[] = [
       {
         group: "CHICKEN BURGER",
         name: "Spicy Chicken",
+        icon: JalapenoIcon,
         description: "Grilled chicken, cheddar, caramelized onions, pickled jalapeño, lettuce & spicy mayo",
         price: "105K",
       },
