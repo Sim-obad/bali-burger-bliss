@@ -306,7 +306,23 @@ export function MenuSection() {
 
                     {category.footnote ? (
                       <p className="mt-4 text-center font-marker text-[11px] text-charcoal/70">
-                        {category.footnote}
+                        {/* Inline the gluten-free badge right before its "Gluten free" mention */}
+                        {category.footnote.split("Gluten free").map((part, i, arr) => (
+                          <span key={i}>
+                            {part}
+                            {i < arr.length - 1 ? (
+                              <>
+                                <img
+                                  src={glutenFreeBadge}
+                                  alt="Gluten free"
+                                  title="Gluten free"
+                                  className="mx-[2px] inline-block h-[13px] w-[13px] align-[-2px]"
+                                />
+                                <span>Gluten free</span>
+                              </>
+                            ) : null}
+                          </span>
+                        ))}
                       </p>
                     ) : null}
                   </div>
