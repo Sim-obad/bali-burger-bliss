@@ -155,6 +155,17 @@ export function MenuSection() {
                                       {category.priceColumns.join(" / ")}
                                     </span>
                                   ) : null}
+                                  {/* Handwritten inline note for compact extras (ex. Add vanilla ice cream) */}
+                                  {category.extras &&
+                                  category.extras.items.length <= 2 &&
+                                  category.extras.inlineGroup === item.group ? (
+                                    <span className="ml-auto inline-block -rotate-[8deg] origin-center whitespace-nowrap font-marker text-[16px] leading-none text-charcoal/80">
+                                      {category.extras.title}
+                                      {category.extras.items[0]?.price
+                                        ? ` ${category.extras.items[0].price}`
+                                        : ""}
+                                    </span>
+                                  ) : null}
                                 </div>
                                 {item.groupDescription ? (
                                   <p className="mt-1 text-xs leading-snug text-charcoal/70 sm:text-sm">
@@ -205,7 +216,8 @@ export function MenuSection() {
                       })}
                     </ul>
 
-                    {category.extras ? (
+                    {category.extras &&
+                    !(category.extras.items.length <= 2 && category.extras.inlineGroup) ? (
                       (() => {
                         const compact = category.extras.items.length <= 2;
                         const wide = category.extras.columns === 3;
