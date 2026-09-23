@@ -209,6 +209,76 @@
   animation: hero-fade-in 1.1s cubic-bezier(0.22, 0.61, 0.36, 1) both;
 }
 
+/* Glossy volume for solid buttons — top sheen, drop shadow, press feel */
+@utility btn-glossy {
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    inset 0 2px 1px rgba(255, 255, 255, 0.8),
+    inset 0 -10px 18px rgba(0, 0, 0, 0.08),
+    0 12px 28px rgba(0, 0, 0, 0.25);
+  transition: box-shadow 200ms ease, transform 150ms ease, background-color 200ms ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 50%;
+    border-radius: inherit;
+    border-bottom-right-radius: 100% 40%;
+    border-bottom-left-radius: 100% 40%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.55), rgba(255, 255, 255, 0.15) 60%, transparent);
+    pointer-events: none;
+  }
+
+  &:hover {
+    box-shadow:
+      inset 0 2px 1px rgba(255, 255, 255, 0.9),
+      inset 0 -10px 18px rgba(0, 0, 0, 0.08),
+      0 16px 34px rgba(0, 0, 0, 0.3);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
+/* Softer glossy volume for outline buttons — subtle sheen and lift */
+@utility btn-glossy-ghost {
+  position: relative;
+  overflow: hidden;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -8px 14px rgba(0, 0, 0, 0.12),
+    0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 200ms ease, transform 150ms ease, background-color 200ms ease;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset-inline: 0;
+    top: 0;
+    height: 50%;
+    border-radius: inherit;
+    border-bottom-right-radius: 100% 40%;
+    border-bottom-left-radius: 100% 40%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.08) 60%, transparent);
+    pointer-events: none;
+  }
+
+  &:hover {
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.35),
+      inset 0 -8px 14px rgba(0, 0, 0, 0.12),
+      0 12px 26px rgba(0, 0, 0, 0.26);
+  }
+
+  &:active {
+    transform: translateY(1px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .hero-fade {
     animation: none;
