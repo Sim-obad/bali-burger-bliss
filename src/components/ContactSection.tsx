@@ -4,8 +4,18 @@ import { site, waLinks } from "@/lib/site-config";
 
 export function ContactSection() {
   return (
-    <section id="contact" className="bg-charcoal py-16 text-charcoal-foreground sm:py-24">
-      <div className="px-5 sm:px-8 lg:px-12">
+    <section
+      id="contact"
+      className="texture-grain relative z-30 -mt-10 overflow-hidden rounded-t-[2.5rem] bg-charcoal py-16 text-charcoal-foreground sm:py-24"
+    >
+      {/* Giant watermark for layered depth */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute -bottom-10 right-0 select-none translate-y-1/4 font-display text-[180px] leading-none text-charcoal-foreground/5 sm:text-[240px]"
+      >
+        TPBC
+      </span>
+      <div className="relative z-[2] px-5 sm:px-8 lg:px-12">
         <p className="font-marker text-sm tracking-wide text-charcoal-foreground">Delivery · Takeaway</p>
         <h2 className="mt-2 flex flex-col text-3xl uppercase leading-[0.85] tracking-[0.01em] sm:text-4xl">
           <span>Order</span>
