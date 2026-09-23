@@ -305,26 +305,25 @@ export function MenuSection() {
                     ) : null}
 
                     {category.footnote ? (
-                      <p className="mt-4 text-center font-marker text-[11px] text-charcoal/70">
+                      <p className="mt-4 whitespace-pre-line text-center font-marker text-[11px] text-charcoal/70">
                         {/* Inline the gluten-free badge right before its "Gluten free" mention */}
-                        {category.footnote.split("Gluten free").map((part, i, arr) => (
-                          <span key={i}>
-                            {part}
-                            {i < arr.length - 1 ? (
-                              <>
+                        {category.footnote.split("Gluten free").flatMap((part, i) =>
+                          i === 0
+                            ? [<span key={`t${i}`}>{part}</span>]
+                            : [
                                 <img
+                                  key={`i${i}`}
                                   src={glutenFreeBadge}
                                   alt="Gluten free"
                                   title="Gluten free"
                                   className="mx-[2px] inline-block h-[13px] w-[13px] align-[-2px]"
-                                />
-                                <span>Gluten free</span>
-                              </>
-                            ) : null}
-                          </span>
-                        ))}
+                                />,
+                                <span key={`t${i}`}>Gluten free{part}</span>,
+                              ]
+                        )}
                       </p>
                     ) : null}
+
                   </div>
                 </div>
               </div>
