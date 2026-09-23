@@ -70,13 +70,13 @@ export const menuCategories: MenuCategory[] = [
       {
         group: "Smash Burgers",
         name: "Cheeseburger",
-        description: "Wagyu beef patty, cheddar,onions, pickles & TPBC sauce",
+        description: "Wagyu beef patty, cheddar, onions, pickles & TPBC sauce",
         prices: ["118K", "+57K"],
       },
       {
         group: "Smash Burgers",
         name: "The Spicy",
-        description: "Wagyu beef patty,onions, pickles jalapeños,  green chili Lombok, spicy mayo",
+        description: "Wagyu beef patty, onions, pickles, jalapeños, green chili Lombok, spicy mayo",
         prices: ["128K", "+57K"],
       },
       {
@@ -146,7 +146,7 @@ export const menuCategories: MenuCategory[] = [
     id: "drinks",
     title: "Drinks",
     icon: BeerIcon,
-    tagline: "Beers, Santai, fresh drinks,soda and sparkling water.",
+    tagline: "Beers, Santai, fresh drinks, soda and sparkling water.",
     items: [
       {
         group: "Beer",
