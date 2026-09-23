@@ -237,6 +237,6 @@ export const menuCategories: MenuCategory[] = [
       items: [{ price: "+ 20K" }],
       inlineGroup: "DESSERTS",
     },
-    footnote: "*Not available on Delivery · Prices include tax and service",
+    footnote: "*Not available on Delivery \n· Prices include tax and service · ",
   },
 ];
