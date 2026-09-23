@@ -144,16 +144,18 @@ export function MenuSection() {
                         return (
                           <li key={`${item.group ?? ""}-${item.name}`} className="py-3">
                             {showGroup ? (
-                              <div className="relative mb-2 flex items-center gap-4">
-                                <p className="-ml-3 inline-block rounded-md bg-charcoal px-3 py-1.5 font-subhead text-[13px] font-bold uppercase tracking-[0.06em] text-charcoal-foreground sm:-ml-4 sm:px-4 sm:text-base">
-                                  {item.group}
-                                </p>
-                                {/* Handwritten price column note, above the price columns */}
-                                {idx === 0 && category.priceColumns ? (
-                                  <span className="ml-auto inline-block w-32 translate-y-[3px] -rotate-[8deg] origin-center whitespace-nowrap text-center font-marker text-[16px] leading-none text-charcoal/80">
-                                    {category.priceColumns.join(" / ")}
-                                  </span>
-                                ) : null}
+                              <div className="relative mb-2">
+                                <div className="flex items-center gap-4">
+                                  <p className="-ml-3 inline-block rounded-md bg-charcoal px-3 py-1.5 font-subhead text-[13px] font-bold uppercase tracking-[0.06em] text-charcoal-foreground sm:-ml-4 sm:px-4 sm:text-base">
+                                    {item.group}
+                                  </p>
+                                  {/* Handwritten price column note, above the price columns */}
+                                  {idx === 0 && category.priceColumns ? (
+                                    <span className="ml-auto inline-block w-32 translate-y-[3px] -rotate-[8deg] origin-center whitespace-nowrap text-center font-marker text-[16px] leading-none text-charcoal/80">
+                                      {category.priceColumns.join(" / ")}
+                                    </span>
+                                  ) : null}
+                                </div>
                                 {item.groupDescription ? (
                                   <p className="mt-1 text-xs leading-snug text-charcoal/70 sm:text-sm">
                                     {item.groupDescription}
