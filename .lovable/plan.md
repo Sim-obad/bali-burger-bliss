@@ -19,7 +19,7 @@ Un interlude typographique beige, plus calme que les autres sections, qui repren
 ## Fichiers
 
 1. **`src/components/LocalSection.tsx`** (nouveau) — la section complète, texte en dur (contenu purement présentationnel, pas besoin de config).
-2. **`src/routes/index.tsx`** — insérer `<LocalSection />` entre `<InstagramCarousel />` et `<ContactSection />`.
+2. **`src/routes/index.tsx`** — insérer `<LocalSection />` entre `<MenuSection />` et `<InstagramCarousel />`.
 
 ## Hors périmètre
 
