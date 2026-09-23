@@ -45,15 +45,15 @@ export function ContactSection() {
       </div>
 
       <div className="mx-auto mt-12 max-w-7xl px-5 sm:px-8">
-        <div className="grid gap-8 sm:grid-cols-2 sm:gap-x-4">
+        <div className="flex flex-col gap-10">
           <div>
             <h3 className="flex items-center gap-2 text-lg uppercase">
               <Clock className="h-5 w-5 text-charcoal-foreground/70" aria-hidden />
               Opening hours
             </h3>
-            <ul className="mt-3 max-w-[16rem] space-y-0.5 text-charcoal-foreground/75">
+            <ul className="mt-3 space-y-2 text-charcoal-foreground/75">
               {site.hours.map((h) => (
-                <li key={h.days} className="flex justify-between gap-2">
+                <li key={h.days} className="flex justify-between gap-4">
                   <span>{h.days}</span>
                   <span className="font-semibold">{h.time}</span>
                 </li>
