@@ -161,7 +161,7 @@ export function MenuSection() {
       </div>
 
 
-      <div className="mt-8 grid grid-cols-2 gap-3 px-5 sm:grid-cols-4 sm:gap-4 sm:px-8 lg:px-12">
+      <div className="relative z-[2] mt-8 grid grid-cols-2 gap-3 px-5 sm:grid-cols-4 sm:gap-4 sm:px-8 lg:px-12">
         {menuCategories.map((cat, index) => {
           const Icon = cat.icon;
           return (
