@@ -138,7 +138,7 @@ export function MenuSection() {
               key={cat.id}
               type="button"
               onClick={() => {
-                setAnimateTurn(false);
+                setRot(0);
                 setActiveIndex(index);
               }}
               aria-label={`Open ${cat.title}`}
