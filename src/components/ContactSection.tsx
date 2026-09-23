@@ -11,7 +11,7 @@ export function ContactSection() {
           <span>Order</span>
         </h2>
         <p className="mt-3 max-w-md text-charcoal-foreground/75">
-          Everything happens on WhatsApp — one message and we've got you.
+          Everything happens on WhatsApp — one message and we've got you (delivery coming soon).
         </p>
 
         <a
