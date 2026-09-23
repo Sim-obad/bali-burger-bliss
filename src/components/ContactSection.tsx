@@ -51,9 +51,9 @@ export function ContactSection() {
               <Clock className="h-5 w-5 text-charcoal-foreground/70" aria-hidden />
               Opening hours
             </h3>
-            <ul className="mt-3 space-y-1 text-charcoal-foreground/75">
+            <ul className="mt-3 space-y-0.5 text-charcoal-foreground/75">
               {site.hours.map((h) => (
-                <li key={h.days} className="flex justify-between gap-4">
+                <li key={h.days} className="flex justify-between gap-2">
                   <span>{h.days}</span>
                   <span className="font-semibold">{h.time}</span>
                 </li>
