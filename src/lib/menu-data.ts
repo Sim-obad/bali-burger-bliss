@@ -76,7 +76,7 @@ export const menuCategories: MenuCategory[] = [
       {
         group: "Smash Burgers",
         name: "The Spicy",
-        description: "Wagyu beef patty,onions, pickles jalapeños,green chili Lombok, spicy mayo",
+        description: "Wagyu beef patty,onions, pickles jalapeños, green chili Lombok, spicy mayo",
         prices: ["128K", "+57K"],
       },
       {
