@@ -67,4 +67,19 @@ export function OnionIcon(props: IconProps) {
       <path d="M12 4.5c.8-1 2-1.5 3-1" />
       <path d="M9.8 11c-1 1.5-1 4.5 0 6.5" />
       <path d="M14.2 11c1 1.5 1 4.5 0 6.5" />
-FLACODEEOF
+    </Svg>
+  );
+}
+
+export function PickleIcon(props: IconProps) {
+  return (
+    <Svg {...props}>
+      <path d="M16.9 3.1a4.5 4.5 0 0 1 4 4c.4 3.6-1.7 8.4-4.9 11.6-2.4 2.4-5.9 3-7.8 1.1s-1.3-5.4 1.1-7.8c3.2-3.2 4.6-9.3 7.6-8.9z" />
+      <path d="M9.5 15.5h.01" />
+      <path d="M12 14h.01" />
+      <path d="M13.5 16.5h.01" />
+      <path d="M11 18.5h.01" />
+      <path d="M15 12.5h.01" />
+    </Svg>
+  );
+}
