@@ -170,7 +170,7 @@ export function MenuSection() {
                                 {/* Brand subtitle on its own line, between the group title and the description (ex. Kura Kura · on tap) */}
                                 {item.groupSubtitle ? (
                                   <p className="mt-1.5 flex items-baseline gap-2">
-                                    <span className="font-subhead text-sm font-bold uppercase tracking-[0.04em] text-charcoal/85 sm:text-base">
+                                    <span className="font-subhead text-base font-bold uppercase tracking-[0.04em] text-charcoal/85 sm:text-lg">
                                       {item.groupSubtitle}
                                     </span>
                                     {item.groupSubtitleNote ? (
