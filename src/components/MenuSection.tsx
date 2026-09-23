@@ -195,7 +195,7 @@ export function MenuSection() {
                                   {item.name}
                                   {item.icon ? (
                                     <item.icon
-                                      className="ml-2 inline-block h-[18px] w-[18px] align-[-3px] text-destructive sm:h-5 sm:w-5"
+                                      className="ml-2 inline-block h-[18px] w-[18px] align-[-3px] text-charcoal sm:h-5 sm:w-5"
                                       strokeWidth={1.8}
                                     />
                                   ) : null}

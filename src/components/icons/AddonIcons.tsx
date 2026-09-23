@@ -58,3 +58,13 @@ export function SauceIcon(props: IconProps) {
     </Svg>
   );
 }
+
+export function OnionIcon(props: IconProps) {
+  return (
+    <Svg {...props}>
+      <path d="M12 7.5c4.1 0 7.5 3 7.5 6.75S16.1 21 12 21s-7.5-3-7.5-6.75S7.9 7.5 12 7.5z" />
+      <path d="M12 7.5V4.5" />
+      <path d="M12 4.5c.8-1 2-1.5 3-1" />
+      <path d="M9.8 11c-1 1.5-1 4.5 0 6.5" />
+      <path d="M14.2 11c1 1.5 1 4.5 0 6.5" />
+FLACODEEOF
