@@ -14,31 +14,33 @@ export function ContactSection() {
           Everything happens on WhatsApp — one message and we've got you (delivery coming soon).
         </p>
 
-        <a
-          href={waLinks.order}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-8 inline-flex h-16 w-full items-center justify-center gap-3 rounded-full bg-charcoal-foreground px-8 text-lg font-bold uppercase tracking-wide text-charcoal transition-transform hover:scale-[1.01] active:scale-95 sm:w-auto"
-        >
-          <MessageCircle className="h-6 w-6" aria-hidden />
-          Message us on WhatsApp
-        </a>
+        <div className="mt-8 flex w-full flex-col items-center gap-3 sm:w-auto sm:items-stretch">
+          <a
+            href={waLinks.order}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex h-16 w-full items-center justify-center gap-3 rounded-full bg-charcoal-foreground px-8 text-lg font-bold uppercase tracking-wide text-charcoal transition-transform hover:scale-[1.01] active:scale-95 sm:w-auto"
+          >
+            <MessageCircle className="h-6 w-6" aria-hidden />
+            Message us on WhatsApp
+          </a>
 
-        <div className="mt-4 flex flex-wrap justify-center gap-3">
-          {[
-            { label: "Delivery", href: waLinks.delivery },
-            { label: "Takeaway", href: waLinks.takeaway },
-          ].map((item) => (
-            <a
-              key={item.label}
-              href={item.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center rounded-full border border-charcoal-foreground/25 px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-charcoal-foreground/10"
-            >
-              {item.label}
-            </a>
-          ))}
+          <div className="flex flex-wrap justify-center gap-3">
+            {[
+              { label: "Delivery", href: waLinks.delivery },
+              { label: "Takeaway", href: waLinks.takeaway },
+            ].map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-full border border-charcoal-foreground/25 px-5 py-2.5 text-sm font-semibold transition-colors hover:bg-charcoal-foreground/10"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 
