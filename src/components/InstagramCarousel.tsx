@@ -26,11 +26,11 @@ export function InstagramCarousel() {
   const posts = data?.posts?.length ? data.posts : fallbackPosts;
 
   return (
-    <section id="instagram" className="texture-grain relative z-20 -mt-10 overflow-hidden bg-background pb-[164px] pt-16 shadow-overlap sm:pb-[196px] sm:pt-24">
+    <section id="instagram" className="texture-grain relative z-20 -mt-10 overflow-hidden bg-background pb-[114px] pt-16 shadow-overlap sm:pb-[146px] sm:pt-24">
       {/* Giant watermark for layered depth — same crop as the menu section */}
       <span
         aria-hidden
-        className="pointer-events-none absolute bottom-[-20px] right-0 select-none font-display text-[180px] leading-none text-charcoal opacity-20 sm:text-[240px]"
+        className="pointer-events-none absolute bottom-[-30px] right-0 select-none font-display text-[180px] leading-none text-charcoal opacity-20 sm:text-[240px]"
       >
         TPBC
       </span>
