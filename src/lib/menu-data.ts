@@ -42,6 +42,8 @@ export type MenuCategory = {
   extras?: {
     title: string;
     items: MenuExtra[];
+    /** Force a 3-per-row centered layout in the extras block */
+    columns?: number;
   };
   /** Small note displayed at the bottom of the card */
   footnote?: string;
@@ -98,6 +100,7 @@ export const menuCategories: MenuCategory[] = [
     ],
     extras: {
       title: "Extras",
+      columns: 3,
       items: [
         { name: "Jalapeño", price: "8K", icon: JalapenoIcon },
         { name: "Cheese", price: "20K", icon: CheeseIcon },

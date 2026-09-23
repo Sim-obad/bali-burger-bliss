@@ -118,7 +118,7 @@ export function MenuSection() {
                   opacity: entered ? 1 : 0,
                 }}
               >
-                <div className="max-h-[80vh] overflow-y-auto sm:max-h-[85vh]">
+                <div className="max-h-[80vh] overflow-y-auto rounded-2xl sm:max-h-[85vh]">
                   <div className="sticky top-0 z-10 flex items-start justify-between gap-3 border-b border-charcoal/15 bg-sand p-5 sm:p-7">
                     <div className="flex items-center gap-3">
                       <ActiveIcon className="h-9 w-9 shrink-0 text-charcoal" strokeWidth={1.5} />
@@ -158,7 +158,7 @@ export function MenuSection() {
                           <li key={`${item.group ?? ""}-${item.name}`} className="py-3">
                             {showGroup ? (
                               <div className="mb-2">
-                                <p className="inline-block rounded-md bg-charcoal px-2.5 py-1 font-subhead text-[11px] font-bold uppercase tracking-[0.06em] text-charcoal-foreground">
+                                <p className="-ml-3 inline-block rounded-md bg-charcoal px-3 py-1.5 font-subhead text-[13px] font-bold uppercase tracking-[0.06em] text-charcoal-foreground sm:-ml-4 sm:px-4 sm:text-base">
                                   {item.group}
                                 </p>
                                 {item.groupDescription ? (
@@ -211,34 +211,62 @@ export function MenuSection() {
                     </ul>
 
                     {category.extras ? (
-                      <div className="mt-5 rounded-xl bg-charcoal p-4 text-charcoal-foreground">
-                        <p className="font-marker text-sm leading-none text-charcoal-foreground/90">
-                          {category.extras.title}
-                        </p>
-                        <ul className="mt-3 grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-4">
-                          {category.extras.items.map((extra) => {
-                            const ExtraIcon = extra.icon;
-                            return (
-                              <li
-                                key={extra.name}
-                                className="flex items-center justify-between gap-2 text-xs leading-tight"
-                              >
-                                <span className="flex items-center gap-2">
-                                  {ExtraIcon ? (
-                                    <ExtraIcon className="h-5 w-5 shrink-0" strokeWidth={1.5} />
-                                  ) : null}
-                                  <span className="font-subhead font-bold uppercase tracking-[0.04em]">
-                                    {extra.name}
-                                  </span>
-                                </span>
-                                {extra.price ? (
-                                  <span className="font-subhead font-bold">{extra.price}</span>
-                                ) : null}
-                              </li>
-                            );
-                          })}
-                        </ul>
-                      </div>
+                      (() => {
+                        const compact = category.extras.items.length <= 2;
+                        const wide = category.extras.columns === 3;
+                        return (
+                          <div
+                            className={
+                              compact
+                                ? "mx-auto mt-5 w-fit rounded-xl bg-charcoal px-6 py-3 text-charcoal-foreground"
+                                : "mt-5 rounded-xl bg-charcoal p-4 text-charcoal-foreground"
+                            }
+                          >
+                            <p
+                              className={`font-marker text-sm leading-none text-charcoal-foreground/90 ${
+                                compact ? "text-center" : ""
+                              }`}
+                            >
+                              {category.extras.title}
+                            </p>
+                            <ul
+                              className={
+                                compact
+                                  ? "mt-2 flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
+                                  : wide
+                                    ? "mt-3 flex flex-wrap justify-center gap-x-6 gap-y-2"
+                                    : "mt-3 grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-4"
+                              }
+                            >
+                              {category.extras.items.map((extra) => {
+                                const ExtraIcon = extra.icon;
+                                return (
+                                  <li
+                                    key={extra.name}
+                                    className={`flex items-center justify-between gap-2 text-xs leading-tight ${
+                                      wide && !compact
+                                        ? "w-[calc((100%-3rem)/3)] min-w-[8.5rem]"
+                                        : ""
+                                    }`}
+                                  >
+                                    <span className="flex items-center gap-2">
+                                      {ExtraIcon ? (
+                                        <ExtraIcon className="h-5 w-5 shrink-0" strokeWidth={1.5} />
+                                      ) : null}
+                                      <span className="font-subhead font-bold uppercase tracking-[0.04em]">
+                                        {extra.name}
+                                      </span>
+                                    </span>
+                                    {extra.price ? (
+                                      <span className="font-subhead font-bold">{extra.price}</span>
+                                    ) : null}
+                                  </li>
+                                );
+                              })}
+                            </ul>
+                          </div>
+                        );
+                      })()
                     ) : null}
 
                     {category.footnote ? (
