@@ -22,6 +22,8 @@ export type MenuItem = {
   groupSubtitleNote?: string;
   /** Small handwritten note next to the name (on tap, M / L, 4 pcs / 8 pcs...) */
   note?: string;
+  /** Shows the gluten-free badge next to the name */
+  glutenFree?: boolean;
   /** Single price column */
   price?: string;
   /** Multi-column prices, matching `priceColumns` order */
