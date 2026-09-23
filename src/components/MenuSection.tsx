@@ -108,6 +108,8 @@ export function MenuSection() {
           role="dialog"
           aria-modal="true"
           aria-label={category.title}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
         >
           <button
             type="button"
