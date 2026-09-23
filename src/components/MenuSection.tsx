@@ -146,14 +146,22 @@ export function MenuSection() {
   const ActiveIcon = category?.icon;
 
   return (
-    <section id="menu" className="texture-grain bg-sand py-14 sm:py-20">
-      <div className="px-5 sm:px-8 lg:px-12">
+    <section id="menu" className="texture-grain relative overflow-hidden bg-background py-14 sm:py-20">
+      {/* Giant watermark for layered depth — same crop as the contact section */}
+      <span
+        aria-hidden
+        className="pointer-events-none absolute bottom-[-70px] right-0 select-none font-display text-[180px] leading-none text-secondary sm:text-[240px]"
+      >
+        TPBC
+      </span>
+      <div className="relative z-[2] px-5 sm:px-8 lg:px-12">
         <h2 className="flex flex-col text-4xl uppercase leading-[0.85] tracking-[0.01em] text-charcoal sm:text-5xl lg:text-6xl">
           <span>Our Menu</span>
         </h2>
       </div>
 
-      <div className="mt-8 grid grid-cols-2 gap-3 px-5 sm:grid-cols-4 sm:gap-4 sm:px-8 lg:px-12">
+
+      <div className="relative z-[2] mt-8 grid grid-cols-2 gap-3 px-5 sm:grid-cols-4 sm:gap-4 sm:px-8 lg:px-12">
         {menuCategories.map((cat, index) => {
           const Icon = cat.icon;
           return (
