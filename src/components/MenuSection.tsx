@@ -133,11 +133,11 @@ export function MenuSection() {
           <div className="relative flex w-full max-w-none flex-col items-center sm:max-w-3xl">
             <div className="relative w-full max-w-none [perspective:1600px] sm:max-w-2xl">
               <div
-                className="transition-all duration-500 ease-out [transform-style:preserve-3d] motion-reduce:duration-0"
+                className="transition-all duration-[850ms] [transition-timing-function:cubic-bezier(0.3,0,0.2,1)] [transform-style:preserve-3d] motion-reduce:duration-0"
                 style={{
                   transform: entered
                     ? "rotateY(0deg) scale(1)"
-                    : "rotateY(-100deg) scale(0.85)",
+                    : "rotateY(-85deg) scale(0.92)",
                   opacity: entered ? 1 : 0,
                 }}
               >
