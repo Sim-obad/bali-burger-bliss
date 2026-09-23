@@ -6,7 +6,7 @@ import { LocalSection } from "@/components/LocalSection";
 import { MenuSection } from "@/components/MenuSection";
 import { ContactSection } from "@/components/ContactSection";
 import { site } from "@/lib/site-config";
-import logo from "@/assets/tpbc-logo.png.asset.json";
+import logo from "@/assets/tpbc-logo.webp";
 
 
 const title = "The Potato Bun Club — Burgers in Amed, Bali";
@@ -53,7 +53,7 @@ function HomePage() {
       <ContactSection />
       <footer className="flex flex-col items-center gap-3 bg-charcoal px-5 pb-10 text-center text-sm text-charcoal-foreground/60">
         <img
-          src={logo.url}
+          src={logo}
           alt="The Potato Bun Club logo"
           width={96}
           height={96}
