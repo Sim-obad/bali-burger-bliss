@@ -3,10 +3,10 @@ import { Instagram } from "lucide-react";
 
 import { getInstagramPosts, type InstagramPost } from "@/lib/instagram.functions";
 import { site } from "@/lib/site-config";
-import ig1 from "@/assets/ig-1.jpg";
-import ig2 from "@/assets/ig-2.jpg";
-import ig3 from "@/assets/ig-3.jpg";
-import ig4 from "@/assets/ig-4.jpg";
+import ig1 from "@/assets/ig-1.webp";
+import ig2 from "@/assets/ig-2.webp";
+import ig3 from "@/assets/ig-3.webp";
+import ig4 from "@/assets/ig-4.webp";
 
 const fallbackPosts: InstagramPost[] = [
   { id: "f1", imageUrl: ig1, permalink: site.instagramUrl, caption: "Burger & fries by the beach" },

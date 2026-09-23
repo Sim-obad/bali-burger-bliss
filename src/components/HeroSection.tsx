@@ -3,8 +3,8 @@ import { MessageCircle } from "lucide-react";
 
 import { waLinks } from "@/lib/site-config";
 import heroNight from "@/assets/hero-restaurant-night.jpg.asset.json";
-import palmTree from "@/assets/palm-tree.png";
-import logo from "@/assets/tpbc-logo.png.asset.json";
+import palmTree from "@/assets/palm-tree.webp";
+import logo from "@/assets/tpbc-logo.webp";
 
 export function HeroSection() {
   const [offset, setOffset] = useState(0);
@@ -29,6 +29,8 @@ export function HeroSection() {
       <div className="absolute inset-0 overflow-hidden">
         <img
           src={heroNight.url}
+          fetchPriority="high"
+          decoding="async"
           alt="The Potato Bun Club restaurant in Amed, Bali at dusk, warm wooden facade and glowing windows"
           width={1920}
           height={1280}
@@ -51,7 +53,7 @@ export function HeroSection() {
                 <span className="text-[15vw] lg:text-[7.5vw]">Club</span>
               </span>
               <img
-                src={logo.url}
+                src={logo}
                 alt="The Potato Bun Club logo"
                 width={320}
                 height={320}
@@ -82,8 +84,8 @@ export function HeroSection() {
               src={palmTree}
               alt=""
               aria-hidden="true"
-              width={512}
-              height={1024}
+              width={200}
+              height={400}
               className="h-[7rem] w-auto opacity-85 sm:h-[8.5rem] [filter:brightness(0)_invert(1)]"
             />
           </div>
@@ -118,6 +120,5 @@ export function HeroSection() {
         </div>
       </div>
     </section>
-
   );
 }
