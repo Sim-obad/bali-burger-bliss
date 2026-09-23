@@ -8,10 +8,8 @@ import glutenFreeBadge from "@/assets/gluten-free.png";
 export function MenuSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [entered, setEntered] = useState(false);
-  // Direction of the last category change: drives the page-turn animation side.
-  const [turnDir, setTurnDir] = useState<1 | -1>(1);
-  const [animateTurn, setAnimateTurn] = useState(false);
   const open = activeIndex !== null;
+
 
   useEffect(() => {
     const onOpen = (e: Event) => {
