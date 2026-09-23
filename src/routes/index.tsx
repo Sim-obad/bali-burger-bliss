@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 
 import { HeroSection } from "@/components/HeroSection";
 import { InstagramCarousel } from "@/components/InstagramCarousel";
+import { LocalSection } from "@/components/LocalSection";
 import { MenuSection } from "@/components/MenuSection";
 import { ContactSection } from "@/components/ContactSection";
 import { site } from "@/lib/site-config";
