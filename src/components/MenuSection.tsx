@@ -8,17 +8,16 @@ import glutenFreeBadge from "@/assets/gluten-free.png";
 export function MenuSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [entered, setEntered] = useState(false);
-  // Direction of the last category change: drives the page-turn animation side.
-  const [turnDir, setTurnDir] = useState<1 | -1>(1);
-  const [animateTurn, setAnimateTurn] = useState(false);
   const open = activeIndex !== null;
+
 
   useEffect(() => {
     const onOpen = (e: Event) => {
       const detail = (e as CustomEvent).detail as { categoryId?: string } | undefined;
       const categoryId = detail?.categoryId ?? "burgers";
       const index = menuCategories.findIndex((c) => c.id === categoryId);
-      setAnimateTurn(false);
+      setRot(0);
+
       setActiveIndex(index >= 0 ? index : 0);
     };
     window.addEventListener("open-menu-category", onOpen);
@@ -43,19 +42,86 @@ export function MenuSection() {
     };
   }, [open]);
 
-  // Change category and record the direction so the card turns like a menu page.
-  const go = (dir: 1 | -1) => {
-    setTurnDir(dir);
-    setAnimateTurn(true);
-    setActiveIndex((i) => ((i ?? 0) + dir + menuCategories.length) % menuCategories.length);
+  // Live 3D page turn: the card follows the finger, then finishes the rotation
+  // at a speed matching the swipe. It is never off screen — at 90deg it is
+  // simply edge-on, exactly like a real page being turned.
+  const [rot, setRot] = useState(0);
+  const [dur, setDur] = useState(0);
+  const timers = useRef<number[]>([]);
+  const clearTimers = () => {
+    timers.current.forEach((t) => window.clearTimeout(t));
+    timers.current = [];
+  };
+  useEffect(() => clearTimers, []);
+
+  // Turn to the next/previous category, half-turn out then half-turn in.
+  const go = (dir: 1 | -1, speed = 0) => {
+    clearTimers();
+    // speed is px/ms of the swipe: faster finger, faster page turn.
+    const half = Math.max(140, Math.min(420, 380 - speed * 160));
+    setDur(half);
+    setRot(dir === 1 ? -90 : 90);
+    timers.current.push(
+      window.setTimeout(() => {
+        setActiveIndex((i) => ((i ?? 0) + dir + menuCategories.length) % menuCategories.length);
+        setDur(0);
+        setRot(dir === 1 ? 90 : -90);
+        timers.current.push(
+          window.setTimeout(() => {
+            setDur(half);
+            setRot(0);
+          }, 20),
+        );
+      }, half),
+    );
   };
 
+  // Same page turn, but straight to a given category (carousel dots).
+  const goTo = (target: number) => {
+    const dir: 1 | -1 = (activeIndex ?? 0) < target ? 1 : -1;
+    clearTimers();
+    const half = 320;
+    setDur(half);
+    setRot(dir === 1 ? -90 : 90);
+    timers.current.push(
+      window.setTimeout(() => {
+        setActiveIndex(target);
+        setDur(0);
+        setRot(dir === 1 ? 90 : -90);
+        timers.current.push(
+          window.setTimeout(() => {
+            setDur(half);
+            setRot(0);
+          }, 20),
+        );
+      }, half),
+    );
+  };
+
+
   // Swipe navigation on touch screens (in addition to the carousel dots).
-  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const touchStart = useRef<{ x: number; y: number; t: number } | null>(null);
+  const dragging = useRef(false);
+  const cardRef = useRef<HTMLDivElement>(null);
   const onTouchStart = (e: React.TouchEvent) => {
     const t = e.touches.item(0);
     if (!t) return;
-    touchStart.current = { x: t.clientX, y: t.clientY };
+    clearTimers();
+    dragging.current = false;
+    touchStart.current = { x: t.clientX, y: t.clientY, t: Date.now() };
+  };
+  const onTouchMove = (e: React.TouchEvent) => {
+    const start = touchStart.current;
+    const t = e.touches.item(0);
+    if (!start || !t) return;
+    const dx = t.clientX - start.x;
+    const dy = t.clientY - start.y;
+    // Horizontal swipes only: never hijack vertical scrolling of the menu list.
+    if (!dragging.current && (Math.abs(dx) < 12 || Math.abs(dx) < Math.abs(dy) * 1.2)) return;
+    dragging.current = true;
+    const width = cardRef.current?.offsetWidth ?? 320;
+    setDur(0);
+    setRot(Math.max(-80, Math.min(80, (dx / width) * 90)));
   };
   const onTouchEnd = (e: React.TouchEvent) => {
     const start = touchStart.current;
@@ -64,9 +130,17 @@ export function MenuSection() {
     if (!start || !t) return;
     const dx = t.clientX - start.x;
     const dy = t.clientY - start.y;
-    // Horizontal swipes only: never hijack vertical scrolling of the menu list.
-    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) go(dx < 0 ? 1 : -1);
+    const speed = Math.abs(dx) / Math.max(1, Date.now() - start.t);
+    if (dragging.current && Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+      go(dx < 0 ? 1 : -1, speed);
+    } else if (dragging.current) {
+      // Not far enough: let the page fall back flat.
+      setDur(260);
+      setRot(0);
+    }
+    dragging.current = false;
   };
+
 
   const category = activeIndex !== null ? menuCategories[activeIndex] : null;
   const ActiveIcon = category?.icon;
@@ -87,7 +161,7 @@ export function MenuSection() {
               key={cat.id}
               type="button"
               onClick={() => {
-                setAnimateTurn(false);
+                setRot(0);
                 setActiveIndex(index);
               }}
               aria-label={`Open ${cat.title}`}
@@ -119,6 +193,7 @@ export function MenuSection() {
           aria-modal="true"
           aria-label={category.title}
           onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
           <button
@@ -131,7 +206,7 @@ export function MenuSection() {
           />
 
           <div className="relative flex w-full max-w-none flex-col items-center sm:max-w-3xl">
-            <div className="relative w-full max-w-none [perspective:1600px] sm:max-w-2xl">
+            <div className="relative w-full max-w-none [perspective:1100px] sm:max-w-2xl">
               <div
                 className="transition-all duration-[850ms] [transition-timing-function:cubic-bezier(0.3,0,0.2,1)] [transform-style:preserve-3d] motion-reduce:duration-0"
                 style={{
@@ -141,17 +216,19 @@ export function MenuSection() {
                   opacity: entered ? 1 : 0,
                 }}
               >
-                {/* The complete card re-mounts and flips, including its paper, border and shadow. */}
+                {/* The whole card pivots in 3D, paper, border and shadow included. */}
                 <div
-                  key={category.id}
-                  className={`max-h-[75vh] rounded-2xl border border-charcoal/25 bg-sand shadow-2xl [transform-style:preserve-3d] sm:max-h-[85vh] ${
-                    animateTurn
-                      ? turnDir === 1
-                        ? "menu-page-turn-next"
-                        : "menu-page-turn-prev"
-                      : ""
-                  }`}
+                  ref={cardRef}
+                  className="max-h-[75vh] rounded-2xl border border-charcoal/25 bg-sand shadow-2xl [backface-visibility:hidden] [transform-style:preserve-3d] sm:max-h-[85vh]"
+                  style={{
+                    transform: `rotateY(${rot}deg)`,
+                    transformOrigin: "center",
+                    transition: dur ? `transform ${dur}ms cubic-bezier(0.33,0,0.3,1), filter ${dur}ms linear` : "none",
+                    // Shading follows the angle so the page catches the light.
+                    filter: `brightness(${1 - Math.min(0.28, Math.abs(rot) / 320)})`,
+                  }}
                 >
+
                 <div className="max-h-[75vh] overflow-y-auto rounded-2xl sm:max-h-[85vh]">
                   <div className="sticky top-0 z-10 flex items-start justify-between gap-3 border-b border-charcoal/15 bg-sand p-5 sm:p-7">
                     <div className="flex items-center gap-3">
@@ -379,10 +456,9 @@ export function MenuSection() {
                   aria-label={cat.title}
                   onClick={() => {
                     if (i === activeIndex) return;
-                    setTurnDir((activeIndex ?? 0) < i ? 1 : -1);
-                    setAnimateTurn(true);
-                    setActiveIndex(i);
+                    goTo(i);
                   }}
+
                   className={`h-2.5 rounded-full transition-all duration-300 ${
                     i === activeIndex ? "w-7 bg-sand" : "w-2.5 bg-sand/40 hover:bg-sand/70"
                   }`}
