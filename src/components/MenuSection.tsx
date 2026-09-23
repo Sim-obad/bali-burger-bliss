@@ -223,7 +223,7 @@ export function MenuSection() {
                             }
                           >
                             <p
-                              className={`font-marker text-sm leading-none text-charcoal-foreground/90 ${
+                              className={`font-marker text-[17px] leading-none text-charcoal-foreground/90 ${
                                 compact ? "text-center" : ""
                               }`}
                             >
@@ -244,7 +244,7 @@ export function MenuSection() {
                                 return (
                                   <li
                                     key={extra.name}
-                                    className={`flex items-center text-[15px] leading-tight ${
+                                    className={`flex items-center text-[12.5px] leading-tight ${
                                       wide && !compact
                                         ? "w-[calc((100%-3.5rem)/3)] min-w-[9.5rem] gap-2.5 sm:gap-4"
                                         : isSauces
