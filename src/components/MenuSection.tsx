@@ -236,7 +236,7 @@ export function MenuSection() {
                                 const isSauces = category.id === "sides";
                                 return (
                                   <li
-                                    key={extra.name}
+                                    key={extra.name ?? extra.price}
                                     className={`flex items-center text-[12.5px] leading-tight ${
                                       wide && !compact
                                         ? "w-[calc((100%-3.5rem)/3)] min-w-[9.5rem] gap-2.5 sm:gap-4"
@@ -249,9 +249,11 @@ export function MenuSection() {
                                       {ExtraIcon ? (
                                         <ExtraIcon className="h-6 w-6 shrink-0" strokeWidth={1.5} />
                                       ) : null}
-                                      <span className="font-subhead font-bold uppercase tracking-[0.04em]">
-                                        {extra.name}
-                                      </span>
+                                      {extra.name ? (
+                                        <span className="font-subhead font-bold uppercase tracking-[0.04em]">
+                                          {extra.name}
+                                        </span>
+                                      ) : null}
                                     </span>
                                     {extra.price ? (
                                       <span className="font-subhead font-bold">{extra.price}</span>
