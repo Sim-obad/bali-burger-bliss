@@ -159,7 +159,7 @@ export function MenuSection() {
                                   {category.extras &&
                                   category.extras.items.length <= 2 &&
                                   category.extras.inlineGroup === item.group ? (
-                                    <span className="ml-auto inline-block -rotate-[8deg] origin-center whitespace-nowrap font-marker text-[16px] leading-none text-charcoal/80">
+                                    <span className="ml-auto inline-block -rotate-[8deg] origin-center whitespace-nowrap font-marker text-[14px] leading-none text-charcoal/80">
                                       {category.extras.title}
                                       {category.extras.items[0]?.price
                                         ? ` ${category.extras.items[0].price}`
