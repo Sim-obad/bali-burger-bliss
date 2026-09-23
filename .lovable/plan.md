@@ -8,7 +8,7 @@ Ajouter **entre la section Menu et la section Instagram** un interlude sans titr
 
 Un interlude typographique beige, plus calme que les autres sections, qui reprend les codes du Hero :
 
-- **Fond** : beige légèrement plus soutenu que la section Instagram (token `secondary`/`sand` existant), pour marquer une pause entre Instagram (beige clair) et Contact (navy). Pas de carte ni de bordure — juste de l'espace.
+- **Fond** : beige légèrement plus soutenu que la page (token `secondary`/`sand` existant), pour marquer une pause entre le Menu (beige clair) et Instagram (beige clair). Pas de carte ni de bordure — juste de l'espace.
 - **Titre** : « PROUDLY / LOCAL, / WHENEVER / WE CAN. » en Anton, empilé, collé au bord gauche, exactement comme les titres du Hero et des autres sections. Ce n'est pas un titre de section ajouté, c'est la première phrase du texte fourni.
 - **Annotation manuscrite** : « kept close to home » en Permanent Marker, comme les touches manuscrites du Hero et de la section Order.
 - **Discours** : le texte fourni, reformaté en paragraphes naturels (les retours à la ligne manuels type Instagram sont supprimés, la ponctuation est conservée), en Montserrat, dans une colonne lisible (max-w-md/lg).
