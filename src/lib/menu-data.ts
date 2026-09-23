@@ -5,7 +5,7 @@ import { BurgerIcon } from "@/components/icons/BurgerIcon";
 import { BeerIcon } from "@/components/icons/BeerIcon";
 import { FriesIcon } from "@/components/icons/FriesIcon";
 import { SundaeIcon } from "@/components/icons/SundaeIcon";
-import { BaconIcon, CheeseIcon, JalapenoIcon, SauceIcon } from "@/components/icons/AddonIcons";
+import { BaconIcon, CheeseIcon, JalapenoIcon, OnionIcon, PickleIcon, SauceIcon } from "@/components/icons/AddonIcons";
 
 export type MenuIcon = LucideIcon | ((props: { className?: string; strokeWidth?: number }) => ReactElement);
 
@@ -118,8 +118,8 @@ export const menuCategories: MenuCategory[] = [
         { name: "Jalapeño", price: "8K", icon: JalapenoIcon },
         { name: "Cheese", price: "20K", icon: CheeseIcon },
         { name: "Bacon", price: "30K", icon: BaconIcon },
-        { name: "Onions", price: "6K", icon: BaconIcon },
-        { name: "Pickles", price: "8K", icon: BaconIcon },
+        { name: "Onions", price: "6K", icon: OnionIcon },
+        { name: "Pickles", price: "8K", icon: PickleIcon },
       ],
     },
     footnote: "Prices include tax and service",
