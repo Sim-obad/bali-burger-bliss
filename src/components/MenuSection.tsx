@@ -16,7 +16,8 @@ export function MenuSection() {
       const detail = (e as CustomEvent).detail as { categoryId?: string } | undefined;
       const categoryId = detail?.categoryId ?? "burgers";
       const index = menuCategories.findIndex((c) => c.id === categoryId);
-      setAnimateTurn(false);
+      setRot(0);
+
       setActiveIndex(index >= 0 ? index : 0);
     };
     window.addEventListener("open-menu-category", onOpen);
