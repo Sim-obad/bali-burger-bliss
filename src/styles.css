@@ -285,40 +285,49 @@
   }
 }
 
-/* Menu popup category change: reuse the opening flip and mirror it so the
-   rotation follows the swipe direction. Slow, soft turn so it reads like a
-   paper page rather than a snap. */
+/* Menu popup category change: the new card is visible from the very first
+   frame, hinged on its spine, so there is never an empty gap between the two
+   categories. It swings flat like a real page being turned. */
 @keyframes menu-page-turn-next {
   0% {
-    transform: rotateY(-85deg) scale(0.92);
-    opacity: 0;
+    transform: rotateY(-72deg);
+    filter: brightness(0.82);
+  }
+  60% {
+    filter: brightness(0.96);
   }
   100% {
-    transform: rotateY(0deg) scale(1);
-    opacity: 1;
+    transform: rotateY(0deg);
+    filter: brightness(1);
   }
 }
 
 @keyframes menu-page-turn-prev {
   0% {
-    transform: rotateY(85deg) scale(0.92);
-    opacity: 0;
+    transform: rotateY(72deg);
+    filter: brightness(0.82);
+  }
+  60% {
+    filter: brightness(0.96);
   }
   100% {
-    transform: rotateY(0deg) scale(1);
-    opacity: 1;
+    transform: rotateY(0deg);
+    filter: brightness(1);
   }
 }
 
 .menu-page-turn-next {
-  transform-origin: center;
-  animation: menu-page-turn-next 0.85s cubic-bezier(0.3, 0, 0.2, 1) both;
+  transform-origin: left center;
+  backface-visibility: hidden;
+  animation: menu-page-turn-next 0.7s cubic-bezier(0.25, 0.6, 0.25, 1) both;
 }
 
 .menu-page-turn-prev {
-  transform-origin: center;
-  animation: menu-page-turn-prev 0.85s cubic-bezier(0.3, 0, 0.2, 1) both;
+  transform-origin: right center;
+  backface-visibility: hidden;
+  animation: menu-page-turn-prev 0.7s cubic-bezier(0.25, 0.6, 0.25, 1) both;
 }
+
 
 @media (prefers-reduced-motion: reduce) {
   .menu-page-turn-next,
