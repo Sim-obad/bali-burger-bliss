@@ -171,6 +171,7 @@ export function MenuSection() {
           aria-modal="true"
           aria-label={category.title}
           onTouchStart={onTouchStart}
+          onTouchMove={onTouchMove}
           onTouchEnd={onTouchEnd}
         >
           <button
@@ -183,7 +184,7 @@ export function MenuSection() {
           />
 
           <div className="relative flex w-full max-w-none flex-col items-center sm:max-w-3xl">
-            <div className="relative w-full max-w-none [perspective:1600px] sm:max-w-2xl">
+            <div className="relative w-full max-w-none [perspective:1100px] sm:max-w-2xl">
               <div
                 className="transition-all duration-[850ms] [transition-timing-function:cubic-bezier(0.3,0,0.2,1)] [transform-style:preserve-3d] motion-reduce:duration-0"
                 style={{
@@ -193,17 +194,19 @@ export function MenuSection() {
                   opacity: entered ? 1 : 0,
                 }}
               >
-                {/* The complete card re-mounts and flips, including its paper, border and shadow. */}
+                {/* The whole card pivots in 3D, paper, border and shadow included. */}
                 <div
-                  key={category.id}
-                  className={`max-h-[75vh] rounded-2xl border border-charcoal/25 bg-sand shadow-2xl [transform-style:preserve-3d] sm:max-h-[85vh] ${
-                    animateTurn
-                      ? turnDir === 1
-                        ? "menu-page-turn-next"
-                        : "menu-page-turn-prev"
-                      : ""
-                  }`}
+                  ref={cardRef}
+                  className="max-h-[75vh] rounded-2xl border border-charcoal/25 bg-sand shadow-2xl [backface-visibility:hidden] [transform-style:preserve-3d] sm:max-h-[85vh]"
+                  style={{
+                    transform: `rotateY(${rot}deg)`,
+                    transformOrigin: "center",
+                    transition: dur ? `transform ${dur}ms cubic-bezier(0.33,0,0.3,1), filter ${dur}ms linear` : "none",
+                    // Shading follows the angle so the page catches the light.
+                    filter: `brightness(${1 - Math.min(0.28, Math.abs(rot) / 320)})`,
+                  }}
                 >
+
                 <div className="max-h-[75vh] overflow-y-auto rounded-2xl sm:max-h-[85vh]">
                   <div className="sticky top-0 z-10 flex items-start justify-between gap-3 border-b border-charcoal/15 bg-sand p-5 sm:p-7">
                     <div className="flex items-center gap-3">
