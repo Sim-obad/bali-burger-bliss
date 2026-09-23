@@ -240,13 +240,16 @@ export function MenuSection() {
                             >
                               {category.extras.items.map((extra) => {
                                 const ExtraIcon = extra.icon;
+                                const isSauces = category.id === "sides";
                                 return (
                                   <li
                                     key={extra.name}
-                                    className={`flex items-center justify-between gap-2 text-xs leading-tight ${
+                                    className={`flex items-center text-xs leading-tight ${
                                       wide && !compact
-                                        ? "w-[calc((100%-3rem)/3)] min-w-[8.5rem]"
-                                        : ""
+                                        ? "w-[calc((100%-3rem)/3)] min-w-[8.5rem] gap-2.5 sm:gap-4"
+                                        : isSauces
+                                          ? "justify-between gap-2 pr-2 sm:pr-3"
+                                          : "justify-between gap-2"
                                     }`}
                                   >
                                     <span className="flex items-center gap-2">
