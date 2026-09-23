@@ -158,18 +158,16 @@ export const menuCategories: MenuCategory[] = [
       {
         group: "BEER",
         groupSubtitle: "Kura Kura",
-        groupSubtitleNote: "on tap",
+        groupSubtitleNote: "on tap · small / large",
         groupDescription: "Brewed fresh in Bali",
         name: "Lager",
         description: "Pilsner with crisp and dry notes of bread and honey",
-        note: "small / large",
         prices: ["57K", "89K"],
       },
       {
         group: "BEER",
         name: "Island Ale",
         description: "Pale Ale with fruity & tropical hop aromas",
-        note: "small / large",
         prices: ["68K", "99K"],
       },
       {

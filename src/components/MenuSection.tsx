@@ -174,7 +174,7 @@ export function MenuSection() {
                                       {item.groupSubtitle}
                                     </span>
                                     {item.groupSubtitleNote ? (
-                                      <span className="font-marker text-[13px] leading-none text-charcoal/70 sm:text-sm">
+                                      <span className="ml-auto inline-block translate-y-[3px] -rotate-[8deg] origin-center whitespace-nowrap font-marker text-[16px] leading-none text-charcoal/80">
                                         {item.groupSubtitleNote}
                                       </span>
                                     ) : null}
