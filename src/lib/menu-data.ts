@@ -93,7 +93,7 @@ export const menuCategories: MenuCategory[] = [
         group: "Chicken Burgers",
         name: "Spicy Chicken",
         description: "Marinated grilled chicken, cheddar, onions, jalapeño, lettuce & spicy mayo",
-        price: "105K,
+        price: "105K",
       },
     ],
     extras: {
@@ -126,8 +126,8 @@ export const menuCategories: MenuCategory[] = [
         description: "Fries, cheddar sauce, chicken tenders, pickles & ranch sauce - GFO",
         price: "89K",
       },
-      { name: "Chicken Tenders", note: "3 pcs - GF", prices: "58K" },
-      { name: "Chili Cheese", note: "Comming soon", prices: "-"},
+      { name: "Chicken Tenders", note: "3 pcs - GF", price: "58K" },
+      { name: "Chili Cheese", note: "Coming soon", price: "-" },
     ],
     extras: {
       title: "Sauce",
