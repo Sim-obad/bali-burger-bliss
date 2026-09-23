@@ -6,7 +6,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="texture-grain relative z-30 -mt-10 overflow-hidden rounded-t-[2.5rem] bg-charcoal py-16 text-charcoal-foreground sm:py-24"
+      className="texture-grain relative z-30 -mt-10 overflow-hidden bg-charcoal py-16 text-charcoal-foreground sm:py-24"
     >
       {/* Giant watermark for layered depth */}
       <span
