@@ -45,6 +45,8 @@ export type MenuCategory = {
     items: MenuExtra[];
     /** Force a 3-per-row centered layout in the extras block */
     columns?: number;
+    /** Group title whose line hosts the compact extras note inline (handwritten style) */
+    inlineGroup?: string;
   };
   /** Small note displayed at the bottom of the card */
   footnote?: string;
@@ -226,6 +228,7 @@ export const menuCategories: MenuCategory[] = [
     extras: {
       title: "Add vanilla ice cream",
       items: [{ price: "20K" }],
+      inlineGroup: "DESSERTS",
     },
     footnote: "*Not available on Delivery · Prices include tax and service",
   },
