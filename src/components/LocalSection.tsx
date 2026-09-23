@@ -40,7 +40,7 @@ export function LocalSection() {
       ref={ref}
       className={`bg-secondary py-16 sm:py-24 ${visible ? "hero-fade" : "opacity-0"}`}
     >
-      <div className="grid gap-8 px-5 sm:px-8 lg:grid-cols-2 lg:gap-12 lg:px-12">
+      <div className="grid gap-8 px-5 sm:px-8 lg:flex lg:items-start lg:gap-40 lg:px-12">
         <div className="flex flex-col items-start">
           <h2 className="flex flex-col text-3xl uppercase leading-[1.15] tracking-[0.01em] sm:text-4xl">
             <span>Proudly Local,</span>
