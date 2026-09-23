@@ -189,7 +189,7 @@ export function MenuSection() {
                             ) : null}
                             <div className="flex items-baseline justify-between gap-4">
                               <div>
-                                <p className="font-subhead text-sm font-bold uppercase tracking-[0.04em] text-charcoal">
+                                <p className="font-subhead text-base font-bold uppercase tracking-[0.04em] text-charcoal">
                                   {item.name}
                                   {item.note ? (
                                     <span className="ml-2 font-marker text-[11px] font-normal normal-case tracking-normal text-charcoal/70">
