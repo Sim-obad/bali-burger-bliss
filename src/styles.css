@@ -285,38 +285,38 @@
   }
 }
 
-/* Menu popup page-turn: the card flips like a page of a paper menu.
-   Direction depends on which way the category changed (next = left hinge). */
+/* Menu popup category change: reuse the opening flip and mirror it so the
+   rotation follows the swipe direction. */
 @keyframes menu-page-turn-next {
   0% {
-    transform: rotateY(-85deg);
-    opacity: 0.25;
+    transform: rotateY(-100deg) scale(0.85);
+    opacity: 0;
   }
   100% {
-    transform: rotateY(0deg);
+    transform: rotateY(0deg) scale(1);
     opacity: 1;
   }
 }
 
 @keyframes menu-page-turn-prev {
   0% {
-    transform: rotateY(85deg);
-    opacity: 0.25;
+    transform: rotateY(100deg) scale(0.85);
+    opacity: 0;
   }
   100% {
-    transform: rotateY(0deg);
+    transform: rotateY(0deg) scale(1);
     opacity: 1;
   }
 }
 
 .menu-page-turn-next {
-  transform-origin: left center;
-  animation: menu-page-turn-next 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: center;
+  animation: menu-page-turn-next 0.5s ease-out both;
 }
 
 .menu-page-turn-prev {
-  transform-origin: right center;
-  animation: menu-page-turn-prev 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+  transform-origin: center;
+  animation: menu-page-turn-prev 0.5s ease-out both;
 }
 
 @media (prefers-reduced-motion: reduce) {
