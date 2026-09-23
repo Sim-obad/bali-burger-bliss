@@ -48,6 +48,7 @@ function HomePage() {
     <main>
       <HeroSection />
       <MenuSection />
+      <LocalSection />
       <InstagramCarousel />
       <ContactSection />
       <footer className="flex flex-col items-center gap-3 bg-charcoal px-5 pb-10 text-center text-sm text-charcoal-foreground/60">
