@@ -150,7 +150,7 @@ export function MenuSection() {
       {/* Giant watermark for layered depth — same crop as the contact section */}
       <span
         aria-hidden
-        className="pointer-events-none absolute bottom-[-70px] right-0 select-none font-display text-[180px] leading-none text-secondary sm:text-[240px]"
+        className="pointer-events-none absolute bottom-[-70px] right-0 select-none font-display text-[180px] leading-none text-charcoal sm:text-[240px]"
       >
         TPBC
       </span>
