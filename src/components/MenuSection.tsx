@@ -146,7 +146,7 @@ export function MenuSection() {
                             {showGroup ? (
                               <div className="relative mb-2">
                                 <div className="flex items-center gap-4">
-                                  <p className="-ml-3 inline-block rounded-md bg-charcoal px-3 py-1.5 font-subhead text-[13px] font-bold uppercase tracking-[0.06em] text-charcoal-foreground sm:-ml-4 sm:px-4 sm:text-base">
+                                  <p className="-ml-3 inline-block rounded-md bg-charcoal px-3 py-1.5 font-subhead text-[17px] font-bold uppercase tracking-[0.06em] text-charcoal-foreground sm:-ml-4 sm:px-4 sm:text-[20px]">
                                     {item.group}
                                   </p>
                                   {/* Handwritten price column note, above the price columns */}
