@@ -244,9 +244,9 @@ export function MenuSection() {
                                 return (
                                   <li
                                     key={extra.name}
-                                    className={`flex items-center text-xs leading-tight ${
+                                    className={`flex items-center text-[15px] leading-tight ${
                                       wide && !compact
-                                        ? "w-[calc((100%-3rem)/3)] min-w-[8.5rem] gap-2.5 sm:gap-4"
+                                        ? "w-[calc((100%-3.5rem)/3)] min-w-[9.5rem] gap-2.5 sm:gap-4"
                                         : isSauces
                                           ? "justify-between gap-2 pr-2 sm:pr-3"
                                           : "justify-between gap-2"
@@ -254,7 +254,7 @@ export function MenuSection() {
                                   >
                                     <span className="flex items-center gap-2">
                                       {ExtraIcon ? (
-                                        <ExtraIcon className="h-5 w-5 shrink-0" strokeWidth={1.5} />
+                                        <ExtraIcon className="h-6 w-6 shrink-0" strokeWidth={1.5} />
                                       ) : null}
                                       <span className="font-subhead font-bold uppercase tracking-[0.04em]">
                                         {extra.name}
