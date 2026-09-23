@@ -24,7 +24,7 @@ export function ContactSection() {
           Message us on WhatsApp
         </a>
 
-        <div className="mt-4 flex flex-wrap gap-3">
+        <div className="mt-4 flex flex-wrap justify-center gap-3">
           {[
             { label: "Delivery", href: waLinks.delivery },
             { label: "Takeaway", href: waLinks.takeaway },
