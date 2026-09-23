@@ -29,7 +29,7 @@ export function ContactSection() {
             href={waLinks.order}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex h-16 w-full items-center justify-center gap-3 rounded-full bg-charcoal-foreground px-8 text-lg font-bold uppercase tracking-wide text-charcoal transition-transform hover:scale-[1.01] active:scale-95 sm:w-auto"
+            className="inline-flex h-16 w-full items-center justify-center gap-3 rounded-full bg-charcoal-foreground px-8 text-lg font-bold uppercase tracking-wide text-charcoal shadow-[0_12px_30px_rgba(0,0,0,0.35)] transition-transform hover:scale-[1.01] active:scale-95 sm:w-auto"
           >
             <MessageCircle className="h-6 w-6" aria-hidden />
             Message us on WhatsApp
@@ -54,7 +54,7 @@ export function ContactSection() {
         </div>
       </div>
 
-      <div className="mx-auto mt-12 max-w-7xl px-5 sm:px-8">
+      <div className="relative z-[2] mx-auto mt-12 max-w-7xl px-5 sm:px-8">
         <div className="flex flex-col gap-10">
           <div>
             <h3 className="flex items-center gap-2 text-lg uppercase">
