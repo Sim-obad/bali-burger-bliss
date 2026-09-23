@@ -144,10 +144,16 @@ export function MenuSection() {
                         return (
                           <li key={`${item.group ?? ""}-${item.name}`} className="py-3">
                             {showGroup ? (
-                              <div className="mb-2">
+                              <div className="mb-2 flex items-center gap-4">
                                 <p className="-ml-3 inline-block rounded-md bg-charcoal px-3 py-1.5 font-subhead text-[13px] font-bold uppercase tracking-[0.06em] text-charcoal-foreground sm:-ml-4 sm:px-4 sm:text-base">
                                   {item.group}
                                 </p>
+                                {/* Handwritten price column note, on the same line as the first group title */}
+                                {idx === 0 && category.priceColumns ? (
+                                  <span className="inline-block -rotate-[25deg] origin-left whitespace-nowrap font-marker text-sm leading-none text-charcoal/80">
+                                    {category.priceColumns.join(" / ")}
+                                  </span>
+                                ) : null}
                                 {item.groupDescription ? (
                                   <p className="mt-1 text-xs leading-snug text-charcoal/70 sm:text-sm">
                                     {item.groupDescription}
