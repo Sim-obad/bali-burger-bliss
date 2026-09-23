@@ -193,6 +193,12 @@ export function MenuSection() {
                               <div>
                                 <p className="font-subhead text-base font-bold uppercase tracking-[0.04em] text-charcoal">
                                   {item.name}
+                                  {item.icon ? (
+                                    <item.icon
+                                      className="ml-2 inline-block h-[18px] w-[18px] align-[-3px] text-destructive sm:h-5 sm:w-5"
+                                      strokeWidth={1.8}
+                                    />
+                                  ) : null}
                                   {item.glutenFree ? (
                                     <img
                                       src={glutenFreeBadge}

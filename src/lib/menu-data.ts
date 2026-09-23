@@ -87,6 +87,7 @@ export const menuCategories: MenuCategory[] = [
       {
         group: "SMASH BURGER",
         name: "The Spicy",
+        icon: Flame,
         description: "Wagyu beef patty, cheddar, onions, pickled jalapeños, fresh green Lombok chili, spicy mayo sauce",
         prices: ["128K", "+57K"],
       },
@@ -105,6 +106,7 @@ export const menuCategories: MenuCategory[] = [
       {
         group: "CHICKEN BURGER",
         name: "Spicy Chicken",
+        icon: JalapenoIcon,
         description: "Grilled chicken, cheddar, caramelized onions, pickled jalapeño, lettuce & spicy mayo",
         price: "105K",
       },
