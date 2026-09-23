@@ -137,19 +137,6 @@ export function MenuSection() {
                   </div>
 
                   <div className="px-5 pb-5 pt-0 sm:px-7 sm:pb-7 sm:pt-0">
-                    {category.priceColumns ? (
-                      <div className="mt-4 flex justify-end gap-4 pr-1">
-                        {category.priceColumns.map((col) => (
-                          <span
-                            key={col}
-                            className="w-14 text-right font-marker text-sm leading-none text-charcoal/80"
-                          >
-                            {col}
-                          </span>
-                        ))}
-                      </div>
-                    ) : null}
-
                     <ul className="mt-2 divide-y divide-charcoal/15">
                       {category.items.map((item, idx) => {
                         const prevGroup = idx > 0 ? category.items[idx - 1]?.group : undefined;
