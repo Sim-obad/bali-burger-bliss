@@ -48,7 +48,7 @@ export function LocalSection() {
           </h2>
         </div>
 
-        <div className="max-w-md space-y-4 text-sm leading-relaxed text-foreground/80 sm:text-base lg:justify-self-end">
+        <div className="max-w-md space-y-4 text-sm leading-relaxed text-foreground/80 sm:text-base">
           {paragraphs.map((paragraph, index) => (
             <p key={index}>{paragraph}</p>
           ))}
