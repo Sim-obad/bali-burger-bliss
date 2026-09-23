@@ -284,3 +284,44 @@
     animation: none;
   }
 }
+
+/* Menu popup page-turn: the card flips like a page of a paper menu.
+   Direction depends on which way the category changed (next = left hinge). */
+@keyframes menu-page-turn-next {
+  0% {
+    transform: rotateY(-85deg);
+    opacity: 0.25;
+  }
+  100% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes menu-page-turn-prev {
+  0% {
+    transform: rotateY(85deg);
+    opacity: 0.25;
+  }
+  100% {
+    transform: rotateY(0deg);
+    opacity: 1;
+  }
+}
+
+.menu-page-turn-next {
+  transform-origin: left center;
+  animation: menu-page-turn-next 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.menu-page-turn-prev {
+  transform-origin: right center;
+  animation: menu-page-turn-prev 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .menu-page-turn-next,
+  .menu-page-turn-prev {
+    animation: none;
+  }
+}
