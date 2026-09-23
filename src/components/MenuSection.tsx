@@ -43,19 +43,63 @@ export function MenuSection() {
     };
   }, [open]);
 
-  // Change category and record the direction so the card turns like a menu page.
-  const go = (dir: 1 | -1) => {
-    setTurnDir(dir);
-    setAnimateTurn(true);
-    setActiveIndex((i) => ((i ?? 0) + dir + menuCategories.length) % menuCategories.length);
+  // Live 3D page turn: the card follows the finger, then finishes the rotation
+  // at a speed matching the swipe. It is never off screen — at 90deg it is
+  // simply edge-on, exactly like a real page being turned.
+  const [rot, setRot] = useState(0);
+  const [dur, setDur] = useState(0);
+  const timers = useRef<number[]>([]);
+  const clearTimers = () => {
+    timers.current.forEach((t) => window.clearTimeout(t));
+    timers.current = [];
+  };
+  useEffect(() => clearTimers, []);
+
+  // Turn to the next/previous category, half-turn out then half-turn in.
+  const go = (dir: 1 | -1, speed = 0) => {
+    clearTimers();
+    // speed is px/ms of the swipe: faster finger, faster page turn.
+    const half = Math.max(140, Math.min(420, 380 - speed * 160));
+    setDur(half);
+    setRot(dir === 1 ? -90 : 90);
+    timers.current.push(
+      window.setTimeout(() => {
+        setActiveIndex((i) => ((i ?? 0) + dir + menuCategories.length) % menuCategories.length);
+        setDur(0);
+        setRot(dir === 1 ? 90 : -90);
+        timers.current.push(
+          window.setTimeout(() => {
+            setDur(half);
+            setRot(0);
+          }, 20),
+        );
+      }, half),
+    );
   };
 
   // Swipe navigation on touch screens (in addition to the carousel dots).
-  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const touchStart = useRef<{ x: number; y: number; t: number } | null>(null);
+  const dragging = useRef(false);
+  const cardRef = useRef<HTMLDivElement>(null);
   const onTouchStart = (e: React.TouchEvent) => {
     const t = e.touches.item(0);
     if (!t) return;
-    touchStart.current = { x: t.clientX, y: t.clientY };
+    clearTimers();
+    dragging.current = false;
+    touchStart.current = { x: t.clientX, y: t.clientY, t: Date.now() };
+  };
+  const onTouchMove = (e: React.TouchEvent) => {
+    const start = touchStart.current;
+    const t = e.touches.item(0);
+    if (!start || !t) return;
+    const dx = t.clientX - start.x;
+    const dy = t.clientY - start.y;
+    // Horizontal swipes only: never hijack vertical scrolling of the menu list.
+    if (!dragging.current && (Math.abs(dx) < 12 || Math.abs(dx) < Math.abs(dy) * 1.2)) return;
+    dragging.current = true;
+    const width = cardRef.current?.offsetWidth ?? 320;
+    setDur(0);
+    setRot(Math.max(-80, Math.min(80, (dx / width) * 90)));
   };
   const onTouchEnd = (e: React.TouchEvent) => {
     const start = touchStart.current;
@@ -64,9 +108,17 @@ export function MenuSection() {
     if (!start || !t) return;
     const dx = t.clientX - start.x;
     const dy = t.clientY - start.y;
-    // Horizontal swipes only: never hijack vertical scrolling of the menu list.
-    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) go(dx < 0 ? 1 : -1);
+    const speed = Math.abs(dx) / Math.max(1, Date.now() - start.t);
+    if (dragging.current && Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.2) {
+      go(dx < 0 ? 1 : -1, speed);
+    } else if (dragging.current) {
+      // Not far enough: let the page fall back flat.
+      setDur(260);
+      setRot(0);
+    }
+    dragging.current = false;
   };
+
 
   const category = activeIndex !== null ? menuCategories[activeIndex] : null;
   const ActiveIcon = category?.icon;
