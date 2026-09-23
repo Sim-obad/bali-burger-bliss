@@ -181,7 +181,7 @@ export function MenuSection() {
                                   </p>
                                 ) : null}
                                 {item.groupDescription ? (
-                                  <p className="mt-1 text-xs leading-snug text-charcoal/70 sm:text-sm">
+                                  <p className="-mt-px mt-0.5 text-xs leading-snug text-charcoal/70 sm:text-sm">
                                     {item.groupDescription}
                                   </p>
                                 ) : null}
