@@ -45,7 +45,7 @@ export function ContactSection() {
       </div>
 
       <div className="mx-auto mt-12 max-w-7xl px-5 sm:px-8">
-        <div className="grid gap-8 sm:grid-cols-2">
+        <div className="grid gap-8 sm:grid-cols-2 sm:gap-x-4">
           <div>
             <h3 className="flex items-center gap-2 text-lg uppercase">
               <Clock className="h-5 w-5 text-charcoal-foreground/70" aria-hidden />
