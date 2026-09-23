@@ -26,7 +26,7 @@ export function InstagramCarousel() {
   const posts = data?.posts?.length ? data.posts : fallbackPosts;
 
   return (
-    <section id="instagram" className="bg-background py-16 sm:py-24">
+    <section id="instagram" className="relative z-20 -mt-10 rounded-t-[2.5rem] bg-background py-16 shadow-overlap sm:py-24">
       <div className="px-5 sm:px-8 lg:px-12">
         <div className="flex flex-col items-start gap-4 text-left">
           <div>
@@ -48,14 +48,14 @@ export function InstagramCarousel() {
         </div>
       </div>
 
-      <div className="mt-8 grid grid-cols-2 gap-4 px-5 pb-4 sm:grid-cols-3 sm:px-8 lg:grid-cols-6">
+      <div className="mt-8 grid grid-cols-2 gap-4 px-5 pb-10 sm:grid-cols-3 sm:px-8 sm:pb-14 lg:grid-cols-6">
         {posts.map((post) => (
           <a
             key={post.id}
             href={post.permalink}
             target="_blank"
             rel="noopener noreferrer"
-            className="group w-full overflow-hidden rounded-2xl bg-card shadow-sm transition-transform duration-300 hover:-translate-y-1"
+            className="group w-full overflow-hidden rounded-2xl bg-card shadow-relief transition-all duration-300 hover:-translate-y-1 hover:shadow-relief-lg"
           >
             <div className="relative aspect-square overflow-hidden bg-muted">
               <img
