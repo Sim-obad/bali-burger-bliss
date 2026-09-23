@@ -30,11 +30,11 @@ export function InstagramCarousel() {
       {/* Giant watermark for layered depth — same crop as the menu section */}
       <span
         aria-hidden
-        className="pointer-events-none absolute bottom-[-30px] right-0 select-none font-display text-[180px] leading-none text-charcoal opacity-20 sm:text-[240px]"
+        className="pointer-events-none absolute bottom-[-30px] right-0 z-0 select-none font-display text-[180px] leading-none text-charcoal opacity-20 sm:text-[240px]"
       >
         TPBC
       </span>
-      <div className="px-5 sm:px-8 lg:px-12">
+      <div className="relative z-10 px-5 sm:px-8 lg:px-12">
         <div className="flex flex-col items-start gap-4 text-left">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
