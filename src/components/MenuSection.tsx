@@ -216,7 +216,8 @@ export function MenuSection() {
                       })}
                     </ul>
 
-                    {category.extras ? (
+                    {category.extras &&
+                    !(category.extras.items.length <= 2 && category.extras.inlineGroup) ? (
                       (() => {
                         const compact = category.extras.items.length <= 2;
                         const wide = category.extras.columns === 3;
