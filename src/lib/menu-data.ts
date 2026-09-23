@@ -126,7 +126,7 @@ export const menuCategories: MenuCategory[] = [
     icon: FriesIcon,
     tagline: "Fries, loaded fries, tenders and chili cheese.",
     items: [
-      { name: "Fries", note: "M / L", prices: ["35K", "48K"], description: "served with ketchup sauce" },
+      { name: "Fries", note: "M / L", glutenFree: true, prices: ["35K", "48K"], description: "served with ketchup sauce" },
       {
         name: "Bacon Loaded Fries",
         description: "French fries, cheddar sauce, crispy bacon, onions, pickles jalapeños & spicy mayo - GFO*",
@@ -134,11 +134,12 @@ export const menuCategories: MenuCategory[] = [
       },
       {
         name: "Chicken Loaded Fries",
+        glutenFree: true,
         description: "French fries, crispy chicken tenders, pickles & ranch sauce",
         price: "89K",
       },
-      { name: "Chicken Tenders", price: "58K" },
-      { name: "Chili Cheese", note: "Coming soon", price: "-" },
+      { name: "Chicken Tenders", glutenFree: true, price: "58K" },
+      { name: "Chili Cheese", note: "Coming soon", glutenFree: true, price: "-" },
     ],
     extras: {
       title: "HOUSE-MADE SAUCE",
