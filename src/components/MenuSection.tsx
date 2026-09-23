@@ -305,7 +305,7 @@ export function MenuSection() {
                     ) : null}
 
                     {category.footnote ? (
-                      <p className="mt-4 whitespace-pre-line text-center font-marker text-[11px] text-charcoal/70">
+                      <p className="mt-4 whitespace-pre-line text-center font-marker text-[15px] text-charcoal/70">
                         {/* Inline the gluten-free badge right before its "Gluten free" mention */}
                         {category.footnote.split("Gluten free").flatMap((part, i) =>
                           i === 0
