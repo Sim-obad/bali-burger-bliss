@@ -290,7 +290,7 @@ export function MenuSection() {
                                   >
                                     <span className="flex items-center gap-2">
                                       {ExtraIcon ? (
-                                        <ExtraIcon className="h-6 w-6 shrink-0" strokeWidth={1.5} />
+                                        <ExtraIcon className="h-6 w-6 shrink-0 -translate-y-0.5" strokeWidth={1.5} />
                                       ) : null}
                                       {extra.name ? (
                                         <span className="font-subhead font-bold uppercase tracking-[0.04em]">
