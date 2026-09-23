@@ -137,19 +137,6 @@ export function MenuSection() {
                   </div>
 
                   <div className="px-5 pb-5 pt-0 sm:px-7 sm:pb-7 sm:pt-0">
-                    {category.priceColumns ? (
-                      <div className="mt-4 flex justify-end gap-4 pr-1">
-                        {category.priceColumns.map((col) => (
-                          <span
-                            key={col}
-                            className="w-14 text-right font-marker text-sm leading-none text-charcoal/80"
-                          >
-                            {col}
-                          </span>
-                        ))}
-                      </div>
-                    ) : null}
-
                     <ul className="mt-2 divide-y divide-charcoal/15">
                       {category.items.map((item, idx) => {
                         const prevGroup = idx > 0 ? category.items[idx - 1]?.group : undefined;
@@ -157,10 +144,16 @@ export function MenuSection() {
                         return (
                           <li key={`${item.group ?? ""}-${item.name}`} className="py-3">
                             {showGroup ? (
-                              <div className="mb-2">
+                              <div className="mb-2 flex items-center gap-4">
                                 <p className="-ml-3 inline-block rounded-md bg-charcoal px-3 py-1.5 font-subhead text-[13px] font-bold uppercase tracking-[0.06em] text-charcoal-foreground sm:-ml-4 sm:px-4 sm:text-base">
                                   {item.group}
                                 </p>
+                                {/* Handwritten price column note, on the same line as the first group title */}
+                                {idx === 0 && category.priceColumns ? (
+                                  <span className="inline-block -rotate-[25deg] origin-left whitespace-nowrap font-marker text-sm leading-none text-charcoal/80">
+                                    {category.priceColumns.join(" / ")}
+                                  </span>
+                                ) : null}
                                 {item.groupDescription ? (
                                   <p className="mt-1 text-xs leading-snug text-charcoal/70 sm:text-sm">
                                     {item.groupDescription}
