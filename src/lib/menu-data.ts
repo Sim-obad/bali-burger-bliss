@@ -92,7 +92,7 @@ export const menuCategories: MenuCategory[] = [
       {
         group: "Chicken Burgers",
         name: "Spicy Chicken",
-        description: "Marinated grilled chicken, cheddar, onions, jalapeño, lettuce & spicy mayo",
+        description: "Grilled chicken, cheddar, onions, jalapeño, lettuce & spicy mayo",
         price: "105K",
       },
     ],
@@ -114,8 +114,7 @@ export const menuCategories: MenuCategory[] = [
     icon: FriesIcon,
     tagline: "Fries, loaded fries, tenders and chili cheese.",
     items: [
-      { name: "Fries", note: "M / L", prices: ["35K", "48K"] ,
-      description: "served with ketchup sauce"},
+      { name: "Fries", note: "M / L", prices: ["35K", "48K"], description: "served with ketchup sauce" },
       {
         name: "Bacon Loaded Fries",
         description: "Fries, cheddar sauce, crispy bacon, onions, pickles jalapeños & spicy mayo - GFO",
@@ -185,7 +184,7 @@ export const menuCategories: MenuCategory[] = [
         description: "Homemade iced tea with fresh lemon",
         price: "30K",
       },
-      
+
       { group: "Soft Drinks", name: "Coke", price: "-" },
       { group: "Soft Drinks", name: "Coke Zero", price: "-" },
       { group: "Soft Drinks", name: "Sprite", price: "-" },
