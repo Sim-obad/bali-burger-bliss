@@ -38,7 +38,7 @@ export function LocalSection() {
     <section
       id="local"
       ref={ref}
-      className={`texture-grain relative z-10 -mt-10 rounded-t-[2.5rem] bg-secondary py-16 sm:py-24 ${visible ? "hero-fade" : "opacity-0"}`}
+      className={`texture-grain relative z-10 -mt-10 bg-secondary py-16 sm:py-24 ${visible ? "hero-fade" : "opacity-0"}`}
     >
       <div className="grid gap-8 px-5 sm:px-8 lg:flex lg:items-start lg:gap-40 lg:px-12">
         <div className="flex flex-col items-start">
