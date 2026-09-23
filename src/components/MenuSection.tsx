@@ -135,7 +135,14 @@ export function MenuSection() {
                   opacity: entered ? 1 : 0,
                 }}
               >
-                <div className="max-h-[80vh] overflow-y-auto rounded-2xl sm:max-h-[85vh]">
+                {/* Page-turn layer: re-mounts on category change and plays the flip animation */}
+                <div
+                  key={category.id}
+                  className={`[transform-style:preserve-3d] ${
+                    turnDir === 1 ? "menu-page-turn-next" : "menu-page-turn-prev"
+                  }`}
+                >
+                <div className="max-h-[75vh] overflow-y-auto rounded-2xl sm:max-h-[85vh]">
                   <div className="sticky top-0 z-10 flex items-start justify-between gap-3 border-b border-charcoal/15 bg-sand p-5 sm:p-7">
                     <div className="flex items-center gap-3">
                       <ActiveIcon className="h-9 w-9 shrink-0 text-charcoal" strokeWidth={1.5} />
@@ -347,17 +354,30 @@ export function MenuSection() {
 
                   </div>
                 </div>
+                </div>
               </div>
             </div>
 
-            <button
-              type="button"
-              onClick={() => go(1)}
-              className="absolute right-0 z-20 inline-flex h-9 w-9 translate-x-1/2 items-center justify-center rounded-full border border-sand/40 bg-charcoal/80 text-sand shadow-lg transition-colors hover:bg-charcoal sm:static sm:h-11 sm:w-11 sm:translate-x-0"
-              aria-label="Next category"
-            >
-              <ChevronRight className="h-5 w-5" aria-hidden />
-            </button>
+            {/* Carousel dots: tap a dot to jump straight to that category */}
+            <div className="mt-4 flex items-center gap-2" role="tablist" aria-label="Menu categories">
+              {menuCategories.map((cat, i) => (
+                <button
+                  key={cat.id}
+                  type="button"
+                  role="tab"
+                  aria-selected={i === activeIndex}
+                  aria-label={cat.title}
+                  onClick={() => {
+                    if (i === activeIndex) return;
+                    setTurnDir((activeIndex ?? 0) < i ? 1 : -1);
+                    setActiveIndex(i);
+                  }}
+                  className={`h-2.5 rounded-full transition-all duration-300 ${
+                    i === activeIndex ? "w-7 bg-sand" : "w-2.5 bg-sand/40 hover:bg-sand/70"
+                  }`}
+                />
+              ))}
+            </div>
           </div>
         </div>
       ) : null}
