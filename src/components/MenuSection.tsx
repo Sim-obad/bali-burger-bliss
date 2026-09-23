@@ -173,7 +173,7 @@ export function MenuSection() {
                 setActiveIndex(index);
               }}
               aria-label={`Open ${cat.title}`}
-              className="group flex h-[11.5rem] flex-col rounded-xl border border-charcoal/25 bg-card/70 px-3 pb-3 pt-5 text-center shadow-relief transition-all duration-300 hover:-translate-y-1 hover:bg-card hover:shadow-relief-lg sm:h-[12.5rem] sm:px-4 sm:pb-4 sm:pt-6"
+              className="group flex h-[11.5rem] flex-col rounded-xl border border-charcoal/25 bg-card px-3 pb-3 pt-5 text-center shadow-relief transition-all duration-300 hover:-translate-y-1 hover:shadow-relief-lg sm:h-[12.5rem] sm:px-4 sm:pb-4 sm:pt-6"
             >
               <div className="flex h-9 items-center justify-center">
                 <Icon className="h-8 w-8 text-charcoal" strokeWidth={1.5} />
