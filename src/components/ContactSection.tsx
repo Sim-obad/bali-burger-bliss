@@ -11,7 +11,7 @@ export function ContactSection() {
       {/* Giant watermark for layered depth */}
       <span
         aria-hidden
-        className="pointer-events-none absolute bottom-[-70px] right-0 select-none font-display text-[180px] leading-none text-charcoal-foreground/10 sm:text-[240px]"
+        className="pointer-events-none absolute bottom-[-70px] right-0 select-none font-display text-[180px] leading-none text-secondary sm:text-[240px]"
       >
         TPBC
       </span>
