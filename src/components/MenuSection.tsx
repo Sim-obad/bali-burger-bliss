@@ -434,10 +434,9 @@ export function MenuSection() {
                   aria-label={cat.title}
                   onClick={() => {
                     if (i === activeIndex) return;
-                    setTurnDir((activeIndex ?? 0) < i ? 1 : -1);
-                    setAnimateTurn(true);
-                    setActiveIndex(i);
+                    goTo(i);
                   }}
+
                   className={`h-2.5 rounded-full transition-all duration-300 ${
                     i === activeIndex ? "w-7 bg-sand" : "w-2.5 bg-sand/40 hover:bg-sand/70"
                   }`}
