@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ChevronLeft, ChevronRight, X } from "lucide-react";
 
 import { menuCategories } from "@/lib/menu-data";
@@ -42,6 +42,24 @@ export function MenuSection() {
 
   const go = (dir: 1 | -1) =>
     setActiveIndex((i) => ((i ?? 0) + dir + menuCategories.length) % menuCategories.length);
+
+  // Swipe navigation on touch screens (in addition to the arrows).
+  const touchStart = useRef<{ x: number; y: number } | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => {
+    const t = e.touches.item(0);
+    if (!t) return;
+    touchStart.current = { x: t.clientX, y: t.clientY };
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const start = touchStart.current;
+    touchStart.current = null;
+    const t = e.changedTouches.item(0);
+    if (!start || !t) return;
+    const dx = t.clientX - start.x;
+    const dy = t.clientY - start.y;
+    // Horizontal swipes only: never hijack vertical scrolling of the menu list.
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) go(dx < 0 ? 1 : -1);
+  };
 
   const category = activeIndex !== null ? menuCategories[activeIndex] : null;
   const ActiveIcon = category?.icon;
@@ -90,6 +108,8 @@ export function MenuSection() {
           role="dialog"
           aria-modal="true"
           aria-label={category.title}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
         >
           <button
             type="button"
