@@ -53,7 +53,7 @@ function HomePage() {
       <LocalSection />
       <InstagramCarousel />
       <ContactSection />
-      <footer className="flex flex-col items-center gap-3 bg-charcoal px-5 pb-10 text-center text-sm text-charcoal-foreground/60">
+      <footer className="flex flex-col items-center gap-3 bg-charcoal px-5 pt-[10px] pb-[30px] text-center text-sm text-charcoal-foreground/60">
         <img
           src={logo}
           alt="The Potato Bun Club logo"
