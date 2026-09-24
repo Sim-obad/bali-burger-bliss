@@ -67,7 +67,7 @@ export function HeroSection() {
             className="hero-fade flex shrink-0 items-start gap-3"
             style={{ animationDelay: "80ms" }}
           >
-            <div className="flex flex-col items-stretch text-left">
+            <div className="flex flex-col items-stretch text-left translate-x-5 sm:translate-x-0">
               <p className="font-marker text-sm uppercase leading-[1.5] text-charcoal-foreground sm:text-base lg:text-lg">
                 {/* Each line wrapped in its own span so React owns stable nodes */}
                 <span className="block">SMASH BURGERS</span>
