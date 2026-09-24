@@ -268,8 +268,10 @@ export function MenuSection() {
                                     </p>
                                     {/* Handwritten price column note, above the price columns */}
                                     {idx === 0 && category.priceColumns ? (
-                                      <span className="ml-auto inline-block w-32 translate-y-[3px] -rotate-[8deg] origin-center whitespace-nowrap text-center font-marker text-[16px] leading-none text-charcoal/80">
-                                        {category.priceColumns.join(" / ")}
+                                      <span className="ml-auto inline-block w-32 translate-y-[3px] -rotate-[8deg] origin-center text-center font-marker text-[16px] leading-tight text-charcoal/80">
+                                        {category.priceColumns.map((line) => (
+                                          <p key={line}>{line}</p>
+                                        ))}
                                       </span>
                                     ) : null}
                                     {/* Handwritten inline note for compact extras (ex. Add vanilla ice cream) */}
