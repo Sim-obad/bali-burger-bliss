@@ -73,7 +73,7 @@ export function HeroSection() {
                 <span className="block">SMASH BURGERS</span>
                 <span className="block">ON POTATO BUNS</span>
                 <span className="block">&nbsp;</span>
-                <span className="block">Beer on tap</span>
+                <span className="block">COLD BEERS ON TAP</span>
               </p>
               <span className="my-3 block h-px w-full bg-charcoal-foreground/60" />
               <p className="font-marker text-sm uppercase leading-[1.5] text-charcoal-foreground sm:text-base lg:text-lg">
