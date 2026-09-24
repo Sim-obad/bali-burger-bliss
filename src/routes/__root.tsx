@@ -77,6 +77,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
+      // Teinte utilisée par iMessage/WhatsApp pour le bandeau sous l'aperçu de lien
+      { name: "theme-color", content: "#1b3957" },
       { title: "The Potato Bun Club — Burgers in Amed, Bali" },
       {
         name: "description",
