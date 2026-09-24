@@ -70,7 +70,7 @@ export const menuCategories: MenuCategory[] = [
     title: "Burgers",
     icon: BurgerIcon,
     tagline: "Smash beef or chicken, all on our Potato Buns.",
-    priceColumns: ["Make it\nDouble"],
+    priceColumns: ["Make it", "Double"],
     items: [
       {
         group: "SMASH BURGER",
