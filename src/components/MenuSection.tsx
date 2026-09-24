@@ -295,7 +295,7 @@ export function MenuSection() {
                                         {item.groupSubtitle}
                                       </span>
                                       {item.groupSubtitleNote ? (
-                                        <span className="ml-auto inline-block translate-y-[3px] -rotate-[8deg] origin-center whitespace-nowrap font-marker text-[16px] leading-none text-charcoal/80">
+                                        <span className="inline-block translate-y-[3px] -rotate-[8deg] origin-center whitespace-nowrap font-marker text-[16px] leading-none text-charcoal/80">
                                           {item.groupSubtitleNote}
                                         </span>
                                       ) : null}
@@ -347,21 +347,37 @@ export function MenuSection() {
                                     </p>
                                   ) : null}
                                 </div>
-                                {item.prices ? (
-                                  <span className="flex shrink-0 gap-4">
-                                    {item.prices.map((p, i) => (
-                                      <span
-                                        key={i}
-                                        className="w-14 text-right font-subhead text-sm font-bold text-charcoal"
-                                      >
-                                        {p}
+                                {item.prices || item.price ? (
+                                  <div className="flex shrink-0 flex-col items-end">
+                                    {item.prices && item.priceLabels ? (
+                                      <span className="mb-0.5 flex gap-4">
+                                        {item.priceLabels.map((label, i) => (
+                                          <span
+                                            key={`${label}-${i}`}
+                                            className="-rotate-[8deg] w-14 origin-center text-right font-marker text-[13px] leading-none text-charcoal/80"
+                                          >
+                                            {label}
+                                          </span>
+                                        ))}
                                       </span>
-                                    ))}
-                                  </span>
-                                ) : item.price ? (
-                                  <span className="shrink-0 font-subhead text-sm font-bold text-charcoal">
-                                    {item.price}
-                                  </span>
+                                    ) : null}
+                                    {item.prices ? (
+                                      <span className="flex gap-4">
+                                        {item.prices.map((p, i) => (
+                                          <span
+                                            key={i}
+                                            className="w-14 text-right font-subhead text-sm font-bold text-charcoal"
+                                          >
+                                            {p}
+                                          </span>
+                                        ))}
+                                      </span>
+                                    ) : (
+                                      <span className="font-subhead text-sm font-bold text-charcoal">
+                                        {item.price}
+                                      </span>
+                                    )}
+                                  </div>
                                 ) : null}
                               </div>
                             </li>
