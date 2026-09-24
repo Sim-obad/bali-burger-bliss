@@ -69,9 +69,9 @@ export function HeroSection() {
           >
             <div className="flex flex-col items-end text-right">
               <p className="font-marker text-sm uppercase leading-[1.5] text-charcoal-foreground sm:text-base lg:text-lg">
-                SMASH BURGERS
-                <br />
-                ON POTATO BUNS
+                {/* Each line wrapped in its own span so React owns stable nodes */}
+                <span className="block">SMASH BURGERS</span>
+                <span className="block">ON POTATO BUNS</span>
               </p>
               <span className="my-3 block h-px w-28 bg-charcoal-foreground/60 sm:w-40" />
               <p className="font-marker text-sm uppercase text-charcoal-foreground sm:text-base lg:text-lg">
