@@ -263,7 +263,7 @@ export const menuCategories: MenuCategory[] = [
       { group: "SUNDAE*", name: "Chocolate", description: "", price: "45K" },
     ],
     extras: {
-      title: "Add soft vanilla ice cream*",
+      title: "Add soft vanilla\nice cream*",
       items: [{ price: "+ 20K" }],
       inlineGroup: "DESSERTS",
     },
