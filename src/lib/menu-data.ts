@@ -155,7 +155,7 @@ export const menuCategories: MenuCategory[] = [
     extras: {
       title: "HOUSE-MADE SAUCE",
       items: [
-        { name: "TPBC", price: "15K", icon: SauceIcon },
+        { name: "TPBC*", price: "15K", icon: SauceIcon },
         { name: "Ranch", price: "15K", icon: SauceIcon },
         { name: "BBQ", price: "15K", icon: SauceIcon },
         { name: "Spicy Mayo", price: "15K", icon: SauceIcon },
