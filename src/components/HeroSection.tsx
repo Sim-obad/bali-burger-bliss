@@ -80,14 +80,16 @@ export function HeroSection() {
                 Amed, Bali
               </p>
             </div>
-            <img
-              src={palmTree}
-              alt=""
-              aria-hidden="true"
-              width={200}
-              height={400}
-              className="h-[7rem] w-auto opacity-85 sm:h-[8.5rem] [filter:brightness(0)_invert(1)]"
-            />
+            <div className="flex self-stretch items-end">
+              <img
+                src={palmTree}
+                alt=""
+                aria-hidden="true"
+                width={200}
+                height={400}
+                className="h-[7rem] w-auto opacity-85 sm:h-[8.5rem] [filter:brightness(0)_invert(1)]"
+              />
+            </div>
           </div>
         </div>
 
