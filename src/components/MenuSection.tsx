@@ -301,7 +301,7 @@ export function MenuSection() {
                                       ) : null}
                                       {/* Single handwritten label above the price columns (ex. small / large) */}
                                       {item.groupPriceNote ? (
-                                        <span className="ml-auto inline-block translate-y-[3px] -rotate-[8deg] origin-center whitespace-nowrap pr-1 font-marker text-[13px] leading-none text-charcoal/80">
+                                        <span className="ml-auto inline-block translate-y-[3px] -rotate-[8deg] origin-center whitespace-nowrap pr-1 font-marker text-[17px] leading-none text-charcoal/80">
                                           {item.groupPriceNote}
                                         </span>
                                       ) : null}
