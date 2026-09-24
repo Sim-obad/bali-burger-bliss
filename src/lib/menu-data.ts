@@ -20,6 +20,8 @@ export type MenuItem = {
   groupSubtitle?: string;
   /** Small handwritten label next to `groupSubtitle` (ex. on tap) */
   groupSubtitleNote?: string;
+  /** Single handwritten label on the group subtitle line, above the price columns (ex. small / large) */
+  groupPriceNote?: string;
   /** Small handwritten note next to the name (on tap, M / L, 4 pcs / 8 pcs...) */
   note?: string;
   /** Shows the gluten-free badge next to the name */
@@ -175,17 +177,16 @@ export const menuCategories: MenuCategory[] = [
         group: "BEER",
         groupSubtitle: "Kura Kura",
         groupSubtitleNote: "on tap",
+        groupPriceNote: "small / large",
         groupDescription: "Brewed fresh in Bali",
         name: "Lager",
         description: "Pilsner with crisp and dry notes of bread and honey",
-        priceLabels: ["small", "large"],
         prices: ["57K", "89K"],
       },
       {
         group: "BEER",
         name: "Island Ale",
         description: "Pale Ale with fruity & tropical hop aromas",
-        priceLabels: ["small", "large"],
         prices: ["68K", "99K"],
       },
       {
