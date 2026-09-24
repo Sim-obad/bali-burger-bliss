@@ -139,7 +139,7 @@ export const menuCategories: MenuCategory[] = [
       },
       {
         name: "Bacon Loaded Fries",
-        description: "French fries, cheddar sauce, crispy bacon, onions, pickles jalapeños & spicy mayo - GFO*",
+        description: "French fries, cheddar sauce, crispy bacon, onions, pickles jalapeños & spicy mayo ",
         price: "87K",
       },
       {
