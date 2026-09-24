@@ -161,7 +161,7 @@ export const menuCategories: MenuCategory[] = [
         { name: "Spicy Mayo", price: "15K", icon: SauceIcon },
       ],
     },
-    footnote: "Gluten free\n  GFO*: gluten free option without Cheddar sauce\n · Prices include tax and service · ",
+    footnote: "Gluten free\n  GFO*: gluten free option without Cheddar sauce\nTPBC*: House sauce\nPrices include tax and service ",
   },
   {
     id: "drinks",
