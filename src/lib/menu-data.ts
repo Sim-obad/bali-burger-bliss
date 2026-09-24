@@ -195,7 +195,7 @@ export const menuCategories: MenuCategory[] = [
         group: "SANTAI",
         name: "Passion Fruit & Guava",
         groupDescription:
-          "Sparkling alcoholic water with natural flavours from real fruit juice. 4.5% ABV · low cal · GF",
+          "Sparkling alcoholic water with natural flavours from real fruit juice.\u00a0\n4.5% ABV · low cal · GF",
         price: "57K",
       },
       {
