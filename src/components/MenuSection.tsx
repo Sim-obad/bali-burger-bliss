@@ -297,11 +297,16 @@ export function MenuSection() {
                                       ) : null}
                                     </p>
                                   ) : null}
-                                  {item.groupDescription ? (
-                                    <p className="-mt-px mt-0.5 text-xs leading-snug text-charcoal/70 sm:text-sm">
-                                      {item.groupDescription}
-                                    </p>
-                                  ) : null}
+                                  {item.groupDescription
+                                    ? item.groupDescription.split("\n").map((line, lineIndex) => (
+                                        <p
+                                          key={`${item.group}-${line}`}
+                                          className={`${lineIndex === 0 ? "-mt-px mt-0.5" : "mt-0.5"} text-xs leading-snug text-charcoal/70 sm:text-sm`}
+                                        >
+                                          {line}
+                                        </p>
+                                      ))
+                                    : null}
                                 </div>
                               ) : null}
                               <div className="flex items-baseline justify-between gap-4">
