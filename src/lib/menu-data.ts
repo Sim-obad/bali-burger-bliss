@@ -81,7 +81,7 @@ export const menuCategories: MenuCategory[] = [
       {
         group: "SMASH BURGER",
         name: "Cheeseburger",
-        description: "Wagyu beef patty, cheddar, onions, pickles & TPBC sauce",
+        description: "Wagyu beef patty, cheddar, onions, pickles & TPBC* sauce",
         prices: ["118K", "+57K"],
       },
       {
