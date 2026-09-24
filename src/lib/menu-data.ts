@@ -172,7 +172,7 @@ export const menuCategories: MenuCategory[] = [
       {
         group: "BEER",
         groupSubtitle: "Kura Kura",
-        groupSubtitleNote: "small / large",
+        groupSubtitleNote: "on tap",
         groupDescription: "Brewed fresh in Bali",
         name: "Lager",
         description: "Pilsner with crisp and dry notes of bread and honey",
