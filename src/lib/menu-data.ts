@@ -227,13 +227,13 @@ export const menuCategories: MenuCategory[] = [
     tagline: "Milkshakes, cookies, brownies and sundaes.",
     items: [
       {
-        group: "MILKSHAKES",
+        group: "MILKSHAKES*",
         name: "Vanilla",
         groupDescription: "Made with ice cream and milk",
         price: "65K",
       },
-      { group: "MILKSHAKES", name: "Chocolate", price: "68K" },
-      { group: "MILKSHAKES", name: "Caramel", price: "68K" },
+      { group: "MILKSHAKES*", name: "Chocolate", price: "68K" },
+      { group: "MILKSHAKES*", name: "Caramel", price: "68K" },
       {
         group: "DESSERTS",
         name: "Cookies",
