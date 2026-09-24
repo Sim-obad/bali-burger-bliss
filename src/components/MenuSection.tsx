@@ -330,7 +330,7 @@ export function MenuSection() {
                                   </p>
                                   {item.description ? (
                                     <p
-                                      className={`mt-0.5 text-xs leading-snug text-charcoal/70 sm:text-sm ${
+                                      className={`mt-0.5 whitespace-pre-line text-xs leading-snug text-charcoal/70 sm:text-sm ${
                                         item.group === "Beer" ? "hidden sm:block" : ""
                                       }`}
                                     >
