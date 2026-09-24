@@ -389,9 +389,14 @@ export function MenuSection() {
                                         : "mt-3 grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-4"
                                   }
                                 >
-                                  {category.extras.items.map((extra) => {
+                                  {category.extras.items.map((extra, extraIdx) => {
                                     const ExtraIcon = extra.icon;
                                     const isSauces = category.id === "sides";
+                                    // On the 2-col mobile grid, center a lone last item across both columns
+                                    const centeredLast =
+                                      wide && !compact &&
+                                      category.extras!.items.length % 2 === 1 &&
+                                      extraIdx === category.extras!.items.length - 1;
                                     return (
                                       <li
                                         key={extra.name ?? extra.price}
@@ -401,7 +406,7 @@ export function MenuSection() {
                                             : isSauces
                                               ? "justify-between gap-2 pr-2 sm:pr-3"
                                               : "justify-between gap-2"
-                                        }`}
+                                        } ${centeredLast ? "col-span-2 justify-center" : ""}`}
                                       >
                                         <span className="flex items-center gap-2">
                                           {ExtraIcon ? (
