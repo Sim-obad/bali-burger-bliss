@@ -132,7 +132,7 @@ export const menuCategories: MenuCategory[] = [
         { name: "Pickles", price: "8K", icon: PickleIcon },
       ],
     },
-    footnote: "Prices include tax and service",
+    footnote: "*Not available on delivery\nPrices include tax and service",
   },
   {
     id: "sides",
