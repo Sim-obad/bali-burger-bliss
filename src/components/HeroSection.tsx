@@ -69,11 +69,9 @@ export function HeroSection() {
           >
             <div className="flex flex-col items-end text-right">
               <p className="font-marker text-sm uppercase leading-[1.5] text-charcoal-foreground sm:text-base lg:text-lg">
-                Daily made
+                SMASH BURGERS
                 <br />
-                butter toasted
-                <br />
-                potato buns
+                ON POTATO BUNS
               </p>
               <span className="my-3 block h-px w-28 bg-charcoal-foreground/60 sm:w-40" />
               <p className="font-marker text-sm uppercase text-charcoal-foreground sm:text-base lg:text-lg">
