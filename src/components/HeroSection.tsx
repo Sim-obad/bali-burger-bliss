@@ -87,7 +87,7 @@ export function HeroSection() {
                 aria-hidden="true"
                 width={200}
                 height={400}
-                className="h-[7rem] w-auto opacity-85 sm:h-[8.5rem] [filter:brightness(0)_invert(1)]"
+                className="h-[8.4rem] w-auto opacity-85 sm:h-[10.2rem] [filter:brightness(0)_invert(1)]"
               />
             </div>
           </div>
