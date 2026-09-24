@@ -268,7 +268,7 @@ export function MenuSection() {
                                     </p>
                                     {/* Handwritten price column note, above the price columns */}
                                     {idx === 0 && category.priceColumns ? (
-                                      <div className="ml-auto flex w-32 translate-y-[3px] -rotate-[8deg] origin-center flex-col text-center font-marker text-[16px] leading-tight text-charcoal/80">
+                                      <div className="ml-auto flex w-32 translate-x-[40px] translate-y-[3px] -rotate-[8deg] origin-center flex-col text-center font-marker text-[16px] leading-tight text-charcoal/80">
                                         {category.priceColumns.map((line) => (
                                           <p key={line} className="block w-full">
                                             {line}
