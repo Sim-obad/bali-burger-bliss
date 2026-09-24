@@ -385,7 +385,7 @@ export function MenuSection() {
                                     compact
                                       ? "mt-2 flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
                                       : wide
-                                        ? "mt-3 flex flex-wrap justify-center gap-x-6 gap-y-2"
+                                      ? "mt-3 grid grid-cols-2 gap-x-4 gap-y-2 sm:flex sm:flex-wrap sm:justify-center sm:gap-x-6 sm:gap-y-2"
                                         : "mt-3 grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-4"
                                   }
                                 >
@@ -397,7 +397,7 @@ export function MenuSection() {
                                         key={extra.name ?? extra.price}
                                         className={`flex items-center text-[12.5px] leading-tight ${
                                           wide && !compact
-                                            ? "w-[calc((100%-3.5rem)/3)] min-w-[9.5rem] gap-2.5 sm:gap-4"
+                                            ? "gap-2.5 sm:w-[calc((100%-3.5rem)/3)] sm:min-w-[9.5rem] sm:gap-4"
                                             : isSauces
                                               ? "justify-between gap-2 pr-2 sm:pr-3"
                                               : "justify-between gap-2"
