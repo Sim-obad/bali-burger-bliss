@@ -431,7 +431,7 @@ export function MenuSection() {
                                     return (
                                       <li
                                         key={extra.name ?? extra.price}
-                                        className={`flex flex-col gap-1 text-[12.5px] leading-tight ${
+                                        className={`flex flex-col gap-px text-[12.5px] leading-tight ${
                                           wide && !compact
                                             ? "sm:w-[calc((100%-3.5rem)/3)] sm:min-w-[9.5rem]"
                                             : ""
