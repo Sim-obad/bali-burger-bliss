@@ -80,11 +80,19 @@ async function resolveInstagramUserId(token: string): Promise<string | null> {
     data?: Array<{ instagram_business_account?: { id: string } }>;
   }).data ?? [];
   const igId = pages.find((p) => p.instagram_business_account)?.instagram_business_account?.id;
-  if (!igId) {
-    console.error("No instagram_business_account linked to the token's Facebook pages");
-    return null;
+  if (igId) return igId;
+
+  // Page-scoped tokens: "me" is the page itself, query it directly.
+  const meRes = await fetch(
+    `https://graph.facebook.com/v21.0/me?fields=instagram_business_account&access_token=${token}`,
+  );
+  const meBody = await meRes.text();
+  if (meRes.ok) {
+    const me = JSON.parse(meBody) as { instagram_business_account?: { id: string } };
+    if (me.instagram_business_account?.id) return me.instagram_business_account.id;
   }
-  return igId;
+  console.error(`No instagram_business_account found (pages: ${pagesBody}, me: ${meBody})`);
+  return null;
 }
 
 /** Long-lived tokens last ~60 days; this extends the window. */
