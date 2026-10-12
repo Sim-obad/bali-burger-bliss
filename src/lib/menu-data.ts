@@ -175,7 +175,7 @@ export const menuCategories: MenuCategory[] = [
       ],
     },
     footnote:
-      "Gluten free\n  GFO*: gluten free option without Cheddar sauce\nTPBC*: House sauce\nPrices include tax and service ",
+      "Gluten free\n  GFO*: gluten free option without Cheddar sauce\nPrices include tax and service ",
   },
   {
     id: "drinks",
