@@ -101,6 +101,11 @@ export function MenuSection() {
   const touchStart = useRef<{ x: number; y: number; t: number } | null>(null);
   const dragging = useRef(false);
   const cardRef = useRef<HTMLDivElement>(null);
+  // Scrollable body of the open card: reset to the top on every page turn.
+  const scrollRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    scrollRef.current?.scrollTo({ top: 0, behavior: "instant" as ScrollBehavior });
+  }, [activeIndex]);
   const onTouchStart = (e: React.TouchEvent) => {
     const t = e.touches.item(0);
     if (!t) return;
