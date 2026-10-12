@@ -167,15 +167,14 @@ export const menuCategories: MenuCategory[] = [
       title: "HOUSE-MADE SAUCE",
       columns: 3,
       items: [
-        { name: "TPBC*", price: "15K", icon: SauceIcon, description: "our secret sauce" },
-        { name: "Ranch", price: "15K", icon: SauceIcon, description: "rich & creamy with fresh herbs" },
-        { name: "Smoky", price: "15K", icon: SauceIcon, description: "our twist on classic BBQ sauce" },
-        { name: "Spicy Mayo", price: "15K", icon: SauceIcon, description: "creamy mayo with a spicy kick" },
-        { name: "Cheddar", price: "15K", icon: SauceIcon, description: "creamy & cheesy" },
+        { name: "TPBC Sauce", price: "15K", icon: SauceIcon, description: "our secret sauce" },
+        { name: "Ranch Sauce", price: "15K", icon: SauceIcon, description: "rich & creamy with fresh herbs" },
+        { name: "Smoky Sauce", price: "15K", icon: SauceIcon, description: "our twist on classic BBQ sauce" },
+        { name: "Spicy Mayo Sauce", price: "15K", icon: SauceIcon, description: "creamy mayo with a spicy kick" },
+        { name: "Cheddar Sauce", price: "15K", icon: SauceIcon, description: "creamy & cheesy" },
       ],
     },
-    footnote:
-      "Gluten free\n  GFO*: gluten free option without Cheddar sauce\nPrices include tax and service ",
+    footnote: "Gluten free\n  GFO*: gluten free option without Cheddar sauce\nPrices include tax and service ",
   },
   {
     id: "drinks",
