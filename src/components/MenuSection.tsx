@@ -240,7 +240,7 @@ export function MenuSection() {
                     filter: `brightness(${1 - Math.min(0.28, Math.abs(rot) / 320)})`,
                   }}
                 >
-                  <div className="max-h-[75vh] overflow-y-auto rounded-2xl sm:max-h-[85vh]">
+                  <div ref={scrollRef} className="max-h-[75vh] overflow-y-auto rounded-2xl sm:max-h-[85vh]">
                     <div className="sticky top-0 z-10 flex items-start justify-between gap-3 border-b border-charcoal/15 bg-sand p-5 sm:p-7">
                       <div className="flex items-center gap-3">
                         <ActiveIcon className="h-9 w-9 shrink-0 text-charcoal" strokeWidth={1.5} />
