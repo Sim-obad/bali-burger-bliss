@@ -165,6 +165,7 @@ export const menuCategories: MenuCategory[] = [
     ],
     extras: {
       title: "HOUSE-MADE SAUCE",
+      columns: 3,
       items: [
         { name: "TPBC*", price: "15K", icon: SauceIcon, description: "our secret sauce" },
         { name: "Ranch", price: "15K", icon: SauceIcon, description: "rich & creamy with fresh herbs" },

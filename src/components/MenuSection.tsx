@@ -431,38 +431,43 @@ export function MenuSection() {
                                     return (
                                       <li
                                         key={extra.name ?? extra.price}
-                                        className={`flex items-center text-[12.5px] leading-tight ${
+                                        className={`flex flex-col gap-1 text-[12.5px] leading-tight ${
                                           wide && !compact
-                                            ? "gap-2.5 sm:w-[calc((100%-3.5rem)/3)] sm:min-w-[9.5rem] sm:gap-4"
-                                            : isSauces
-                                              ? "justify-between gap-2 pr-2 sm:pr-3"
-                                              : "justify-between gap-2"
-                                        } ${centeredLast ? "col-span-2 justify-center" : ""}`}
+                                            ? "sm:w-[calc((100%-3.5rem)/3)] sm:min-w-[9.5rem]"
+                                            : ""
+                                        } ${centeredLast ? "col-span-2 items-center" : ""}`}
                                       >
-                                        <span className="flex items-center gap-2">
+                                        {/* Icon, name and price share the title line */}
+                                        <span
+                                          className={`flex items-center gap-2 ${
+                                            centeredLast ? "w-fit" : "w-full"
+                                          } ${isSauces ? "pr-2 sm:pr-3" : ""}`}
+                                        >
                                           {ExtraIcon ? (
                                             <ExtraIcon
-                                              className="h-6 w-6 shrink-0 -translate-y-0.5"
+                                              className="h-6 w-6 shrink-0"
                                               strokeWidth={1.5}
                                             />
                                           ) : null}
                                           {extra.name ? (
-                                            <span className="flex flex-col">
-                                              <span className="font-subhead font-bold uppercase tracking-[0.04em]">
-                                                {extra.name}
-                                              </span>
-                                              {/* Optional short description under the extra name (sauces) */}
-                                              {extra.description ? (
-                                                <span className="text-[11px] leading-tight opacity-75">
-                                                  {extra.description}
-                                                </span>
-                                              ) : null}
+                                            <span className="font-subhead font-bold uppercase tracking-[0.04em]">
+                                              {extra.name}
+                                            </span>
+                                          ) : null}
+                                          {extra.price ? (
+                                            <span className="ml-auto pl-2 font-subhead font-bold">
+                                              {extra.price}
                                             </span>
                                           ) : null}
                                         </span>
-                                        {extra.price ? (
-                                          <span className="font-subhead font-bold">
-                                            {extra.price}
+                                        {/* Optional short description under the extra name (sauces) */}
+                                        {extra.description ? (
+                                          <span
+                                            className={`text-[11px] leading-tight opacity-75 ${
+                                              centeredLast ? "text-center" : "pl-8"
+                                            }`}
+                                          >
+                                            {extra.description}
                                           </span>
                                         ) : null}
                                       </li>
