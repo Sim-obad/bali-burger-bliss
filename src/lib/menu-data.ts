@@ -122,7 +122,7 @@ export const menuCategories: MenuCategory[] = [
       columns: 3,
       items: [
         { name: "Jalapeño", price: "8K", icon: JalapenoIcon },
-        { name: "Cheese", price: "20K", icon: CheeseIcon },
+        { name: "Cheddar", price: "20K", icon: CheeseIcon },
         { name: "Bacon", price: "25K", icon: BaconIcon },
         { name: "Onions", price: "6K", icon: OnionIcon },
         { name: "Pickles", price: "8K", icon: PickleIcon },
