@@ -18,16 +18,21 @@ export async function fetchInstagramPosts(
   }
 
   try {
-    // Token issued via "Instagram API with Facebook Login": resolve the IG
-    // business account through the linked Facebook page first.
-    const igUserId = await resolveInstagramUserId(token);
-    if (!igUserId) {
+    const fields = "id,caption,media_type,media_url,thumbnail_url,permalink";
+    // "Instagram Login" tokens (IGA...) call graph.instagram.com directly;
+    // "Facebook Login" tokens need the IG account resolved via the FB page.
+    const mediaUrl = token.startsWith("IGA")
+      ? `https://graph.instagram.com/me/media?fields=${fields}&limit=6&access_token=${token}`
+      : await (async () => {
+          const igUserId = await resolveInstagramUserId(token);
+          return igUserId
+            ? `https://graph.facebook.com/v21.0/${igUserId}/media?fields=${fields}&limit=6&access_token=${token}`
+            : null;
+        })();
+    if (!mediaUrl) {
       return { posts: cache?.posts ?? [], error: "request_failed" };
     }
-    const fields = "id,caption,media_type,media_url,thumbnail_url,permalink";
-    const res = await fetch(
-      `https://graph.facebook.com/v21.0/${igUserId}/media?fields=${fields}&limit=6&access_token=${token}`,
-    );
+    const res = await fetch(mediaUrl);
     if (!res.ok) {
       console.error(`Instagram API failed [${res.status}]: ${await res.text()}`);
       return { posts: cache?.posts ?? [], error: "request_failed" };
