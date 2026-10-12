@@ -77,7 +77,7 @@ async function resolveInstagramUserId(token: string): Promise<string | null> {
     return null;
   }
   const pages = (JSON.parse(pagesBody) as {
-    data?: Array<{ instagram_business_account?: { id: string } }>;
+    data?: Array<{ id: string; instagram_business_account?: { id: string } }>;
   }).data ?? [];
   const igId = pages.find((p) => p.instagram_business_account)?.instagram_business_account?.id;
   if (igId) return igId;
