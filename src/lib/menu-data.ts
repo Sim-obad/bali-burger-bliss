@@ -144,17 +144,18 @@ export const menuCategories: MenuCategory[] = [
         description: "served with ketchup sauce",
       },
       {
-        name: "Bacon Loaded Fries",
-        note: "GFO*",
-        description: "French fries, cheddar sauce, crispy bacon, onions, pickles jalapeños & spicy mayo ",
-        price: "79K",
-      },
-      {
         name: "Chicken Loaded Fries",
         note: "GFO*",
         description: "French fries, crispy chicken tenders, onions, pickles, ranch sauce & cheddar sauce",
         price: "85K",
       },
+      {
+        name: "Bacon Loaded Fries",
+        note: "GFO*",
+        description: "French fries, cheddar sauce, crispy bacon, onions, pickles jalapeños & spicy mayo ",
+        price: "79K",
+      },
+
       {
         name: "Chicken Tenders",
         glutenFree: true,
@@ -251,13 +252,13 @@ export const menuCategories: MenuCategory[] = [
       {
         group: "DESSERTS",
         name: "Cookies",
-        description: "3 mini chocolate chips cookies",
+        description: "3 mini chocolate chip cookies",
         price: "38K",
       },
       { group: "DESSERTS", name: "Brownie", price: "38K" },
       {
         group: "SUNDAE*",
-        groupDescription: "Soft vanilla ice cream topped with the flavor of your choice",
+        groupDescription: "Soft vanilla ice cream with your choice of topping",
         name: "Plain",
         description: "",
         price: "38K",
