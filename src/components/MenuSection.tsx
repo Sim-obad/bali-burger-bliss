@@ -401,7 +401,7 @@ export function MenuSection() {
                                 className={
                                   compact
                                     ? "mx-auto mt-5 w-fit rounded-xl bg-charcoal px-6 py-3 text-charcoal-foreground"
-                                    : "mt-5 rounded-xl bg-charcoal p-4 text-charcoal-foreground"
+                                    : "mt-5 rounded-xl bg-charcoal px-4 pt-4 pb-[26px] text-charcoal-foreground"
                                 }
                               >
                                 <p
@@ -416,7 +416,7 @@ export function MenuSection() {
                                     compact
                                       ? "mt-2 flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
                                       : wide
-                                      ? "mt-3 grid grid-cols-2 gap-x-4 gap-y-2 sm:flex sm:flex-wrap sm:justify-center sm:gap-x-6 sm:gap-y-2"
+                                      ? "mt-[22px] grid grid-cols-2 gap-x-4 gap-y-2 sm:flex sm:flex-wrap sm:justify-center sm:gap-x-6 sm:gap-y-2"
                                         : "mt-3 grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-4"
                                   }
                                 >
