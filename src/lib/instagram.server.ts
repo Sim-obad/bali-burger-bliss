@@ -19,9 +19,20 @@ export async function fetchInstagramPosts(
 
   try {
     const fields = "id,caption,media_type,media_url,thumbnail_url,permalink";
-    const res = await fetch(
-      `https://graph.instagram.com/me/media?fields=${fields}&limit=6&access_token=${token}`,
-    );
+    // "Instagram Login" tokens (IGA...) call graph.instagram.com directly;
+    // "Facebook Login" tokens need the IG account resolved via the FB page.
+    const mediaUrl = token.startsWith("IGA")
+      ? `https://graph.instagram.com/me/media?fields=${fields}&limit=6&access_token=${token}`
+      : await (async () => {
+          const igUserId = await resolveInstagramUserId(token);
+          return igUserId
+            ? `https://graph.facebook.com/v21.0/${igUserId}/media?fields=${fields}&limit=6&access_token=${token}`
+            : null;
+        })();
+    if (!mediaUrl) {
+      return { posts: cache?.posts ?? [], error: "request_failed" };
+    }
+    const res = await fetch(mediaUrl);
     if (!res.ok) {
       console.error(`Instagram API failed [${res.status}]: ${await res.text()}`);
       return { posts: cache?.posts ?? [], error: "request_failed" };
@@ -58,6 +69,40 @@ export async function fetchInstagramPosts(
     console.error("Instagram fetch error", err);
     return { posts: cache?.posts ?? [], error: "unavailable" };
   }
+}
+
+/** Finds the Instagram professional account linked to the token's Facebook page. */
+async function resolveInstagramUserId(token: string): Promise<string | null> {
+  const pagesRes = await fetch(
+    `https://graph.facebook.com/v21.0/me/accounts?fields=instagram_business_account&access_token=${token}`,
+  );
+  const pagesBody = await pagesRes.text();
+  if (!pagesRes.ok) {
+    console.error(`Instagram page lookup failed [${pagesRes.status}]: ${pagesBody}`);
+    return null;
+  }
+  const pages = (JSON.parse(pagesBody) as {
+    data?: Array<{ id: string; instagram_business_account?: { id: string } }>;
+  }).data ?? [];
+  const igId = pages.find((p) => p.instagram_business_account)?.instagram_business_account?.id;
+  if (igId) return igId;
+
+  // The field expansion on /me/accounts can come back empty; query each page.
+  for (const page of pages) {
+    const pageRes = await fetch(
+      `https://graph.facebook.com/v21.0/${page.id}?fields=instagram_business_account&access_token=${token}`,
+    );
+    const pageBody = await pageRes.text();
+    if (!pageRes.ok) continue;
+    const pageDetail = JSON.parse(pageBody) as {
+      instagram_business_account?: { id: string };
+    };
+    if (pageDetail.instagram_business_account?.id) {
+      return pageDetail.instagram_business_account.id;
+    }
+  }
+  console.error(`No instagram_business_account found (pages: ${pagesBody})`);
+  return null;
 }
 
 /** Long-lived tokens last ~60 days; this extends the window. */
