@@ -416,7 +416,7 @@ export function MenuSection() {
                                     compact
                                       ? "mt-2 flex flex-wrap items-center justify-center gap-x-6 gap-y-2"
                                       : wide
-                                      ? "mt-[22px] grid grid-cols-2 gap-x-4 gap-y-2 sm:flex sm:flex-wrap sm:justify-center sm:gap-x-6 sm:gap-y-2"
+                                      ? "mt-[22px] grid grid-cols-2 gap-x-4 gap-y-[18px] sm:flex sm:flex-wrap sm:justify-center sm:gap-x-6 sm:gap-y-[18px]"
                                         : "mt-3 grid grid-cols-2 gap-x-6 gap-y-2 sm:grid-cols-4"
                                   }
                                 >
