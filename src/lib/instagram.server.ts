@@ -66,6 +66,27 @@ export async function fetchInstagramPosts(
   }
 }
 
+/** Finds the Instagram professional account linked to the token's Facebook page. */
+async function resolveInstagramUserId(token: string): Promise<string | null> {
+  const pagesRes = await fetch(
+    `https://graph.facebook.com/v21.0/me/accounts?fields=instagram_business_account&access_token=${token}`,
+  );
+  const pagesBody = await pagesRes.text();
+  if (!pagesRes.ok) {
+    console.error(`Instagram page lookup failed [${pagesRes.status}]: ${pagesBody}`);
+    return null;
+  }
+  const pages = (JSON.parse(pagesBody) as {
+    data?: Array<{ instagram_business_account?: { id: string } }>;
+  }).data ?? [];
+  const igId = pages.find((p) => p.instagram_business_account)?.instagram_business_account?.id;
+  if (!igId) {
+    console.error("No instagram_business_account linked to the token's Facebook pages");
+    return null;
+  }
+  return igId;
+}
+
 /** Long-lived tokens last ~60 days; this extends the window. */
 export async function refreshInstagramToken(token: string) {
   const res = await fetch(
