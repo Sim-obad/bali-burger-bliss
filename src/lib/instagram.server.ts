@@ -82,16 +82,21 @@ async function resolveInstagramUserId(token: string): Promise<string | null> {
   const igId = pages.find((p) => p.instagram_business_account)?.instagram_business_account?.id;
   if (igId) return igId;
 
-  // Page-scoped tokens: "me" is the page itself, query it directly.
-  const meRes = await fetch(
-    `https://graph.facebook.com/v21.0/me?fields=instagram_business_account&access_token=${token}`,
-  );
-  const meBody = await meRes.text();
-  if (meRes.ok) {
-    const me = JSON.parse(meBody) as { instagram_business_account?: { id: string } };
-    if (me.instagram_business_account?.id) return me.instagram_business_account.id;
+  // The field expansion on /me/accounts can come back empty; query each page.
+  for (const page of pages) {
+    const pageRes = await fetch(
+      `https://graph.facebook.com/v21.0/${page.id}?fields=instagram_business_account&access_token=${token}`,
+    );
+    const pageBody = await pageRes.text();
+    if (!pageRes.ok) continue;
+    const pageDetail = JSON.parse(pageBody) as {
+      instagram_business_account?: { id: string };
+    };
+    if (pageDetail.instagram_business_account?.id) {
+      return pageDetail.instagram_business_account.id;
+    }
   }
-  console.error(`No instagram_business_account found (pages: ${pagesBody}, me: ${meBody})`);
+  console.error(`No instagram_business_account found (pages: ${pagesBody})`);
   return null;
 }
 
