@@ -41,6 +41,8 @@ export type MenuExtra = {
   name?: string;
   price?: string;
   icon?: MenuIcon;
+  /** Optional short description shown under the name (ex. sauces) */
+  description?: string;
 };
 
 export type MenuCategory = {
