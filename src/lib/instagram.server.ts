@@ -18,9 +18,15 @@ export async function fetchInstagramPosts(
   }
 
   try {
+    // Token issued via "Instagram API with Facebook Login": resolve the IG
+    // business account through the linked Facebook page first.
+    const igUserId = await resolveInstagramUserId(token);
+    if (!igUserId) {
+      return { posts: cache?.posts ?? [], error: "request_failed" };
+    }
     const fields = "id,caption,media_type,media_url,thumbnail_url,permalink";
     const res = await fetch(
-      `https://graph.facebook.com/v21.0/me/media?fields=${fields}&limit=6&access_token=${token}`,
+      `https://graph.facebook.com/v21.0/${igUserId}/media?fields=${fields}&limit=6&access_token=${token}`,
     );
     if (!res.ok) {
       console.error(`Instagram API failed [${res.status}]: ${await res.text()}`);
