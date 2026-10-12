@@ -138,7 +138,7 @@ export const menuCategories: MenuCategory[] = [
     items: [
       {
         name: "Fries",
-        note: "M / L",
+        note: "Regular / Large",
         glutenFree: true,
         prices: ["35K", "48K"],
         description: "served with ketchup sauce",
