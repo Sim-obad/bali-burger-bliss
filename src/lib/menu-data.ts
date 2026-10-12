@@ -151,8 +151,8 @@ export const menuCategories: MenuCategory[] = [
       },
       {
         name: "Chicken Loaded Fries",
-        glutenFree: true,
-        description: "French fries, crispy chicken tenders, pickles & ranch sauce",
+        note: "GFO*",
+        description: "French fries, crispy chicken tenders, onions, pickles, ranch sauce & cheddar sauce",
         price: "85K",
       },
       {
