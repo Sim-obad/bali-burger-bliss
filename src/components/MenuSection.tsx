@@ -447,8 +447,16 @@ export function MenuSection() {
                                             />
                                           ) : null}
                                           {extra.name ? (
-                                            <span className="font-subhead font-bold uppercase tracking-[0.04em]">
-                                              {extra.name}
+                                            <span className="flex flex-col">
+                                              <span className="font-subhead font-bold uppercase tracking-[0.04em]">
+                                                {extra.name}
+                                              </span>
+                                              {/* Optional short description under the extra name (sauces) */}
+                                              {extra.description ? (
+                                                <span className="text-[11px] leading-tight opacity-75">
+                                                  {extra.description}
+                                                </span>
+                                              ) : null}
                                             </span>
                                           ) : null}
                                         </span>
